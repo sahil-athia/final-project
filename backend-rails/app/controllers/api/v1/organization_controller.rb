@@ -8,6 +8,8 @@ module Api
       end
 
       def show
+        @organization = Organization.find(params[:id])
+        render json: @organization, status: :ok
       end
       
     end
