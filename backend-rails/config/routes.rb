@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       resources :test
-      resources :organization, only: [:index]
-      resources :job, only: [:index]
-      resources :user, only: [:index]
-      resources :connection, only: [:index]
-      resources :shared_job, only: [:index]
-      resources :job_reference, only: [:index]
+      resources :organization
+      resources :job
+      resources :user
+      resources :connection
+      resources :shared_job
+      resources :job_reference
     end
   end
 end
