@@ -11,16 +11,18 @@ import Home from "./components/Home"
 import Main from "./components/Main"
 
 function App() {
+  const user_type = "BUISNESS"
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route Path="/" exact>
-            <Home />
+
+          <Route exact path="/main">
+            <Main />
           </Route>
 
-          <Route Path="/main" exact>
-            <Main />
+          <Route Path="/">
+            <Home />
           </Route>
 
         </Switch>
