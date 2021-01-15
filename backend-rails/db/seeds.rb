@@ -54,3 +54,9 @@ Connection.create({
   sender: User.first,
   recipient: User.last
 })
+
+SharedJob.create({
+  job: Job.first,
+  referee: User.first,
+  candidate: User.last
+})

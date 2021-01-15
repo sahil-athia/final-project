@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_200006) do
+ActiveRecord::Schema.define(version: 2021_01_15_203513) do
 
   create_table "connections", force: :cascade do |t|
     t.integer "sender_id", null: false
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 2021_01_15_200006) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "shared_jobs", force: :cascade do |t|
+    t.integer "job_id", null: false
+    t.integer "referee_id"
+    t.integer "candidate_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidate_id"], name: "index_shared_jobs_on_candidate_id"
+    t.index ["job_id"], name: "index_shared_jobs_on_job_id"
+    t.index ["referee_id"], name: "index_shared_jobs_on_referee_id"
+  end
+
   create_table "tests", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -68,5 +79,6 @@ ActiveRecord::Schema.define(version: 2021_01_15_200006) do
   end
 
   add_foreign_key "jobs", "organizations"
+  add_foreign_key "shared_jobs", "jobs"
   add_foreign_key "users", "organizations"
 end

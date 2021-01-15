@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job: one
+  referee: one
+  candidate: one
+
+two:
+  job: two
+  referee: two
+  candidate: two

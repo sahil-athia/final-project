@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :job, only: [:index]
       resources :user, only: [:index]
       resources :connection, only: [:index]
+      resources :shared_job, only: [:index]
     end
   end
 end
