@@ -1,6 +1,7 @@
 class Organization < ApplicationRecord
   has_many :jobs
   has_many :users
+  has_many :jobs_references
 
   validates :name, presence: true
   validates :email, presence: true

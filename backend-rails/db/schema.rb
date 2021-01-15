@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_203513) do
+ActiveRecord::Schema.define(version: 2021_01_15_205532) do
 
   create_table "connections", force: :cascade do |t|
     t.integer "sender_id", null: false
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 2021_01_15_203513) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipient_id"], name: "index_connections_on_recipient_id"
     t.index ["sender_id"], name: "index_connections_on_sender_id"
+  end
+
+  create_table "job_references", force: :cascade do |t|
+    t.integer "job_id", null: false
+    t.integer "organization_id", null: false
+    t.integer "referred_by_id"
+    t.integer "candidate_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidate_id"], name: "index_job_references_on_candidate_id"
+    t.index ["job_id"], name: "index_job_references_on_job_id"
+    t.index ["organization_id"], name: "index_job_references_on_organization_id"
+    t.index ["referred_by_id"], name: "index_job_references_on_referred_by_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -78,6 +91,8 @@ ActiveRecord::Schema.define(version: 2021_01_15_203513) do
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
+  add_foreign_key "job_references", "jobs"
+  add_foreign_key "job_references", "organizations"
   add_foreign_key "jobs", "organizations"
   add_foreign_key "shared_jobs", "jobs"
   add_foreign_key "users", "organizations"

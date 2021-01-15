@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :sent_postings, :class_name => 'SharedJob', :foreign_key => 'referee_id'
   has_many :received_postings, :class_name => 'SharedJob', :foreign_key => 'candidate_id'
 
+  has_many :sent_references, :class_name => 'JobReferences', :foreign_key => 'referred_by_id'
+  has_many :received_references, :class_name => 'JobReferences', :foreign_key => 'candidate_id'
+
 end

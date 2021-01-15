@@ -60,3 +60,10 @@ SharedJob.create({
   referee: User.first,
   candidate: User.last
 })
+
+JobReference.create({
+  job: Job.last,
+  organization: Organization.second,
+  referred_by: User.first,
+  candidate: User.last
+})

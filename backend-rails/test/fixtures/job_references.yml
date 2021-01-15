@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job: one
+  organization: one
+  referred_by: one
+  candidate: one
+
+two:
+  job: two
+  organization: two
+  referred_by: two
+  candidate: two
