@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_184511) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "organization_id", null: false
+    t.integer "organization_id"
     t.string "name"
     t.string "email"
     t.text "summary"

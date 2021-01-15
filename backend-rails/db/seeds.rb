@@ -36,7 +36,7 @@ end
 
 2.times do
   User.create({
-    organization: Organization.last,
+    organization: nil,
     name: "Random Name",
     email: "example@email.com",
     summary: Faker::Lorem.sentence,
