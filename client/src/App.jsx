@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import axios from 'axios';
 
 import Home from "./components/Home"
 import Main from "./components/Main"
@@ -14,6 +15,15 @@ import Individual from "./components/Individual"
 
 function App() {
   const user_type = "BUISNESS"
+
+    axios.get('/api/v1/user')
+    .then((res) => {
+      console.log(res.data.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+
+
   return (
     <Router>
       <div className="App">
