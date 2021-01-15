@@ -46,6 +46,7 @@ end
     experience: Faker::Lorem.sentence,
     location: Faker::Address.street_address,
     contact: Faker::Lorem.sentence,
+    verified: false,
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"
   })
 end
