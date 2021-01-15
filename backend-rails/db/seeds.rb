@@ -33,3 +33,19 @@ end
     salary: "$60,000"
   })
 end
+
+2.times do
+  User.create({
+    organization: Organization.last,
+    name: "Random Name",
+    email: "example@email.com",
+    summary: Faker::Lorem.sentence,
+    industry: "Buisness",
+    skills: Faker::Lorem.sentence,
+    education: Faker::Lorem.sentence,
+    experience: Faker::Lorem.sentence,
+    location: Faker::Address.street_address,
+    contact: Faker::Lorem.sentence,
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"
+  })
+end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :test
       resources :organization, only: [:index]
       resources :job, only: [:index]
+      resources :user, only: [:index]
     end
   end
 end
