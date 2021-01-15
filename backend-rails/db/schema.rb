@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_205532) do
+ActiveRecord::Schema.define(version: 2021_01_15_232145) do
 
   create_table "connections", force: :cascade do |t|
     t.integer "sender_id", null: false
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_205532) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "resume_url"
     t.integer "organization_id"
+    t.boolean "verified"
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
