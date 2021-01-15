@@ -7,6 +7,9 @@ module Api
         render json: {status: "SUCCESS", message: "Loaded Test Data", data: test}, status: :ok
       end
 
+      def show
+      end
+      
     end
   end
 end
