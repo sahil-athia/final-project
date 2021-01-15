@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :organization, only: [:index]
       resources :job, only: [:index]
       resources :user, only: [:index]
+      resources :connection, only: [:index]
     end
   end
 end

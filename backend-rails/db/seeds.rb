@@ -49,3 +49,8 @@ end
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"
   })
 end
+
+Connection.create({
+  sender: User.first,
+  recipient: User.last
+})

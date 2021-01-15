@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_191902) do
+ActiveRecord::Schema.define(version: 2021_01_15_200006) do
+
+  create_table "connections", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipient_id"], name: "index_connections_on_recipient_id"
+    t.index ["sender_id"], name: "index_connections_on_sender_id"
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.integer "organization_id", null: false
