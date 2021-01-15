@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace 'v1' do
       resources :test
       resources :organization, only: [:index]
+      resources :job, only: [:index]
     end
   end
 end

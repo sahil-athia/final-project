@@ -24,3 +24,12 @@ end
     image_url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGJ1c2luZXNzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
   })
 end
+
+5.times do
+  Job.create({
+    organization: Organization.first,
+    title: Faker::Job.name,
+    description: Faker::Lorem.sentence,
+    salary: "$60,000"
+  })
+end
