@@ -8,6 +8,8 @@ module Api
       end
 
       def show
+        @job = Job.find(params[:id])
+        render json: @job, status: :ok
       end
     end
   end
