@@ -1,7 +1,4 @@
-// import {Link} from 'react-router-dom'
-
-export default function Dashboard({profiles}) {
-  console.log(profiles);
+const Dashboard = ({profiles}) => {
 
   const organizationProfiles = profiles.map((profile) => (
     <div>
@@ -32,4 +29,6 @@ export default function Dashboard({profiles}) {
       </article>
     </>
   )
-}
+};
+
+export default Dashboard;
