@@ -60,7 +60,11 @@ const App = () => {
           </Route>
           
           <Route path="/individual">
-            <Individual state={state}/>
+            <Individual />
+          </Route>
+
+          <Route path="/organization">
+            <Organization state={state}/>
           </Route>
 
         </Switch>

@@ -12,8 +12,7 @@ import Connections from "./individual/Connections"
 import Jobs from "./individual/Jobs"
 import Notifications from "./individual/Notifications"
 
-function Individual(props) {
-  console.log(props);
+function Individual() {
   return (
     <Router>
       <h1> This Is the Individual Page</h1>
