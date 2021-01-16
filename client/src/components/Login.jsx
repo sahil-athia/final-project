@@ -23,9 +23,9 @@ export default function Login(props) {
         <h1>Log In</h1>        
       <form onSubmit={handleSubmit}>
           <input
-            placeholder="username"
+            placeholder="name"
             type="text"
-            name="username"
+            name="name"
             value={name}
             onChange={event => setName(event.target.value)}
           />
