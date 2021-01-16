@@ -28,7 +28,6 @@ const Employees = ({employees}) => {
       <div>{employee.organization_id}</div>
       <div>verified: </div>
       <div>{employee.verified}</div>
-
     </div>
   ));
 
