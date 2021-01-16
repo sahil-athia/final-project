@@ -1,23 +1,35 @@
 // import {Link} from 'react-router-dom'
 
-export default function Dashboard({profile}) {
-  console.log(profile);
+export default function Dashboard({profiles}) {
+  console.log(profiles);
 
-  // const OrganizationDashboard = organizations.map((organization) => (
-  //   <Dashboard
-  //   id={organization.id}
-  //   name={organization.name}
-  //   email={organization.email}
-  //   introduction={organization.introduction}
-  //   industry={organization.industry}
-  //   website={organization.website}
-  //   location={organization.location}
-  //   image_url={organization.image_url}
-  //   />
-  // ));
+  const organizationProfiles = profiles.map((profile) => (
+    <div>
+      <div>id: </div>
+      <div>{profile.id}</div>
+      <div>name: </div>
+      <div>{profile.name}</div>
+      <div>email: </div>
+      <div>{profile.email}</div>
+      <div>introduction: </div>
+      <div>{profile.introduction}</div>
+      <div>industry: </div>
+      <div>{profile.industry}</div>
+      <div>website: </div>
+      <div>{profile.website}</div>
+      <div>location: </div>
+      <div>{profile.location}</div>
+      <div>image_url: </div>
+      <div>{profile.image_url}</div>
+    </div>
+  ));
+
   return (
     <>
+      <article class='dashboard'>
       <h1>This is the Dashboard component</h1>
+        {organizationProfiles}
+      </article>
     </>
   )
 }

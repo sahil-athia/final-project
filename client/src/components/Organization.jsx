@@ -38,7 +38,7 @@ const Organization = ({state}) => {
 
         <Switch>
           <Route path="/organization/dashboard">
-            <Dashboard profile={organizations}/>
+            <Dashboard profiles={organizations}/>
           </Route>
 
           <Route path="/organization/employees">
