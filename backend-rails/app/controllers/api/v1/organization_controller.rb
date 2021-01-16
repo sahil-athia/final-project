@@ -4,7 +4,7 @@ module Api
 
       def index
         organization = Organization.all.order(created_at: :desc)
-        render json: {status: "SUCCESS", message: "Loaded Test Data", data: organization}, status: :ok
+        render json: organization, status: :ok
       end
 
       def show

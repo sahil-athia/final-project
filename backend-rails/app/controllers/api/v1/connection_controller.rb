@@ -4,7 +4,7 @@ module Api
 
       def index
         connection = Connection.all.order(created_at: :desc)
-        render json: {status: "SUCCESS", message: "Loaded Test Data", data: connection}, status: :ok
+        render json: connection, status: :ok
       end
 
       def show

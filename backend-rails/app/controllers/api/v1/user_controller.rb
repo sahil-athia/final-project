@@ -4,7 +4,7 @@ module Api
 
       def index
         user = User.all.order(created_at: :desc)
-        render json: {status: "SUCCESS", message: "Loaded Test Data", data: user}, status: :ok
+        render json: user, status: :ok
       end
 
       def show

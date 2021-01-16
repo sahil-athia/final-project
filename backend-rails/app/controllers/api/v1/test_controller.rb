@@ -4,7 +4,7 @@ module Api
 
       def index
         test = Test.all.order(created_at: :desc)
-        render json: {status: "SUCCESS", message: "Loaded Test Data", data: test}, status: :ok
+        render json: test, status: :ok
       end
 
       def show

@@ -4,7 +4,7 @@ module Api
 
       def index
         job_references = JobReference.all.order(created_at: :desc)
-        render json: {status: "SUCCESS", message: "Loaded Test Data", data: job_references}, status: :ok
+        render json: job_references, status: :ok
       end
 
       def show

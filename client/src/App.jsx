@@ -15,10 +15,10 @@ import Individual from "./components/Individual"
 
 function App() {
   const user_type = "BUISNESS"
-
-    axios.get('/api/v1/user')
+    const example = 4
+    axios.get(`/api/v1/user/${example}`)
     .then((res) => {
-      console.log(res.data.data);
+      console.log(res.data);
     }).catch((err) => {
       console.log(err);
     });

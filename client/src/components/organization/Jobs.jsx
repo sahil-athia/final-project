@@ -7,10 +7,10 @@ export default function Jobs(props) {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:8080/api/v1/job"),
+      axios.get("/api/v1/job"),
     ])
     .then(all => {
-      setState(prev => ({...prev, jobs: all[0].data.data}))
+      setState(prev => ({...prev, jobs: all[0].data}))
     })
     .catch(e => console.log(e));
   }, [])
