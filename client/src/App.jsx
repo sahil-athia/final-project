@@ -12,6 +12,8 @@ import Home from "./components/Home"
 import Main from "./components/Main"
 import Organization from "./components/Organization"
 import Individual from "./components/Individual"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
 import {useEffect, useState} from 'react'
 
 function App() {
@@ -85,10 +87,10 @@ function App() {
           </Route>
 
           <Route exact path='/login'>
-
+            <Login />
           </Route>
           <Route exact path='/signup'>
-            
+            <Signup />
           </Route>
           
         </Switch>
