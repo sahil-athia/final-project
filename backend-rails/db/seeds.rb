@@ -51,8 +51,52 @@ end
   })
 end
 
+2.times do
+  User.create({
+    organization: nil,
+    name: "Example Name",
+    email: "something@email.com",
+    summary: Faker::Lorem.sentence,
+    industry: "Engineering",
+    skills: Faker::Lorem.sentence,
+    education: Faker::Lorem.sentence,
+    experience: Faker::Lorem.sentence,
+    location: Faker::Address.street_address,
+    contact: Faker::Lorem.sentence,
+    verified: false,
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"
+  })
+end
+
+2.times do
+  User.create({
+    organization: Organization.first,
+    name: "Name",
+    email: "person@email.com",
+    summary: Faker::Lorem.sentence,
+    industry: "Arts",
+    skills: Faker::Lorem.sentence,
+    education: Faker::Lorem.sentence,
+    experience: Faker::Lorem.sentence,
+    location: Faker::Address.street_address,
+    contact: Faker::Lorem.sentence,
+    verified: false,
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"
+  })
+end
+
 Connection.create({
   sender: User.first,
+  recipient: User.last
+})
+
+Connection.create({
+  sender: User.first,
+  recipient: User.third()
+})
+
+Connection.create({
+  sender: User.second,
   recipient: User.last
 })
 
