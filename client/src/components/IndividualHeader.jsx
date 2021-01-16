@@ -11,6 +11,7 @@ export default function IndividualHeader(props) {
     <div>
        <nav>
         <ul>
+          <Link to="/individual"> Profile </Link>
           <Link to="/individual/networking"> Networking </Link>
           <Link to="/individual/connections"> Connections </Link>
           <Link to="/individual/jobs"> Jobs </Link>
