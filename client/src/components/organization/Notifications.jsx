@@ -1,9 +1,8 @@
-import {Link} from 'react-router-dom'
-
-export default function Notifications(props) {
+const Notifications = (props) => {
   return (
     <>
       <h1>This is the Notifications component</h1>
     </>
   )
-}
+};
+export default Notifications;
