@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 import Home from "./components/Home"
@@ -13,16 +14,23 @@ import Main from "./components/Main"
 import Organization from "./components/Organization"
 import Individual from "./components/Individual"
 
-function App() {
-  const user_type = "BUISNESS"
-    const example = 4
-    axios.get(`/api/v1/user/${example}`)
-    .then((res) => {
-      console.log(res.data);
+const App = () => {
+  const [state, setState] = useState();
+
+  useEffect(() => {
+
+    Promise.all([
+      axios.get('/api/v1/organization'),
+      axios.get('/api/v1/user'),
+      axios.get('/api/v1/job'),
+      axios.get('/api/v1/job_reference')
+    ]).then((all) => {
+      setState(prev => ({...prev, organizations: all[0].data, users: all[1].data, jobs: all[2].data, job_references: all[3].data }));
     }).catch((err) => {
       console.log(err);
-    });
+    });;
 
+  }, []);
 
   return (
     <Router>
@@ -52,14 +60,9 @@ function App() {
           </Route>
           
           <Route path="/individual">
-            <Individual />
+            <Individual state={state}/>
           </Route>
 
-          <Route path="/organization">
-            <Organization />
-          </Route>
-
-          
         </Switch>
       </div>
     </Router>
