@@ -17,20 +17,12 @@ import {useEffect, useState} from 'react'
 function App() {
   const [state, setState] = useState({isLoggedIn: false, user: {}})
 
-  const handleLogin = (data) => {
-    this.setState({
-      isLoggedIn: true,
-      user: data.user
-    })
-  }
-  const handleLogout = () => {
-    this.setState({
-    isLoggedIn: false,
-    user: {}
-    })
-  }
+  useEffect(() => {
+    loginStatus()
+  }, [])
+  // on app load, get the login status of the user
 
-  loginStatus = () => {
+  const loginStatus = () => {
     axios
       .get('http://localhost:8080/logged_in', 
               {withCredentials: true})    
@@ -43,6 +35,22 @@ function App() {
       })
       .catch(error => console.log('api errors:', error))
   };
+
+  const handleLogin = (data) => {
+    setState({
+      isLoggedIn: true,
+      user: data.user
+    })
+  }
+  // add a user state on authentication
+
+  const handleLogout = () => {
+    setState({
+    isLoggedIn: false,
+    user: {}
+    })
+  }
+  // remove the user state on logout
 
   return (
     <Router>
@@ -76,8 +84,12 @@ function App() {
             <Organization />
           </Route>
 
-          <Route exact path='/login' component={}/>
-          <Route exact path='/signup' component={}/>
+          <Route exact path='/login'>
+
+          </Route>
+          <Route exact path='/signup'>
+            
+          </Route>
           
         </Switch>
       </div>
