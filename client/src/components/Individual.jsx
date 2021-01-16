@@ -25,7 +25,7 @@ function Individual() {
       console.log(err);
     });
   }, [])
-  
+  console.log(data)
   return (
     <Router>
       <IndividualHeader></IndividualHeader>

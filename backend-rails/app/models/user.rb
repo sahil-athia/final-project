@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  has_secure_password
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :name, length: { minimum: 1 }
+
   belongs_to :organization, optional: true
   
   has_many :sent_connections, :class_name => 'Connection', :foreign_key => 'sender_id'

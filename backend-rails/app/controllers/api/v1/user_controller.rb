@@ -1,17 +1,51 @@
 module Api
   module V1
     class UserController < ApplicationController
-
       def index
-        user = User.all.order(created_at: :desc)
-        render json: user, status: :ok
+        @users = User.all
+          if @users
+            render json: @users
+          else
+            render json: {
+            status: 500,
+            errors: ['no users found']
+          }
+         end
       end
 
       def show
         @user = User.find(params[:id])
-        render json: @user, status: :ok
+          if @user
+            render json: @user
+          else
+            render json: {
+            status: 500,
+            errors: ['user not found']
+            }
+        end
       end
       
+      def create
+        @user = User.new(user_params)
+          if @user.save
+            login!  
+            render json: {
+            status: :created,
+            user: @user
+          }
+          else 
+            render json: {
+            status: 500,
+            errors: @user.errors.full_messages
+          }
+          end
+        end
+    
+      private
+      
+      def user_params
+         params.require(:user).permit(:name, :password, :password_confirmation)
+      end
     end
   end
 end
