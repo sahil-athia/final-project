@@ -11,6 +11,9 @@ const Jobs = ({jobs, job_references}) => {
       <div>{job.salary}</div>
       <div>organization_id: </div>
       <div>{job.organization_id}</div>
+      <button>Share</button>
+      <button>Refer</button>
+      <hr />
     </div>
   ));
 
