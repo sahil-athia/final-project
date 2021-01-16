@@ -1,10 +1,11 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 export default function Login(props) {
+  let user;
   const [state, setState] = useState({ 
-    username: '',
+    name: '',
     email: '',
     password: '',
     errors: ''
@@ -15,10 +16,43 @@ export default function Login(props) {
    
   const handleSubmit = (event) => {
     event.preventDefault()
+    user = {
+      name: name,
+      email: email,
+      password: password
+    }
+    axios.post('http://localhost:8080/login', {user}, {withCredentials: true})
+    .then(response => {
+      if (response.data.logged_in) {
+        props.handleLogin(response.data)
+        props.history.push("/")
+      } else {
+        setState({
+          errors: response.data.errors
+        })
+      }
+    })
+    .catch(error => console.log('api errors:', error))
+  };
+
+  
+  const redirect = () => {
+    props.history.push("/")
+  }
+
+  const handleErrors = () => {
+    return (
+      <div>
+        <ul>
+        {state.errors.map(error => {
+        return <li key={error}>{error}</li>
+          })}
+        </ul>
+      </div>
+    )
   };
 
   return(
-    
     <div>
         <h1>Log In</h1>        
       <form onSubmit={handleSubmit}>

@@ -14,18 +14,17 @@ import Jobs from "./individual/Jobs"
 import Notifications from "./individual/Notifications"
 import IndividualHeader from "./IndividualHeader"
 
-function Individual() {
-  const example = 1
+function Individual(props) {
   const [data, setData] = useState({})
   useEffect(() => {
-    axios.get(`/api/v1/user/${example}`)
+    axios.get(`/api/v1/user/${props.user_id}`)
     .then((res) => {
       setData(res.data)
     }).catch((err) => {
       console.log(err);
     });
   }, [])
-  console.log(data)
+  
   return (
     <Router>
       <IndividualHeader></IndividualHeader>

@@ -6,6 +6,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
+
 import axios from 'axios';
 
 import Home from "./components/Home"
@@ -17,6 +20,7 @@ import Signup from "./components/Signup"
 import {useEffect, useState} from 'react'
 
 function App() {
+  let history = useHistory();
   const [state, setState] = useState({isLoggedIn: false, user: {}})
 
   useEffect(() => {
@@ -41,7 +45,7 @@ function App() {
   const handleLogin = (data) => {
     setState({
       isLoggedIn: true,
-      user: data.user
+      user: data.data.user
     })
   }
   // add a user state on authentication
@@ -53,7 +57,6 @@ function App() {
     })
   }
   // remove the user state on logout
-
   return (
     <Router>
       <div className="App">
@@ -79,7 +82,7 @@ function App() {
           </Route>
           
           <Route path="/individual">
-            <Individual />
+            {state.isLoggedIn &&  <Individual user_id ={state.user.id} />}
           </Route>
 
           <Route path="/organization">
@@ -87,10 +90,16 @@ function App() {
           </Route>
 
           <Route exact path='/login'>
-            <Login />
+            <Login 
+              handleLogin={handleLogin}
+              history={history}
+            />
           </Route>
           <Route exact path='/signup'>
-            <Signup />
+            <Signup 
+              handleLogin={handleLogin}
+              history={history}
+            />
           </Route>
           
         </Switch>

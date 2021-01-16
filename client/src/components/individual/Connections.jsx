@@ -5,8 +5,9 @@ import ConnectionBox from './ConnectionBox'
 
 export default function Connections(props) {
   const [data, setData] = useState({})
+  const [id, setId] = useState(props.user_id)
   useEffect(() => {
-    axios.get(`/api/v1/connection/${props.user_id}`)
+    axios.get(`/api/v1/connection/${id}`)
     .then((res) => {
       setData(res.data)
     }).catch((err) => {
