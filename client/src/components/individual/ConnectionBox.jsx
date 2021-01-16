@@ -1,4 +1,4 @@
-export default function NetworkBox(props) {
+export default function ConnectionBox(props) {
   return(
     <div>
       <hr></hr>

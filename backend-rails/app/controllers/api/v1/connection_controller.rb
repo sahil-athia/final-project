@@ -8,12 +8,10 @@ module Api
       end
 
       def show
-        list = {}
         connection = Connection.find_by_sql("SELECT recipient_id FROM Connections WHERE sender_id = #{params[:id]}")
-        connection.each do |id| 
+        list = connection.map {|id| 
           friend = User.find_by_sql("SELECT * FROM Users WHERE id = #{id.recipient_id}")
-          list[id.recipient_id] = friend
-        end
+        }
         render json: list
       end
 

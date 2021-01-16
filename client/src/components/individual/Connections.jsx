@@ -1,11 +1,33 @@
 import {Link} from 'react-router-dom'
+import {useEffect, useState} from "react"
+import axios from 'axios';
+import ConnectionBox from './ConnectionBox'
 
 export default function Connections(props) {
-  console.log(props)
+  const [data, setData] = useState({})
+  useEffect(() => {
+    axios.get(`/api/v1/connection/${props.user_id}`)
+    .then((res) => {
+      setData(res.data)
+    }).catch((err) => {
+      console.log(err);
+    });
+  }, [])
+  console.log(data)
+  const connections = () => data.map((connection) => {
+    console.log(connection)
+    return <ConnectionBox
+      key={connection[0].id}
+      name={connection[0].name}
+      email={connection[0].email}
+      summary={connection[0].summary}
+      industry={connection[0].industry}
+    />
+  })
   return (
     <>
-      <h1>This is the Connections component</h1>
-      <p>{props.user_id}</p>
+      {data.length && connections()}
+      {0 === data.length && <p>you currently have no connections</p>}
     </>
   )
 }

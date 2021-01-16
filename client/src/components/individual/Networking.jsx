@@ -12,10 +12,9 @@ export default function Networking(props) {
     }).catch((err) => {
       console.log(err);
     });
-  })
-
+  }, [])
+  console.log(data)
   const networks = () => data.map((network) => {
-    console.log(network)
     return <NetworkBox
       key={network.id}
       name={network.name}

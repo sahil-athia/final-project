@@ -32,9 +32,6 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/main">Main</Link>
-          </li>
-          <li>
             <Link to="/individual">Individual</Link>
           </li>
           <li>
