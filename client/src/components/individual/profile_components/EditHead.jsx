@@ -7,14 +7,12 @@ export default function EditHead(props){
 
   const handleSubmit = (event) => {
     event.preventDefault()
-  };
 
-  const done = () => {
     props.onClick(prev => ({
       ...prev,
       head: false
     }))
-  }
+  };
   
   return(
     <div>
@@ -42,7 +40,7 @@ export default function EditHead(props){
             onChange={event => setUrl(event.target.value)}
           />          
         
-          <button placeholder="submit" type="submit" onClick={done}>
+          <button placeholder="submit" type="submit">
             Done
           </button>
       

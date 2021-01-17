@@ -33,7 +33,12 @@ export default function Profile(props){
         experience={props.experience}
         onClick={setEdit}
       />}
-      {edit.body && <EditBody onClick={setEdit} />}
+      {edit.body && <EditBody
+        skills={props.skills}
+        education={props.education}
+        experience={props.experience}
+        onClick={setEdit} 
+      />}
 
       {!edit.footer && <Footer 
         email={props.email}
@@ -41,7 +46,11 @@ export default function Profile(props){
         location={props.location}
         onClick={setEdit}
       />}
-      {edit.footer && <EditFooter onClick={setEdit} />}
+      {edit.footer && <EditFooter
+        contact={props.contact}
+        location={props.location}
+        onClick={setEdit} 
+      />}
     </div>
   )
 }
