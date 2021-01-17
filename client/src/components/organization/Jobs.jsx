@@ -4,6 +4,15 @@ import Modal from './Modal'
 
 const Jobs = ({jobs, job_references}) => {
   const [show, setShow] = useState(false)
+  
+  const [recipient, setRecipient] = useState();
+  const userId = 1;
+  const connections = ["person1", "person2", "person3"];
+  const handleSubmit = (event) => {
+    console.log(event.target.value);
+    // setRecipient(person);
+    // console.log(recipient);
+  };
 
   const organizationJobs = jobs.map((job) => (
     <div>
@@ -22,15 +31,15 @@ const Jobs = ({jobs, job_references}) => {
         </button>
         <Modal show={show} setShow={setShow}>
           This is inside the modal!
-            <form action>
+            <form onSubmit={event => event.preventDefault()}>
               <label for="friends">Choose a friend:</label>
-              <select name="friends" id="friends">
+              <select name="friends" id="friends" >
                 <option value="a">A</option>
                 <option value="b">B</option>
                 <option value="c">C</option>
                 <option value="d">D</option>
               </select>
-              <button>Submit</button>
+              <button onClick={(event) => handleSubmit(event)}>Submit</button>
             </form>
         </Modal>
       <button>REFER</button>
