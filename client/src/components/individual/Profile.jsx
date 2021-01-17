@@ -1,37 +1,39 @@
 import "./profile.css"
+import Head from "./profile_components/Head"
+import EditHead from "./profile_components/Head"
+import Body from "./profile_components/Body"
+import EditBody from "./profile_components/EditBody"
+import Footer from "./profile_components/Footer"
+import EditFooter from "./profile_components/EditFooter"
+
+import { useState } from 'react'
+
 export default function Profile(props){
+  const [edit, setEdit] = useState({head:false, body:false, footer:false})
+
   return (
     <div className="user_profile">
-      <div>
-        <h1>{props.name}</h1>
-        <h3>Industry: {props.industry}</h3>
-        <h2>Summary: {props.summary}</h2>
-      </div>
+      <Head 
+        name={props.name}
+        industry={props.industry}
+        summary={props.summary}
+        resume_url={props.resume_url}
+        onClick={setEdit}
+      />
+      <Body 
+        skills={props.skills}
+        education={props.education}
+        experience={props.experience}
+        onClick={setEdit}
+      />
 
-      <section>
-        <hr></hr>
-        <h1>Information</h1>
-
-        <h2>Skills:</h2>
-        <h4>{props.skills}</h4>
-        <br></br>
-
-        <h2>Education:</h2>
-        <h4>{props.education}</h4>
-        <br></br>
-
-        <h2>Experience:</h2>
-        <h4>{props.experience}</h4>
-        <br></br>
-      </section>
-
-      <footer>
-        <p>{props.email}</p>
-        <p>{props.contact}</p>
-        <p>{props.location}</p>
-      </footer>
+      <Footer 
+        email={props.email}
+        contact={props.contact}
+        location={props.location}
+        onClick={setEdit}
+      />
       
-      <img src={props.resume_url} className="user_resume"></img>
     </div>
   )
 }

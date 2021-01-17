@@ -6,3 +6,8 @@
     max-width: 40%;
     max-height: 70%;
   }
+
+.user_header{
+  display: flex;
+  flex-direction: column;
+}
