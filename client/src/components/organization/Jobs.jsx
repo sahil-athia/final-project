@@ -6,35 +6,23 @@ import Modal from './Modal'
 
 const Jobs = ({jobs, job_references}) => {
   const [show, setShow] = useState(false)
-  
+  const [options, setOptions] = useState();
   const userId = 1;
-  const options = [{label: "1", value: "1"}, {label: "2", value: "2"}];
-  
-  const [sender, setSenderState] = useState();
-
-  useEffect(() => {
-    axios.get(`/api/v1/connection/sender_id/${userId}`)
+  const jobId = 1;
+  useEffect(() => {    
+    axios.get(`/api/v1/connection/${userId}`)
     .then((res) => {
-      console.log(res.data);
-    }).catch((err) => {
-    console.log(err);
+      // console.log(res.data);
+      const {id, name, organization_id} = res.data[0][0];
+      setOptions([{label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}])
+    })
+    .catch((err) => {
+      console.log(err);
     });
+
   }, []);
-  // useEffect(() => {
-  //   axios.get('/api/v1/connection')
-  //   .then((res) => {
-  //     // console.log(res.data);
-  //     let result = [];
-  //     for (let i = 0; i < res.data.length; i++) {
-  //       if (res.data[i]['sender_id'] === userId) {
-  //         result.push(res.data[i]['recipient_id']);
-  //       }
-  //     };
-  //     console.log(result);
-  //   }).catch((err) => {
-  //   console.log(err);
-  //   });
-  // }, []);
+
+  console.log(options);
 
   const organizationJobs = jobs.map((job) => (
     <div>
@@ -58,7 +46,9 @@ const Jobs = ({jobs, job_references}) => {
               options={options}
               values={[]}
               name="select"
-              onChange={(value) => console.log(value)}
+              onChange={(value) => {
+                console.log(value)
+              }}
             />
             <button>Send</button>
           </form>
