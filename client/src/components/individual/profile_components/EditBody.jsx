@@ -1,5 +1,5 @@
 export default function EditBody(props){
   return(
-    <div></div>
+    <div>EDIT SECTION</div>
   )
 }

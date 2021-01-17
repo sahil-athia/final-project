@@ -1,14 +1,14 @@
 export default function Body(props){
   const edit = () => {
-    props.onChange(prev => ({
+    props.onClick(prev => ({
       ...prev,
-      footer: true
+      body: true
     }))
   }
   return(
     <section >
         <hr></hr>
-        <button onChange={edit}>
+        <button onClick={edit}>
           Edit
         </button>
         <h1>Information</h1>

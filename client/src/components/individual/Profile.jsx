@@ -10,30 +10,33 @@ import { useState } from 'react'
 
 export default function Profile(props){
   const [edit, setEdit] = useState({head:false, body:false, footer:false})
-
+  console.log(edit)
   return (
     <div className="user_profile">
-      <Head 
+      {!edit.head && <Head 
         name={props.name}
         industry={props.industry}
         summary={props.summary}
         resume_url={props.resume_url}
         onClick={setEdit}
-      />
-      <Body 
+      />}
+      {edit.head}
+
+      {!edit.body && <Body 
         skills={props.skills}
         education={props.education}
         experience={props.experience}
         onClick={setEdit}
-      />
+      />}
+      {edit.body}
 
-      <Footer 
+      {!edit.footer && <Footer 
         email={props.email}
         contact={props.contact}
         location={props.location}
         onClick={setEdit}
-      />
-      
+      />}
+      {edit.footer}
     </div>
   )
 }

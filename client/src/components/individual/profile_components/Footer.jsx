@@ -1,6 +1,6 @@
 export default function EditFooter(props){
   const edit = () => {
-    props.onChange(prev => ({
+    props.onClick(prev => ({
       ...prev,
       footer: true
     }))
@@ -8,7 +8,7 @@ export default function EditFooter(props){
   return(
     <footer>
         <hr></hr>
-        <button onChange={edit}>
+        <button onClick={edit}>
           Edit
         </button>
         <p>{props.email}</p>

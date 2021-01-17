@@ -1,14 +1,14 @@
 export default function Head(props){
   const edit = () => {
-    props.onChange(prev => ({
+    props.onClick(prev => ({
       ...prev,
-      footer: true
+      head: true
     }))
   }
-  
+
   return(
     <>
-    <button onChange={edit}>
+    <button onClick={edit}>
       Edit
     </button>
       <div className="user_header">
