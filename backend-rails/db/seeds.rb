@@ -34,7 +34,7 @@ end
   })
 end
 
-2.times do
+
   User.create({
     organization: nil,
     name: "Random Name",
@@ -47,11 +47,44 @@ end
     location: Faker::Address.street_address,
     contact: Faker::Lorem.sentence,
     verified: false,
-    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
   })
-end
 
-2.times do
+  User.create({
+    organization: nil,
+    name: Faker::Name.name,
+    email: "example@email.com",
+    summary: Faker::Lorem.sentence,
+    industry: "Buisness",
+    skills: Faker::Lorem.sentence,
+    education: Faker::Lorem.sentence,
+    experience: Faker::Lorem.sentence,
+    location: Faker::Address.street_address,
+    contact: Faker::Lorem.sentence,
+    verified: false,
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+  })
+
+
+
+  User.create({
+    organization: nil,
+    name: Faker::Name.name,
+    email: "something@email.com",
+    summary: Faker::Lorem.sentence,
+    industry: "Engineering",
+    skills: Faker::Lorem.sentence,
+    education: Faker::Lorem.sentence,
+    experience: Faker::Lorem.sentence,
+    location: Faker::Address.street_address,
+    contact: Faker::Lorem.sentence,
+    verified: false,
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+  })
+
   User.create({
     organization: nil,
     name: "Example Name",
@@ -64,14 +97,14 @@ end
     location: Faker::Address.street_address,
     contact: Faker::Lorem.sentence,
     verified: false,
-    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
   })
-end
 
-2.times do
-  User.create({
+
+User.create({
     organization: Organization.first,
-    name: "Name",
+    name: Faker::Name.name,
     email: "person@email.com",
     summary: Faker::Lorem.sentence,
     industry: "Arts",
@@ -84,7 +117,22 @@ end
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
     password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
   })
-end
+
+  User.create({
+    organization: Organization.first,
+    name: "Example User Name",
+    email: "person@email.com",
+    summary: Faker::Lorem.sentence,
+    industry: "Arts",
+    skills: Faker::Lorem.sentence,
+    education: Faker::Lorem.sentence,
+    experience: Faker::Lorem.sentence,
+    location: Faker::Address.street_address,
+    contact: Faker::Lorem.sentence,
+    verified: false,
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+  })
 
 Connection.create({
   sender: User.first,
@@ -105,6 +153,12 @@ SharedJob.create({
   job: Job.first,
   referee: User.first,
   candidate: User.last
+})
+
+SharedJob.create({
+  job: Job.second,
+  referee: User.first,
+  candidate: User.second
 })
 
 JobReference.create({
