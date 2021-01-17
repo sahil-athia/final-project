@@ -6,35 +6,37 @@ import Modal from './Modal'
 
 const Jobs = ({jobs, job_references}) => {
   const [show, setShow] = useState(false)
-  
+  const [options, setOptions] = useState();
+  const [selected, setSelected] = useState();
+  //Example ids, needs to read from sessions later
   const userId = 1;
-  const options = [{label: "1", value: "1"}, {label: "2", value: "2"}];
-  
-  const [sender, setSenderState] = useState();
+  const jobId = 2;
 
-  useEffect(() => {
-    axios.get(`/api/v1/connection/sender_id/${userId}`)
+  useEffect(() => {    
+    axios.get(`/api/v1/connection/${userId}`)
     .then((res) => {
       console.log(res.data);
-    }).catch((err) => {
-    console.log(err);
+      const newOptions = res.data[0].map((connectionObj) => {
+        const {id, name, organization_id} = connectionObj;
+        return {label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}
+      });
+      setOptions(newOptions)
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }, []);
-  // useEffect(() => {
-  //   axios.get('/api/v1/connection')
-  //   .then((res) => {
-  //     // console.log(res.data);
-  //     let result = [];
-  //     for (let i = 0; i < res.data.length; i++) {
-  //       if (res.data[i]['sender_id'] === userId) {
-  //         result.push(res.data[i]['recipient_id']);
-  //       }
-  //     };
-  //     console.log(result);
-  //   }).catch((err) => {
-  //   console.log(err);
-  //   });
-  // }, []);
+  console.log(options);
+
+  const handelSubmit = (selected) => {
+    axios.post('http://localhost:8080/api/v1/shared_job', {selected}, {withCredentials: true})
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
 
   const organizationJobs = jobs.map((job) => (
     <div>
@@ -53,14 +55,21 @@ const Jobs = ({jobs, job_references}) => {
         </button>
         <Modal show={show} setShow={setShow}>
           This is inside the modal!
-          <form>
+          <form onSubmit={(e) => { 
+            e.preventDefault();
+            console.log(selected);
+            handelSubmit(selected)}}>
             <Select
               options={options}
               values={[]}
               name="select"
-              onChange={(value) => console.log(value)}
+              onChange={(value) => {
+                console.log(value);
+                setSelected(value[0]);
+                // console.log(selected);
+              }}
             />
-            <button>Send</button>
+            <button type="submit" >Submit</button>
           </form>
         </Modal>
       <button>REFER</button>
