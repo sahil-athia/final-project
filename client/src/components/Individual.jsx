@@ -34,10 +34,16 @@ function Individual(props) {
 
           <Route exact path="/individual">
             <Profile
-            name={data.name}
-            email={data.email}
-            industry={data.industry}
-            resume_url={data.resume_url}
+              name={data.name}
+              email={data.email}
+              industry={data.industry}
+              resume_url={data.resume_url}
+              summary={data.summary}
+              skills={data.skills}
+              education={data.education}
+              experience={data.experience}
+              location={data.location}
+              contact={data.contact}
             >
               
             </Profile>
