@@ -14,9 +14,16 @@ const Jobs = ({jobs, job_references}) => {
   useEffect(() => {    
     axios.get(`/api/v1/connection/${userId}`)
     .then((res) => {
-      // console.log(res.data);
-      const {id, name, organization_id} = res.data[0][0];
-      setOptions([{label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}])
+      console.log(res.data);
+      // const {id, name, organization_id} = res.data[0][0];
+      // setOptions([{label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}])
+
+      const newOptions = res.data[0].map((connectionObj) => {
+        const {id, name, organization_id} = connectionObj;
+        return {label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}
+      });
+
+      setOptions(newOptions)
     })
     .catch((err) => {
       console.log(err);
