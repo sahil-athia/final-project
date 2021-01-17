@@ -7,6 +7,8 @@ import Modal from './Modal'
 const Jobs = ({jobs, job_references}) => {
   const [show, setShow] = useState(false)
   const [options, setOptions] = useState();
+  const [selected, setSelected] = useState();
+  //Example ids, needs to read from sessions later
   const userId = 1;
   const jobId = 1;
   useEffect(() => {    
@@ -19,10 +21,18 @@ const Jobs = ({jobs, job_references}) => {
     .catch((err) => {
       console.log(err);
     });
-
   }, []);
-
   console.log(options);
+
+  const handelSubmit = (selected) => {
+    axios.post('/api/v1/shared_jobs', selected)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
 
   const organizationJobs = jobs.map((job) => (
     <div>
@@ -41,16 +51,21 @@ const Jobs = ({jobs, job_references}) => {
         </button>
         <Modal show={show} setShow={setShow}>
           This is inside the modal!
-          <form>
+          <form onSubmit={(e) => { 
+            e.preventDefault();
+            console.log(selected);
+            handelSubmit(selected)}}>
             <Select
               options={options}
               values={[]}
               name="select"
               onChange={(value) => {
-                console.log(value)
+                console.log(value);
+                setSelected(value);
+                // console.log(selected);
               }}
             />
-            <button>Send</button>
+            <button type="submit" >Submit</button>
           </form>
         </Modal>
       <button>REFER</button>
