@@ -10,19 +10,16 @@ const Jobs = ({jobs, job_references}) => {
   const [selected, setSelected] = useState();
   //Example ids, needs to read from sessions later
   const userId = 1;
-  const jobId = 1;
+  const jobId = 2;
+
   useEffect(() => {    
     axios.get(`/api/v1/connection/${userId}`)
     .then((res) => {
       console.log(res.data);
-      // const {id, name, organization_id} = res.data[0][0];
-      // setOptions([{label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}])
-
       const newOptions = res.data[0].map((connectionObj) => {
         const {id, name, organization_id} = connectionObj;
         return {label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}
       });
-
       setOptions(newOptions)
     })
     .catch((err) => {
@@ -32,7 +29,7 @@ const Jobs = ({jobs, job_references}) => {
   console.log(options);
 
   const handelSubmit = (selected) => {
-    axios.post('/api/v1/shared_jobs', selected)
+    axios.post('http://localhost:8080/api/v1/shared_job', {selected}, {withCredentials: true})
     .then((res) => {
       console.log(res);
     })
@@ -68,7 +65,7 @@ const Jobs = ({jobs, job_references}) => {
               name="select"
               onChange={(value) => {
                 console.log(value);
-                setSelected(value);
+                setSelected(value[0]);
                 // console.log(selected);
               }}
             />
