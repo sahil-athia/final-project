@@ -43,9 +43,10 @@ function App() {
   };
 
   const handleLogin = (data) => {
+    console.log(data)
     setState({
       isLoggedIn: true,
-      user: data.data.user
+      user: data.user || data.data.user
     })
   }
   // add a user state on authentication
@@ -72,9 +73,11 @@ function App() {
           </li>
         </ul>
         <hr />
+
+
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home state={state}/>
           </Route>
 
           <Route path="/main">

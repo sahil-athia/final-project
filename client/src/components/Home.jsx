@@ -7,9 +7,13 @@ export default function Home(props) {
     <>
       <div className="home">
         <h1> This Is the Home Page</h1>
-        <Link to='/login'>Log In</Link>
-        <br></br>
-        <Link to='/signup'>Sign Up</Link>
+
+        {!props.state.isLoggedIn && 
+          <p>
+            <Link to='/login'>Log In</Link>
+            <br></br>
+            <Link to='/signup'>Sign Up</Link>
+          </p>}
       </div>
     </>
   )

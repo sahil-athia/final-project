@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios';
-import { Link, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Signup(props) {
-  let user;
+  let history = useHistory();
   const [state, setState] = useState({ 
     name: '',
     email: '',
@@ -18,7 +18,7 @@ export default function Signup(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    user = {
+    let user = {
       name: name,
       email: email,
       password: password,
@@ -26,10 +26,10 @@ export default function Signup(props) {
     }
     axios.post('http://localhost:8080/api/v1/user', {user}, {withCredentials: true})
     .then(response => {
-      console.log(response)
+      
       if (response.data.status === 'created') {
         props.handleLogin(response.data)
-        return redirect()
+        history.push("/indvidual")
       } else {
         setState({
           errors: response.data.errors
@@ -38,11 +38,6 @@ export default function Signup(props) {
     })
     .catch(error => console.log('api errors:', error))
   };
-
-
-  const redirect = () => {
-    props.history.push("/")
-  }
 
   return(
     <div>

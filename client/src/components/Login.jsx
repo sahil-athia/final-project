@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios';
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, useHistory } from "react-router-dom";
 
 export default function Login(props) {
-  let user;
+  let history = useHistory();
   const [state, setState] = useState({ 
     name: '',
     email: '',
@@ -16,7 +16,7 @@ export default function Login(props) {
    
   const handleSubmit = (event) => {
     event.preventDefault()
-    user = {
+    let user = {
       name: name,
       email: email,
       password: password
@@ -25,7 +25,7 @@ export default function Login(props) {
     .then(response => {
       if (response.data.logged_in) {
         props.handleLogin(response.data)
-        props.history.push("/")
+        history.push("/individual")
       } else {
         setState({
           errors: response.data.errors
@@ -33,23 +33,6 @@ export default function Login(props) {
       }
     })
     .catch(error => console.log('api errors:', error))
-  };
-
-  
-  const redirect = () => {
-    props.history.push("/")
-  }
-
-  const handleErrors = () => {
-    return (
-      <div>
-        <ul>
-        {state.errors.map(error => {
-        return <li key={error}>{error}</li>
-          })}
-        </ul>
-      </div>
-    )
   };
 
   return(
