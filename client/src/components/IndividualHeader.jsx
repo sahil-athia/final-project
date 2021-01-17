@@ -16,6 +16,7 @@ export default function IndividualHeader(props) {
           <Link to="/individual/connections"> Connections </Link>
           <Link to="/individual/jobs"> Jobs </Link>
           <Link to="/individual/notifications"> Notifications </Link>
+          <button onClick={props.onClick} >Logout</button>
         </ul>
       </nav>
     </div>

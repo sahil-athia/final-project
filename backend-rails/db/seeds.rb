@@ -81,7 +81,8 @@ end
     location: Faker::Address.street_address,
     contact: Faker::Lorem.sentence,
     verified: false,
-    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"
+    resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
   })
 end
 

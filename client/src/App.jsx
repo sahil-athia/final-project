@@ -52,9 +52,13 @@ function App() {
   // add a user state on authentication
 
   const handleLogout = () => {
-    setState({
-    isLoggedIn: false,
-    user: {}
+    let user = state.user
+    axios.post("http://localhost:8080/logout", {user}, {withCredentials: true})
+    .then(() => {
+      setState({
+        isLoggedIn: false,
+        user: {}
+        })
     })
   }
   // remove the user state on logout
@@ -85,7 +89,11 @@ function App() {
           </Route>
           
           <Route path="/individual">
-            {state.isLoggedIn &&  <Individual user_id ={state.user.id} />}
+            {state.isLoggedIn &&  
+            <Individual 
+              user_id ={state.user.id} 
+              onClick={handleLogout}
+            />}
           </Route>
 
           <Route path="/organization">

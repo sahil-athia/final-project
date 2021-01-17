@@ -24,10 +24,10 @@ function Individual(props) {
       console.log(err);
     });
   }, [])
-  
+
   return (
     <Router>
-      <IndividualHeader></IndividualHeader>
+      <IndividualHeader onClick={props.onClick}></IndividualHeader>
       <div className="individual">
         <Switch>
 
