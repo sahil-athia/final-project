@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react'
+import { useHistory } from "react-router-dom";
 
 export default function EditHead(props){
+  let history = useHistory();
   const [industry, setIndustry] = useState(props.industry); 
   const [summary, setSummary] = useState(props.summary); 
   const [url, setUrl] = useState(props.resume_url); 
@@ -14,8 +16,9 @@ export default function EditHead(props){
       resume_url: url,
       id: props.user_id
     }
-    axios.post(`http://localhost:8080/api/v1/user/update_head`, {data}, {withCredentials: true})
+    axios.post(`/api/v1/user/update_head`, {data}, {withCredentials: true})
     .then(() => {
+      history.push("/individual")
       props.onClick(prev => ({
         ...prev,
         head: false
@@ -27,6 +30,7 @@ export default function EditHead(props){
     <div>
       <h1>EDIT SECTION</h1>
       <form onSubmit={handleSubmit}>
+          Industry: 
           <input
             placeholder="industry"
             type="text"
@@ -34,6 +38,9 @@ export default function EditHead(props){
             value={industry}
             onChange={event => setIndustry(event.target.value)}
           />
+          <br></br>
+
+          Summary: 
           <input
             placeholder="summary"
             type="text"
@@ -41,6 +48,9 @@ export default function EditHead(props){
             value={summary}
             onChange={event => setSummary(event.target.value)}
           />
+          <br></br>
+
+          Resume Url: 
           <input 
             placeholder="url"
             type="text"
@@ -48,7 +58,8 @@ export default function EditHead(props){
             value={url}
             onChange={event => setUrl(event.target.value)}
           />          
-        
+          <br></br>
+
           <button placeholder="submit" type="submit">
             Done
           </button>

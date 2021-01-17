@@ -48,6 +48,9 @@ module Api
         end
 
         def update_body
+          @user = User.find(update_body_params[:id])
+          @user.update(update_body_params)
+          @user.save
         end
 
         def update_footer
@@ -67,9 +70,14 @@ module Api
         params.require(:data).permit(:industry, :summary, :resume_url, :id)
       end
 
+      def update_body_params
+        params.require(:data).permit(:skills, :education, :experience, :id)
+      end
+
       def update_footer_params
         params.require(:data).permit(:contact, :location, :id)
       end
+
 
     end
   end

@@ -24,7 +24,7 @@ function Individual(props) {
     }).catch((err) => {
       console.log(err);
     });
-  }, [])
+  }, [props])
 
   return (
     <Router>

@@ -12,7 +12,7 @@ export default function EditFooter(props){
       location: location,
       id: props.user_id
     }
-    axios.post(`http://localhost:8080/api/v1/user/update_footer`, {data}, {withCredentials: true})
+    axios.post(`/api/v1/user/update_footer`, {data}, {withCredentials: true})
     .then(() => {
       props.onClick(prev => ({
         ...prev,
@@ -25,6 +25,7 @@ export default function EditFooter(props){
     <div>
       <h1>EDIT SECTION</h1>
       <form onSubmit={handleSubmit}>
+          Contact:
           <input
             placeholder="contact"
             type="text"
@@ -32,6 +33,8 @@ export default function EditFooter(props){
             value={contact}
             onChange={event => setContact(event.target.value)}
           />
+          <br></br>
+          Location:
           <input
             placeholder="location"
             type="text"
@@ -39,7 +42,8 @@ export default function EditFooter(props){
             value={location}
             onChange={event => setLocation(event.target.value)}
           />        
-        
+          <br></br>
+          
           <button placeholder="submit" type="submit">
             Done
           </button>
