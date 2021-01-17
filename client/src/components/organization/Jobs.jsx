@@ -22,6 +22,16 @@ const Jobs = ({jobs, job_references}) => {
         </button>
         <Modal show={show} setShow={setShow}>
           This is inside the modal!
+            <form action>
+              <label for="friends">Choose a friend:</label>
+              <select name="friends" id="friends">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
+              </select>
+              <button>Submit</button>
+            </form>
         </Modal>
       <button>REFER</button>
       <hr />
