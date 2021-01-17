@@ -1,6 +1,6 @@
 import "./profile.css"
 import Head from "./profile_components/Head"
-import EditHead from "./profile_components/Head"
+import EditHead from "./profile_components/EditHead"
 import Body from "./profile_components/Body"
 import EditBody from "./profile_components/EditBody"
 import Footer from "./profile_components/Footer"
@@ -20,7 +20,12 @@ export default function Profile(props){
         resume_url={props.resume_url}
         onClick={setEdit}
       />}
-      {edit.head}
+      {edit.head && <EditHead 
+        summary={props.summary}
+        resume_url={props.resume_url}
+        industry={props.industry}
+        onClick={setEdit} 
+      />}
 
       {!edit.body && <Body 
         skills={props.skills}
@@ -28,7 +33,7 @@ export default function Profile(props){
         experience={props.experience}
         onClick={setEdit}
       />}
-      {edit.body}
+      {edit.body && <EditBody onClick={setEdit} />}
 
       {!edit.footer && <Footer 
         email={props.email}
@@ -36,7 +41,7 @@ export default function Profile(props){
         location={props.location}
         onClick={setEdit}
       />}
-      {edit.footer}
+      {edit.footer && <EditFooter onClick={setEdit} />}
     </div>
   )
 }
