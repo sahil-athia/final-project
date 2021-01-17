@@ -51,6 +51,10 @@ module Api
         end
 
         def update_footer
+          @user = User.find(update_footer_params[:id])
+          @user.update(update_footer_params)
+          @user.save
+
         end
     
       private
@@ -61,6 +65,10 @@ module Api
 
       def update_head_params
         params.require(:data).permit(:industry, :summary, :resume_url, :id)
+      end
+
+      def update_footer_params
+        params.require(:data).permit(:contact, :location, :id)
       end
 
     end

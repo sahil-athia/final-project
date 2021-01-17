@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios';
 
 export default function EditFooter(props){
   const [contact, setContact] = useState(props.contact); 
@@ -6,11 +7,18 @@ export default function EditFooter(props){
 
   const handleSubmit = (event) => {
     event.preventDefault()
-
-    props.onClick(prev => ({
-      ...prev,
-      footer: false
-    }))
+    let data = {
+      contact: contact,
+      location: location,
+      id: props.user_id
+    }
+    axios.post(`http://localhost:8080/api/v1/user/update_footer`, {data}, {withCredentials: true})
+    .then(() => {
+      props.onClick(prev => ({
+        ...prev,
+        footer: false
+      }))
+    })
   };
   
   return(

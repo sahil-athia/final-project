@@ -21,7 +21,6 @@ export default function EditHead(props){
         head: false
       }))
     })
-
   };
   
   return(

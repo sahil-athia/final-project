@@ -35,6 +35,7 @@ export default function Profile(props){
         onClick={setEdit}
       />}
       {edit.body && <EditBody
+        user_id={props.user_id}
         skills={props.skills}
         education={props.education}
         experience={props.experience}
@@ -48,6 +49,7 @@ export default function Profile(props){
         onClick={setEdit}
       />}
       {edit.footer && <EditFooter
+        user_id={props.user_id}
         contact={props.contact}
         location={props.location}
         onClick={setEdit} 
