@@ -1,17 +1,40 @@
-import { React, useState, useEffect } from "react";
-import Select from "react-dropdown-select"
-
+import { React, useState, useEffect } from 'react';
+import Select from 'react-dropdown-select';
+import axios from 'axios';
 import './Modal.css'
 import Modal from './Modal'
 
 const Jobs = ({jobs, job_references}) => {
   const [show, setShow] = useState(false)
   
-  const [recipient, setRecipient] = useState();
   const userId = 1;
-  const connections = ["person1", "person2", "person3"];
-  const options = ['A', 'B', 'C', 'D', 'E'];
+  const options = [{label: "1", value: "1"}, {label: "2", value: "2"}];
+  
+  const [sender, setSenderState] = useState();
 
+  useEffect(() => {
+    axios.get(`/api/v1/connection/sender_id/${userId}`)
+    .then((res) => {
+      console.log(res.data);
+    }).catch((err) => {
+    console.log(err);
+    });
+  }, []);
+  // useEffect(() => {
+  //   axios.get('/api/v1/connection')
+  //   .then((res) => {
+  //     // console.log(res.data);
+  //     let result = [];
+  //     for (let i = 0; i < res.data.length; i++) {
+  //       if (res.data[i]['sender_id'] === userId) {
+  //         result.push(res.data[i]['recipient_id']);
+  //       }
+  //     };
+  //     console.log(result);
+  //   }).catch((err) => {
+  //   console.log(err);
+  //   });
+  // }, []);
 
   const organizationJobs = jobs.map((job) => (
     <div>
@@ -34,8 +57,6 @@ const Jobs = ({jobs, job_references}) => {
             <Select
               options={options}
               values={[]}
-              required
-              multi
               name="select"
               onChange={(value) => console.log(value)}
             />
