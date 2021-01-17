@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'api/v1/user/update_head/', to: 'api/v1/user#update_head'
+  post 'api/v1/user/update_body/', to: 'api/v1/user#update_body'
+  post 'api/v1/user/update_footer/', to: 'api/v1/user#update_footer'
+
   post '/login',    to: 'sessions#create'
   post '/logout',   to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#is_logged_in?'

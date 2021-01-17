@@ -40,11 +40,27 @@ module Api
           }
           end
         end
+
+        def update_head
+          @user = User.find(update_head_params[:id])
+          @user.update(update_head_params)
+          @user.save
+        end
+
+        def update_body
+        end
+
+        def update_footer
+        end
     
       private
       
       def user_params
          params.require(:user).permit(:name, :password, :password_confirmation, :email)
+      end
+
+      def update_head_params
+        params.require(:data).permit(:industry, :summary, :resume_url, :id)
       end
 
     end

@@ -10,7 +10,7 @@ import { useState } from 'react'
 
 export default function Profile(props){
   const [edit, setEdit] = useState({head:false, body:false, footer:false})
-  console.log(edit)
+
   return (
     <div className="user_profile">
       {!edit.head && <Head 
@@ -21,6 +21,7 @@ export default function Profile(props){
         onClick={setEdit}
       />}
       {edit.head && <EditHead 
+        user_id={props.user_id}
         summary={props.summary}
         resume_url={props.resume_url}
         industry={props.industry}

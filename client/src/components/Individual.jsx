@@ -34,6 +34,7 @@ function Individual(props) {
 
           <Route exact path="/individual">
             <Profile
+              user_id={props.user_id}
               name={data.name}
               email={data.email}
               industry={data.industry}
@@ -44,8 +45,7 @@ function Individual(props) {
               experience={data.experience}
               location={data.location}
               contact={data.contact}
-            >
-              
+            >   
             </Profile>
           </Route>
 

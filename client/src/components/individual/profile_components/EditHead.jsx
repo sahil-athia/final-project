@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react'
 
 export default function EditHead(props){
@@ -7,11 +8,20 @@ export default function EditHead(props){
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    let data = {
+      industry: industry,
+      summary: summary,
+      resume_url: url,
+      id: props.user_id
+    }
+    axios.post(`http://localhost:8080/api/v1/user/update_head`, {data}, {withCredentials: true})
+    .then(() => {
+      props.onClick(prev => ({
+        ...prev,
+        head: false
+      }))
+    })
 
-    props.onClick(prev => ({
-      ...prev,
-      head: false
-    }))
   };
   
   return(
