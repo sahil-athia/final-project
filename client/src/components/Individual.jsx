@@ -13,6 +13,7 @@ import Connections from "./individual/Connections"
 import Jobs from "./individual/Jobs"
 import Notifications from "./individual/Notifications"
 import IndividualHeader from "./IndividualHeader"
+import Profile from "./individual/Profile"
 
 function Individual(props) {
   const [data, setData] = useState({})
@@ -32,11 +33,14 @@ function Individual(props) {
         <Switch>
 
           <Route exact path="/individual">
-          <h1> This Is the Individual Profile</h1>
-          <p>{data.name}</p>
-          <p>{data.email}</p>
-          <p>{data.industry}</p>
-          <img src={data.resume_url}></img>
+            <Profile
+            name={data.name}
+            email={data.email}
+            industry={data.industry}
+            resume_url={data.resume_url}
+            >
+              
+            </Profile>
           </Route>
 
           <Route path="/individual/networking">

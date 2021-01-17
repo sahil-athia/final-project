@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     loginStatus()
-    
+
     Promise.all([
       axios.get('/api/v1/organization'),
       axios.get('/api/v1/user'),
@@ -72,6 +72,7 @@ function App() {
         user: {}
         })
     })
+    
   }
   // remove the user state on logout
   return (
@@ -115,13 +116,13 @@ function App() {
           <Route exact path='/login'>
             <Login 
               handleLogin={handleLogin}
-              history={history}
+              
             />
           </Route>
           <Route exact path='/signup'>
             <Signup 
               handleLogin={handleLogin}
-              history={history}
+              
             />
           </Route>
           
