@@ -11,10 +11,13 @@ import Employees from "./organization/Employees"
 import Jobs from "./organization/Jobs"
 import Notifications from "./organization/Notifications"
 
-function Organization() {
+const Organization = ({state}) => {
+  const { organizations, users, jobs, job_references} = state;
+
   return (
     <Router>
-      <h1> This Is the Organization Page</h1>
+      <h1> This Is the Organization Page </h1>
+
       <div className="organization">
       <nav>
         <ul>
@@ -35,15 +38,15 @@ function Organization() {
 
         <Switch>
           <Route path="/organization/dashboard">
-            <Dashboard />
+            <Dashboard profiles={organizations}/>
           </Route>
 
           <Route path="/organization/employees">
-            <Employees />
+            <Employees employees={users}/>
           </Route>
 
           <Route path="/organization/jobs">
-            <Jobs />
+            <Jobs jobs={jobs} job_references={job_references}/>
           </Route>
 
           <Route path="/organization/notifications">

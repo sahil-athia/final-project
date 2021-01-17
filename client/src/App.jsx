@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -7,8 +7,9 @@ import {
   Link
 } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { withRouter } from 'react-router-dom';
 
+
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 import Home from "./components/Home"
@@ -17,7 +18,7 @@ import Organization from "./components/Organization"
 import Individual from "./components/Individual"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
-import {useEffect, useState} from 'react'
+
 
 function App() {
   let history = useHistory();
@@ -25,8 +26,19 @@ function App() {
 
   useEffect(() => {
     loginStatus()
-  }, [])
-  // on app load, get the login status of the user
+    
+    Promise.all([
+      axios.get('/api/v1/organization'),
+      axios.get('/api/v1/user'),
+      axios.get('/api/v1/job'),
+      axios.get('/api/v1/job_reference')
+    ]).then((all) => {
+      setState(prev => ({...prev, organizations: all[0].data, users: all[1].data, jobs: all[2].data, job_references: all[3].data }));
+    }).catch((err) => {
+      console.log(err);
+    });;
+
+  }, []);
 
   const loginStatus = () => {
     axios
@@ -97,7 +109,7 @@ function App() {
           </Route>
 
           <Route path="/organization">
-            <Organization />
+            <Organization state={state}/>
           </Route>
 
           <Route exact path='/login'>

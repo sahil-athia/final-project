@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom'
 import {useEffect, useState} from "react"
 import axios from 'axios';
 import NetworkBox from "./NetworkBox"
+// import {Link} from 'react-router-dom'
 
 export default function Networking(props) {
   const [data, setData] = useState({})
