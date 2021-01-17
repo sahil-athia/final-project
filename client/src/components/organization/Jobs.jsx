@@ -1,4 +1,10 @@
+import { useState, useEffect } from "react";
+import './Modal.css'
+import Modal from './Modal'
+
 const Jobs = ({jobs, job_references}) => {
+  const [show, setShow] = useState(false)
+
   const organizationJobs = jobs.map((job) => (
     <div>
       <div>id: </div>
@@ -11,6 +17,24 @@ const Jobs = ({jobs, job_references}) => {
       <div>{job.salary}</div>
       <div>organization_id: </div>
       <div>{job.organization_id}</div>
+      <button className="btn" type="button" onClick={() => setShow(true)}>
+        SHARE
+        </button>
+        <Modal show={show} setShow={setShow}>
+          This is inside the modal!
+            <form action>
+              <label for="friends">Choose a friend:</label>
+              <select name="friends" id="friends">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
+              </select>
+              <button>Submit</button>
+            </form>
+        </Modal>
+      <button>REFER</button>
+      <hr />
     </div>
   ));
 
