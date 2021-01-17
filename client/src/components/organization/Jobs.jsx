@@ -1,9 +1,17 @@
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
+import Select from "react-dropdown-select"
+
 import './Modal.css'
 import Modal from './Modal'
 
 const Jobs = ({jobs, job_references}) => {
   const [show, setShow] = useState(false)
+  
+  const [recipient, setRecipient] = useState();
+  const userId = 1;
+  const connections = ["person1", "person2", "person3"];
+  const options = ['A', 'B', 'C', 'D', 'E'];
+
 
   const organizationJobs = jobs.map((job) => (
     <div>
@@ -22,16 +30,17 @@ const Jobs = ({jobs, job_references}) => {
         </button>
         <Modal show={show} setShow={setShow}>
           This is inside the modal!
-            <form action>
-              <label for="friends">Choose a friend:</label>
-              <select name="friends" id="friends">
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-                <option value="d">D</option>
-              </select>
-              <button>Submit</button>
-            </form>
+          <form>
+            <Select
+              options={options}
+              values={[]}
+              required
+              multi
+              name="select"
+              onChange={(value) => console.log(value)}
+            />
+            <button>Send</button>
+          </form>
         </Modal>
       <button>REFER</button>
       <hr />
