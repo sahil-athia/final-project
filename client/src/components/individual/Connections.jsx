@@ -2,23 +2,35 @@ import {Link} from 'react-router-dom'
 import {useEffect, useState} from "react"
 import axios from 'axios';
 import ConnectionBox from './ConnectionBox'
+import SearchBar from './small_components/SearchBar'
 
 export default function Connections(props) {
+  const [input, setInput] = useState('');
   const [data, setData] = useState({})
+  const [dataFilterd, setDataFilterd] = useState({})
   
   useEffect(() => {
     axios
     .get(`/logged_in`)
     .then(res => axios.get(`/api/v1/connection/${res.data.user.id}`))
-    .then((res) => setData(res.data))
+    .then((res) => {
+      setData(res.data)
+      setDataFilterd(res.data)
+    })
     .catch((err) => {
       console.log(err);
     });
   }, [])
 
+  const updateInput = async (input) => {
+    const filtered = data.filter(connection => {
+     return connection[0].name.toLowerCase().includes(input.toLowerCase())
+    })
+    setInput(input);
+    setDataFilterd(filtered);
+ }
 
-  const connections = () => data.map((connection) => {
-    console.log(connection)
+  const connections = () => dataFilterd.map((connection) => {
     return <ConnectionBox
       key={connection[0].id}
       name={connection[0].name}
@@ -29,8 +41,12 @@ export default function Connections(props) {
   })
   return (
     <>
-      {data.length && connections()}
-      {0 === data.length && <p>you currently have no connections</p>}
+      <SearchBar 
+       input={input} 
+       onChange={updateInput}
+      />
+      {dataFilterd.length > 0 && connections()}
+      {0 === dataFilterd.length && <p>No Connections Found</p>}
     </>
   )
 }
