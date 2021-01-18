@@ -12,14 +12,17 @@ const Jobs = ({user_id, organization_id}) => {
   const [jobs, setJobs] = useState();
   
   useEffect(() => {    
-    // Promise.all([
-    //   axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`),
-    //   axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
-    // ]).then((all) => {
-    axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`)
-    .then((all) => {
+    Promise.all([
+      axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`),
+      axios.get(`http://localhost:8080/api/v1/shared_job/${user_id}`)
+      // axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
+    ]).then((all) => {
       console.log(all);
-      setJobs(all.data);
+      setJobs(all[0].data);
+    // axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`)
+    // .then((res) => {
+    //   console.log(res);
+    //   setJobs(res.data);
       // Hardcode for now, need to populate database
       // const newOptions = all[1].data.map((connectionArray) => {
       //   const {id, name, organization_id} = connectionArray[0];
@@ -36,6 +39,13 @@ const Jobs = ({user_id, organization_id}) => {
     }).catch((err) => {
       console.log(err);
     });;
+
+    // axios.get(`http://localhost:8080/api/v1/shared_job/${user_id}`)
+    // .then((res) => {
+    //   console.log(res);
+    // }).catch((err) => {
+    //   console.log(err);
+    // });;
 
   }, []);
   console.log(jobs)
