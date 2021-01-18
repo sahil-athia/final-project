@@ -14,6 +14,7 @@ import Jobs from "./individual/Jobs"
 import Notifications from "./individual/Notifications"
 import IndividualHeader from "./IndividualHeader"
 import Profile from "./individual/Profile"
+import UserPage from "./individual/UserPage";
 
 function Individual(props) {
   const [data, setData] = useState({})
@@ -68,6 +69,10 @@ function Individual(props) {
 
           <Route path="/individual/notifications">
             <Notifications />
+          </Route>
+
+          <Route path="/individual/user_page">
+            <UserPage />
           </Route>
 
         </Switch>
