@@ -24,6 +24,18 @@ module Api
             }
         end
       end
+
+      def show_networks
+        @users = User.where.not(id: params[:id])
+        if @users
+          render json: @users
+        else
+          render json: {
+          status: 500,
+          errors: ['users not found']
+          }
+      end
+      end
       
       def create
         @user = User.new(user_params)

@@ -7,10 +7,11 @@ import NetworkBox from "./NetworkBox"
 export default function Networking(props) {
   const [data, setData] = useState({})
   useEffect(() => {
-    axios.get(`/api/v1/user`)
-    .then((res) => {
-      setData(res.data)
-    }).catch((err) => {
+    axios
+    .get(`/logged_in`)
+    .then(res => axios.get(`/api/v1/user/show_networks/${res.data.user.id}`))
+    .then((res) => setData(res.data))
+    .catch((err) => {
       console.log(err);
     });
   }, [])

@@ -51,7 +51,9 @@ function Individual(props) {
           </Route>
 
           <Route path="/individual/networking">
-            <Networking />
+            <Networking 
+              user_id={data.id}
+            />
           </Route>
 
           <Route path="/individual/connections">
