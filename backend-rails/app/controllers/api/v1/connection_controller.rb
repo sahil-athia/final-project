@@ -20,10 +20,19 @@ module Api
         @connection.save
       end
 
+      def destroy
+        @connection = Connection.where(connection_destroy_params).first.destroy
+      end
+
       private
+
       def connection_params
         params.require(:data).permit(:recipient_id, :sender_id)
-     end
+      end
+
+      def connection_destroy_params
+        params.require(:connection).permit( :sender_id, :recipient_id)
+      end
     end
   end
 end

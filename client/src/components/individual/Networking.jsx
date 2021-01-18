@@ -9,6 +9,7 @@ export default function Networking(props) {
   const [input, setInput] = useState('');
   const [data, setData] = useState({})
   const [dataFilterd, setDataFilterd] = useState({})
+  const [reload, setReload] = useState(false)
 
   useEffect(() => {
     axios
@@ -21,7 +22,7 @@ export default function Networking(props) {
     .catch((err) => {
       console.log(err);
     });
-  }, [])
+  }, [reload])
 
   const updateInput = async (input) => {
     const filtered = data.filter(network => {
@@ -31,6 +32,7 @@ export default function Networking(props) {
     setDataFilterd(filtered);
  }
   
+
   const networks = () => dataFilterd.map((network) => {
     return <NetworkBox
       key={network.id}
@@ -40,8 +42,10 @@ export default function Networking(props) {
       email={network.email}
       summary={network.summary}
       industry={network.industry}
+      reload={setReload}
     />
   })
+
   return (
     <>
       <SearchBar 

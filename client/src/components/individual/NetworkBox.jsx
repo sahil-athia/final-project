@@ -1,15 +1,17 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import UserPage from "./UserPage";
 
 export default function NetworkBox(props) {
+  
+  let history = useHistory()
   const createConnection = () => {
     let data = {
       recipient_id: props.id,
       sender_id: props.user_id
     }
     axios.post('/api/v1/connection', {data}, {withCredentials: true})
-    .then(res => console.log(res))
+    .then(props.reload(current => !current))
     .catch((err) => {
       console.log(err);
     });

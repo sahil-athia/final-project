@@ -8,6 +8,7 @@ export default function Connections(props) {
   const [input, setInput] = useState('');
   const [data, setData] = useState({})
   const [dataFilterd, setDataFilterd] = useState({})
+  const [reload, setReload] = useState(false)
   
   useEffect(() => {
     axios
@@ -20,7 +21,7 @@ export default function Connections(props) {
     .catch((err) => {
       console.log(err);
     });
-  }, [])
+  }, [reload])
 
   const updateInput = async (input) => {
     const filtered = data.filter(connection => {
@@ -33,10 +34,13 @@ export default function Connections(props) {
   const connections = () => dataFilterd.map((connection) => {
     return <ConnectionBox
       key={connection[0].id}
+      id={connection[0].id}
+      user_id={props.user_id}
       name={connection[0].name}
       email={connection[0].email}
       summary={connection[0].summary}
       industry={connection[0].industry}
+      reload={setReload}
     />
   })
   return (
