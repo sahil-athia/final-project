@@ -17,21 +17,21 @@ const Jobs = ({user_id, organization_id}) => {
   useEffect(() => {    
     Promise.all([
       axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`),
-      axios.get(`http://localhost:8080/api/v1/shared_job/${user_id}`)
+      axios.get(`http://localhost:8080/api/v1/job_reference/${user_id}`)
       // axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
     ]).then((all) => {
-      // console.log(all);
+      console.log(all);
       setOrgJobs(all[0].data);
       setReferredJobs(all[1].data[0]);
       // Hardcode for now, need to populate database
       // const newOptions = all[2].data.map((connectionArray) => {
       //   const {id, name, organization_id} = connectionArray[0];
-      //   return {label: name, referee_id: user_id, candidate_id: id, job_id: jobId, organization_id}
+      //   return {label: name, referred_by_id: user_id, candidate_id: id, job_id: jobId, organization_id, accepted: false}
       // });
       const newOptions = [
-        {label: 'name1', referee_id: user_id, candidate_id: 2, job_id: jobId, organization_id},
-        {label: 'name2', referee_id: user_id, candidate_id: 3, job_id: jobId, organization_id},
-        {label: 'name3', referee_id: user_id, candidate_id: 4, job_id: jobId, organization_id}
+        {label: 'name1', referred_by_id: user_id, candidate_id: 2, job_id: jobId, organization_id, accepted: false},
+        {label: 'name2', referred_by_id: user_id, candidate_id: 3, job_id: jobId, organization_id, accepted: false},
+        {label: 'name3', referred_by_id: user_id, candidate_id: 4, job_id: jobId, organization_id, accepted: false}
       ];
       setOptions(newOptions)
 
@@ -48,7 +48,7 @@ const Jobs = ({user_id, organization_id}) => {
   
   const handleSubmit = (selected) => {
     const selectedWithId = {...selected[0], job_id: jobId};
-    axios.post('http://localhost:8080/api/v1/shared_job', {selectedWithId}, {withCredentials: true})
+    axios.post('http://localhost:8080/api/v1/job_reference', {selectedWithId}, {withCredentials: true})
     .then((res) => {
       console.log(res);
     })
