@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -55,7 +56,6 @@ function App() {
   };
 
   const handleLogin = (data) => {
-    console.log(data)
     setState({
       isLoggedIn: true,
       user: data.user || data.data.user
@@ -77,6 +77,7 @@ function App() {
   // remove the user state on logout
   return (
     <Router>
+      {!state.isLoggedIn && <Redirect to='/' />}
       <div className="App">
         <ul>
           <li>
