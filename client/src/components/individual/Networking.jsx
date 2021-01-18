@@ -48,7 +48,8 @@ export default function Networking(props) {
        input={input} 
        onChange={updateInput}
       />
-      {dataFilterd.length && networks()}
+      {dataFilterd.length > 0 && networks()}
+      {dataFilterd.length === 0 && <p>no results matched your search</p>}
     </>
   )
 }
