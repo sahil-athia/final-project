@@ -2,21 +2,36 @@ import {Link} from 'react-router-dom'
 import {useEffect, useState} from "react"
 import axios from 'axios';
 import NetworkBox from "./NetworkBox"
+import SearchBar from './small_components/SearchBar'
 // import {Link} from 'react-router-dom'
 
 export default function Networking(props) {
+  const [input, setInput] = useState('');
   const [data, setData] = useState({})
+  const [dataFilterd, setDataFilterd] = useState({})
+
   useEffect(() => {
     axios
     .get(`/logged_in`)
     .then(res => axios.get(`/api/v1/user/show_networks/${res.data.user.id}`))
-    .then((res) => setData(res.data))
+    .then((res) => {
+      setData(res.data)
+      setDataFilterd(res.data)
+    })
     .catch((err) => {
       console.log(err);
     });
   }, [])
+
+  const updateInput = async (input) => {
+    const filtered = data.filter(network => {
+     return network.name.toLowerCase().includes(input.toLowerCase())
+    })
+    setInput(input);
+    setDataFilterd(filtered);
+ }
   
-  const networks = () => data.map((network) => {
+  const networks = () => dataFilterd.map((network) => {
     return <NetworkBox
       key={network.id}
       user_id={props.user_id}
@@ -29,7 +44,11 @@ export default function Networking(props) {
   })
   return (
     <>
-      {data.length && networks()}
+      <SearchBar 
+       input={input} 
+       onChange={updateInput}
+      />
+      {dataFilterd.length && networks()}
     </>
   )
 }

@@ -10,6 +10,9 @@ export default function NetworkBox(props) {
     }
     axios.post('/api/v1/connection', {data}, {withCredentials: true})
     .then(res => console.log(res))
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   return(
