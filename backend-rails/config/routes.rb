@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'api/v1/job/by_organization_id/:id', to: 'api/v1/job#get_by_organization_id'
   post 'api/v1/user/update_head/', to: 'api/v1/user#update_head'
   post 'api/v1/user/update_body/', to: 'api/v1/user#update_body'
   post 'api/v1/user/update_footer/', to: 'api/v1/user#update_footer'
