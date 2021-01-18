@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_195226) do
+ActiveRecord::Schema.define(version: 2021_01_18_164059) do
 
   create_table "connections", force: :cascade do |t|
     t.integer "sender_id", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_01_16_195226) do
     t.integer "candidate_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "accepted"
     t.index ["candidate_id"], name: "index_job_references_on_candidate_id"
     t.index ["job_id"], name: "index_job_references_on_job_id"
     t.index ["organization_id"], name: "index_job_references_on_organization_id"

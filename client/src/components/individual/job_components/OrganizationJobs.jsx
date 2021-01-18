@@ -1,10 +1,10 @@
-import { React, useState, useEffect } from 'react';
+import { React } from 'react';
 import Select from 'react-dropdown-select';
 import './Modal.css'
 import Modal from './Modal'
 
 const OrganizationJobs = (props) => {
-  const {show, setShow, options, setOptions, selected, setSelected, jobId, setJobId, orgJobs, setOrgJobs, referredJobs, setReferredJobs, handelSubmit} = props;
+  const {show, setShow, options, selected, setSelected, setJobId, orgJobs, handleSubmit} = props;
   
   const jobList = orgJobs.map((job) => (
     <div>
@@ -22,14 +22,14 @@ const OrganizationJobs = (props) => {
         setShow(true);
         setJobId(job.id);
       }}>
-        SHARE AND REFER
+        REFER SOMEONE
         </button>
         <Modal show={show} setShow={setShow}>
-          This is inside the modal!
+          Please choose one of your connections:
           <form onSubmit={(e) => { 
             e.preventDefault();
             console.log(selected);
-            handelSubmit(selected)}}>
+            handleSubmit(selected)}}>
             <Select
               options={options}
               values={[]}
