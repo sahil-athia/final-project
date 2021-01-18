@@ -8,9 +8,9 @@ const Jobs = ({jobs, job_references}) => {
   const [show, setShow] = useState(false)
   const [options, setOptions] = useState();
   const [selected, setSelected] = useState();
+  const [jobId, setJobId] = useState();
   //Example ids, needs to read from sessions later
   const userId = 1;
-  const jobId = 2;
 
   useEffect(() => {    
     axios.get(`/api/v1/connection/${userId}`)
@@ -27,12 +27,14 @@ const Jobs = ({jobs, job_references}) => {
       console.log(err);
     });
   }, []);
+  console.log(jobId)
   console.log(options);
-
   console.log(selected);
   
   const handelSubmit = (selected) => {
-    axios.post('http://localhost:8080/api/v1/shared_job', {selected}, {withCredentials: true})
+    const selectedWithId = {...selected[0], job_id: jobId};
+    console.log(selectedWithId);
+    axios.post('http://localhost:8080/api/v1/shared_job', {selectedWithId}, {withCredentials: true})
     .then((res) => {
       console.log(res);
     })
@@ -53,7 +55,10 @@ const Jobs = ({jobs, job_references}) => {
       <div>{job.salary}</div>
       <div>organization_id: </div>
       <div>{job.organization_id}</div>
-      <button className="btn" type="button" onClick={() => setShow(true)}>
+      <button className="btn" type="button" onClick={() => {
+        setShow(true);
+        setJobId(job.id);
+      }}>
         SHARE
         </button>
         <Modal show={show} setShow={setShow}>
@@ -69,7 +74,6 @@ const Jobs = ({jobs, job_references}) => {
               onChange={(value) => {
                 console.log(value);
                 setSelected(value);
-                console.log(selected);
               }}
             />
             <button type="submit" >Submit</button>
