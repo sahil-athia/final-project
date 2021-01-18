@@ -18,6 +18,7 @@ export default function Networking(props) {
   const networks = () => data.map((network) => {
     return <NetworkBox
       key={network.id}
+      id={network.id}
       name={network.name}
       email={network.email}
       summary={network.summary}

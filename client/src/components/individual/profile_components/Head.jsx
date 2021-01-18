@@ -8,9 +8,9 @@ export default function Head(props){
 
   return(
     <>
-    <button onClick={edit}>
+    {props.onClick && <button onClick={edit}>
       Edit
-    </button>
+    </button>}
       <div className="user_header">
         <h1>{props.name}</h1>
         <h3>Industry: {props.industry}</h3>

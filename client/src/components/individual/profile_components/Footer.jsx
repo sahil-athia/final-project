@@ -8,9 +8,9 @@ export default function EditFooter(props){
   return(
     <footer>
         <hr></hr>
-        <button onClick={edit}>
+        {props.onClick && <button onClick={edit}>
           Edit
-        </button>
+        </button>}
         <p>{props.email}</p>
         <p>{props.contact}</p>
         <p>{props.location}</p>

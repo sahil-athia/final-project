@@ -7,13 +7,13 @@ export default function NetworkBox(props) {
       <h2>{props.name}: {props.industry}</h2>
       <p>{props.email}</p>
       <p>{props.summary}</p>
+      <Link
+        to={{
+          pathname: "/individual/user_page",
+          hash: `#${props.id}` 
+        }}
+      >View</Link>
       <hr></hr>
-      <Link to={{
-        pathname:"/indivudual/user_page",
-        state:{
-          id: props.key
-        }
-      }} >View</Link>
     </div>
   )
 }

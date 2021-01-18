@@ -8,9 +8,9 @@ export default function Body(props){
   return(
     <section >
         <hr></hr>
-        <button onClick={edit}>
+        {props.onClick && <button onClick={edit}>
           Edit
-        </button>
+        </button>}
         <h1>Information</h1>
 
         <h2>Skills:</h2>

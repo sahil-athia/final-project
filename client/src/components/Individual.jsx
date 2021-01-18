@@ -1,12 +1,12 @@
 // import './App.css';
 import {useEffect, useState} from "react"
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import axios from 'axios';
 
 import Networking from "./individual/Networking"
 import Connections from "./individual/Connections"
@@ -25,7 +25,7 @@ function Individual(props) {
     }).catch((err) => {
       console.log(err);
     });
-  }, [props])
+  }, [])
 
   return (
     <Router>
@@ -71,7 +71,7 @@ function Individual(props) {
             <Notifications />
           </Route>
 
-          <Route path="/individual/user_page">
+          <Route exact path="/individual/user_page">
             <UserPage />
           </Route>
 
