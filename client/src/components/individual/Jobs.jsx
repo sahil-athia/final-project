@@ -9,16 +9,15 @@ const Jobs = ({user_id, user_data}) => {
   const [options, setOptions] = useState();
   const [selected, setSelected] = useState();
   const [jobId, setJobId] = useState();
-  //Example ids, needs to read from sessions later
-  const userId = 1;
-
+  console.log(user_data)
+  
   useEffect(() => {    
-    axios.get(`/api/v1/connection/${userId}`)
+    axios.get(`/api/v1/connection/${user_id}`)
     .then((res) => {
       console.log(res.data);
       const newOptions = res.data.map((connectionArray) => {
         const {id, name, organization_id} = connectionArray[0];
-        return {label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}
+        return {label: name, referee_id: user_id, candidate_id: id, job_id: jobId, organization_id}
       });
       console.log(newOptions)
       setOptions(newOptions)
