@@ -13,7 +13,10 @@ const Jobs = ({user_id, organization_id}) => {
   const [jobId, setJobId] = useState(null);
   const [orgJobs, setOrgJobs] = useState([]);
   const [referredJobs, setReferredJobs] = useState([]);
+  const [acceptedJobs, setAcceptedJobs] = useState([]);
+  const [buttonContent, setButtonContent] = useState('ACCEPT REFERENCE');
 
+  console.log(buttonContent);
   useEffect(() => {    
     Promise.all([
       axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`),
@@ -62,11 +65,36 @@ const Jobs = ({user_id, organization_id}) => {
     axios.post('http://localhost:8080/api/v1/job_reference/job', {jobInfo}, {withCredentials: true})
     .then((res) => {
       console.log(res);
+      axios.get(`http://localhost:8080/api/v1/job/${job_id}`)
+      .then((res) => {
+        console.log(res);
+        setAcceptedJobs(prev => [...prev, res.data]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     })
     .catch((err) => {
       console.log(err);
     });
   };
+
+  console.log(acceptedJobs);
+  const acceptedJobList = acceptedJobs.map((job) => (
+  <div>
+    <div>id: </div>
+    <div>{job.id}</div>
+    <div>title: </div>
+    <div>{job.title}</div>
+    <div>description: </div>
+    <div>{job.description}</div>
+    <div>salary: </div>
+    <div>{job.salary}</div>
+    <div>organization_id: </div>
+    <div>{job.organization_id}</div>
+    <hr/>
+  </div>
+  ));
 
   return (
     <>
@@ -87,7 +115,12 @@ const Jobs = ({user_id, organization_id}) => {
           referredJobs={referredJobs}
           setReferredJobs={setReferredJobs}
           handleAccept={handleAccept}
+          acceptedJobs={acceptedJobs}
+          buttonContent={buttonContent}
+          setButtonContent={setButtonContent}
         />
+      <h2>Job references you have accepted</h2> 
+      {acceptedJobList}
       <h2>Jobs From your employer</h2>
         <OrganizationJobs
         show={show}
