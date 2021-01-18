@@ -8,6 +8,12 @@ export default function NetworkBox(props) {
       <p>{props.email}</p>
       <p>{props.summary}</p>
       <hr></hr>
+      <Link to={{
+        pathname:"/indivudual/user_page",
+        state:{
+          id: props.key
+        }
+      }} >View</Link>
     </div>
   )
 }
