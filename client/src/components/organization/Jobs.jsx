@@ -16,10 +16,11 @@ const Jobs = ({jobs, job_references}) => {
     axios.get(`/api/v1/connection/${userId}`)
     .then((res) => {
       console.log(res.data);
-      const newOptions = res.data[0].map((connectionObj) => {
-        const {id, name, organization_id} = connectionObj;
+      const newOptions = res.data.map((connectionArray) => {
+        const {id, name, organization_id} = connectionArray[0];
         return {label: name, referee_id: userId, candidate_id: id, job_id: jobId, organization_id}
       });
+      console.log(newOptions)
       setOptions(newOptions)
     })
     .catch((err) => {
@@ -28,6 +29,8 @@ const Jobs = ({jobs, job_references}) => {
   }, []);
   console.log(options);
 
+  console.log(selected);
+  
   const handelSubmit = (selected) => {
     axios.post('http://localhost:8080/api/v1/shared_job', {selected}, {withCredentials: true})
     .then((res) => {
@@ -65,8 +68,8 @@ const Jobs = ({jobs, job_references}) => {
               name="select"
               onChange={(value) => {
                 console.log(value);
-                setSelected(value[0]);
-                // console.log(selected);
+                setSelected(value);
+                console.log(selected);
               }}
             />
             <button type="submit" >Submit</button>
