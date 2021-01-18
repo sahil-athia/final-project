@@ -20,7 +20,7 @@ module Api
         if @jobReference.save
           render json: {
           status: :created,
-          sharedJob: @jobReference
+          jobReference: @jobReference
         }
         else 
           render json: {
@@ -31,18 +31,9 @@ module Api
       end
 
       def accept_reference
-        @reference = JobReference.where(job_id: params[:job_id], organization_id: params[:organization_id])
-        @reference = update(accepted: true)
-        render json: {
-          status: :updated,
-          sharedJob: @reference
-        }
-        else 
-          render json: {
-          status: 500,
-          errors: @reference.errors.full_messages
-        }
-
+        reference = JobReference.where(job_id: params[:job_id], organization_id: params[:organization_id])
+        reference.update(accepted: true)
+        render json: reference
       end
 
       private
@@ -52,7 +43,7 @@ module Api
       end
 
       def accept_reference_params
-        params.require(:).permit(:job_id, :organization_id)
+        params.require(:jobInfo).permit(:job_id, :organization_id)
       end
       
     end

@@ -57,6 +57,17 @@ const Jobs = ({user_id, organization_id}) => {
     });
   };
 
+  const handleAccept = (job_id, organization_id) => {
+    const jobInfo = {job_id, organization_id};
+    axios.post('http://localhost:8080/api/v1/job_reference/job', {jobInfo}, {withCredentials: true})
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+
   return (
     <>
       <article class='jobs'>
@@ -75,7 +86,7 @@ const Jobs = ({user_id, organization_id}) => {
           setOrgJobs={setOrgJobs}
           referredJobs={referredJobs}
           setReferredJobs={setReferredJobs}
-          handleSubmit={handleSubmit}
+          handleAccept={handleAccept}
         />
       <h2>Jobs From your employer</h2>
         <OrganizationJobs

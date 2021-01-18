@@ -4,7 +4,7 @@ import './Modal.css'
 import Modal from './Modal'
 
 const ReferredJobs = (props) => {
-  const {show, setShow, options, setOptions, selected, setSelected, jobId, setJobId, orgJobs, setOrgJobs, referredJobs, setReferredJobs, handleSubmit} = props;
+  const {show, setShow, options, setOptions, selected, setSelected, jobId, setJobId, orgJobs, setOrgJobs, referredJobs, setReferredJobs, handleAccept} = props;
   
   const jobList = referredJobs.map((job) => (
     <div>
@@ -20,8 +20,7 @@ const ReferredJobs = (props) => {
       <div>{job.organization_id}</div>
       <button className="btn" type="button" onClick={(e) => {
         e.preventDefault();
-        // setShow(true);
-        // setJobId(job.id);
+        handleAccept(job.id, job.organization_id);
       }}>
         ACCEPT REFERENCE
         </button>
