@@ -16,6 +16,7 @@ export default function EditBody(props){
     }
     axios.post(`/api/v1/user/update_body`, {data}, {withCredentials: true})
     .then(() => {
+      props.reload(current => !current)
       props.onClick(prev => ({
         ...prev,
         body: false

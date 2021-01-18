@@ -14,6 +14,7 @@ export default function EditFooter(props){
     }
     axios.post(`/api/v1/user/update_footer`, {data}, {withCredentials: true})
     .then(() => {
+      props.reload(current => !current)
       props.onClick(prev => ({
         ...prev,
         footer: false

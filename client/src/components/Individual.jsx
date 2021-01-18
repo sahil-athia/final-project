@@ -18,6 +18,8 @@ import UserPage from "./individual/UserPage";
 
 function Individual(props) {
   const [data, setData] = useState({})
+  const [reload, setReload] = useState(false)
+
   useEffect(() => {
     axios.get(`/api/v1/user/${props.user_id}`)
     .then((res) => {
@@ -25,7 +27,7 @@ function Individual(props) {
     }).catch((err) => {
       console.log(err);
     });
-  }, [])
+  }, [reload])
 
   return (
     <Router>
@@ -46,6 +48,7 @@ function Individual(props) {
               experience={data.experience}
               location={data.location}
               contact={data.contact}
+              reload={setReload}
             >   
             </Profile>
           </Route>

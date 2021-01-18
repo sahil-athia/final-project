@@ -18,7 +18,7 @@ export default function EditHead(props){
     }
     axios.post(`/api/v1/user/update_head`, {data}, {withCredentials: true})
     .then(() => {
-      history.push("/individual")
+      props.reload(current => !current)
       props.onClick(prev => ({
         ...prev,
         head: false

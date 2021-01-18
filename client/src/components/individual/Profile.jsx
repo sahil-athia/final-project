@@ -10,6 +10,7 @@ import { useState } from 'react'
 
 export default function Profile(props){
   const [edit, setEdit] = useState({head:false, body:false, footer:false})
+  
 
   return (
     <div className="user_profile">
@@ -26,6 +27,7 @@ export default function Profile(props){
         resume_url={props.resume_url}
         industry={props.industry}
         onClick={setEdit} 
+        reload={props.reload}
       />}
 
       {!edit.body && <Body 
@@ -40,6 +42,7 @@ export default function Profile(props){
         education={props.education}
         experience={props.experience}
         onClick={setEdit} 
+        reload={props.reload}
       />}
 
       {!edit.footer && <Footer 
@@ -53,6 +56,7 @@ export default function Profile(props){
         contact={props.contact}
         location={props.location}
         onClick={setEdit} 
+        reload={props.reload}
       />}
     </div>
   )
