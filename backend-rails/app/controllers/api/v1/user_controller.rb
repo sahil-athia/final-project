@@ -26,7 +26,12 @@ module Api
       end
 
       def show_networks
-        @users = User.where.not(id: params[:id])
+        # @users = User.where.not(id: params[:id])
+        @users = User.find_by_sql(
+          "SELECT * FROM users 
+          WHERE id <> #{params[:id]} 
+          AND id NOT IN (SELECT recipient_id FROM Connections WHERE sender_id = #{params[:id]})"
+          )
         if @users
           render json: @users
         else
