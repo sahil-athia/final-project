@@ -165,5 +165,6 @@ JobReference.create({
   job: Job.last,
   organization: Organization.second,
   referred_by: User.first,
-  candidate: User.last
+  candidate: User.last,
+  accepted: true
 })
