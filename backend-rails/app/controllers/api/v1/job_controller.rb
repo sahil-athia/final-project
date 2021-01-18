@@ -11,6 +11,11 @@ module Api
         @job = Job.find(params[:id])
         render json: @job, status: :ok
       end
+
+      def get_by_organization_id
+        @job = Job.find_by_sql("SELECT * FROM Jobs WHERE organization_id = #{params[:id]}")
+        render json: @job, status: :ok
+      end
     end
   end
 end
