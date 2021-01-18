@@ -60,7 +60,10 @@ function Individual(props) {
           </Route>
 
           <Route path="/individual/jobs">
-            <Jobs />
+            <Jobs 
+              user_id={props.user_id}
+              user_data={data}
+            />
           </Route>
 
           <Route path="/individual/notifications">
