@@ -6,9 +6,10 @@ import Modal from './Modal'
 
 const Jobs = ({jobs, job_references}) => {
   const [show, setShow] = useState(false)
-  const [options, setOptions] = useState();
-  const [selected, setSelected] = useState();
-  const [jobId, setJobId] = useState();
+  const [options, setOptions] = useState([]);
+  const [selected, setSelected] = useState([]);
+  const [jobId, setJobId] = useState(null);
+
   //Example ids, needs to read from sessions later
   const userId = 1;
 
