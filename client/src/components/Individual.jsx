@@ -61,7 +61,6 @@ function Individual(props) {
 
           <Route path="/individual/jobs">
             <Jobs 
-              user_id={props.user_id}
               user_data={data}
             />
           </Route>
