@@ -8,8 +8,11 @@ module Api
       end
 
       def show
-        jobsReferredToUser = SharedJob.find_by_sql("SELECT * FROM shared_jobs WHERE candidate_id = #{params[:id]}")
-        render json: jobsReferredToUser
+        sharedJob = SharedJob.find_by_sql("SELECT * FROM shared_jobs WHERE candidate_id = #{params[:id]}")
+        list = sharedJob.map {|job| 
+          Job.find_by_sql("SELECT * FROM jobs WHERE id = #{job.job_id}")
+        }
+        render json: list
       end
 
       def create
