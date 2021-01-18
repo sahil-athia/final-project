@@ -30,10 +30,29 @@ module Api
         end
       end
 
+      def accept_reference
+        @reference = JobReference.where(job_id: params[:job_id], organization_id: params[:organization_id])
+        @reference = update(accepted: true)
+        render json: {
+          status: :updated,
+          sharedJob: @reference
+        }
+        else 
+          render json: {
+          status: 500,
+          errors: @reference.errors.full_messages
+        }
+
+      end
+
       private
 
       def jobReference_params
         params.require(:selectedWithId).permit(:referred_by_id, :candidate_id, :job_id)
+      end
+
+      def accept_reference_params
+        params.require(:).permit(:job_id, :organization_id)
       end
       
     end
