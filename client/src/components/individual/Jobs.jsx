@@ -1,8 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import Select from 'react-dropdown-select';
 import axios from 'axios';
-import './job_components/Modal.css'
-import Modal from './job_components/Modal'
 import ReferredJobs from './job_components/ReferredJobs'
 import OrganizationJobs from './job_components/OrganizationJobs'
 
@@ -102,20 +99,8 @@ const Jobs = ({user_id, organization_id}) => {
       <h1>This is the Jobs component</h1>
       <h2>Jobs you have been referred to</h2> 
         <ReferredJobs
-          show={show}
-          setShow={setShow}
-          options={options}
-          setOptions={setOptions}
-          selected={selected}
-          setSelected={setSelected}
-          jobId={jobId}
-          setJobId={setJobId}
-          orgJobs={orgJobs}
-          setOrgJobs={setOrgJobs}
           referredJobs={referredJobs}
-          setReferredJobs={setReferredJobs}
           handleAccept={handleAccept}
-          acceptedJobs={acceptedJobs}
           buttonContent={buttonContent}
           setButtonContent={setButtonContent}
         />
@@ -126,15 +111,10 @@ const Jobs = ({user_id, organization_id}) => {
         show={show}
         setShow={setShow}
         options={options}
-        setOptions={setOptions}
         selected={selected}
         setSelected={setSelected}
-        jobId={jobId}
         setJobId={setJobId}
         orgJobs={orgJobs}
-        setOrgJobs={setOrgJobs}
-        referredJobs={referredJobs}
-        setReferredJobs={setReferredJobs}
         handleSubmit={handleSubmit}
         />
       </article>

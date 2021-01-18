@@ -1,10 +1,7 @@
-import { React, useState, useEffect } from 'react';
-import Select from 'react-dropdown-select';
-import './Modal.css'
-import Modal from './Modal'
+import { React } from 'react';
 
 const ReferredJobs = (props) => {
-  const {show, setShow, options, setOptions, selected, setSelected, jobId, setJobId, orgJobs, setOrgJobs, referredJobs, setReferredJobs, handleAccept, acceptedJobs, buttonContent, setButtonContent} = props;
+  const { referredJobs, handleAccept, buttonContent, setButtonContent} = props;
   
   const jobList = referredJobs.map((job) => {
 
@@ -29,7 +26,6 @@ const ReferredJobs = (props) => {
           handleAccept(job.id, job.organization_id);
           setButtonContent('ACCEPTED')
         }}>
-          {/* ACCEPT REFERENCE */}
           {buttonContent}
         </button>
         <hr />
