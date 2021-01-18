@@ -14,7 +14,7 @@ export default function Networking(props) {
       console.log(err);
     });
   }, [])
-  console.log(data)
+  
   const networks = () => data.map((network) => {
     return <NetworkBox
       key={network.id}

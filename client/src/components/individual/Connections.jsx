@@ -5,15 +5,18 @@ import ConnectionBox from './ConnectionBox'
 
 export default function Connections(props) {
   const [data, setData] = useState({})
-  const [id, setId] = useState(props.user_id)
+  
   useEffect(() => {
-    axios.get(`/api/v1/connection/${id}`)
-    .then((res) => {
-      setData(res.data)
-    }).catch((err) => {
+    axios
+    .get(`/logged_in`)
+    .then(res => axios.get(`/api/v1/connection/${res.data.user.id}`))
+    .then((res) => setData(res.data))
+    .catch((err) => {
       console.log(err);
     });
   }, [])
+
+  
   console.log(data)
   const connections = () => data.map((connection) => {
     console.log(connection)
