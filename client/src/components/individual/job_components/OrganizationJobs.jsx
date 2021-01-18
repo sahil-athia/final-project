@@ -4,7 +4,7 @@ import './Modal.css'
 import Modal from './Modal'
 
 const OrganizationJobs = (props) => {
-  const {show, setShow, options, setOptions, selected, setSelected, jobId, setJobId, orgJobs, setOrgJobs, referredJobs, setReferredJobs, handelSubmit} = props;
+  const {show, setShow, options, setOptions, selected, setSelected, jobId, setJobId, orgJobs, setOrgJobs, referredJobs, setReferredJobs, handleSubmit} = props;
   
   const jobList = orgJobs.map((job) => (
     <div>
@@ -29,7 +29,7 @@ const OrganizationJobs = (props) => {
           <form onSubmit={(e) => { 
             e.preventDefault();
             console.log(selected);
-            handelSubmit(selected)}}>
+            handleSubmit(selected)}}>
             <Select
               options={options}
               values={[]}

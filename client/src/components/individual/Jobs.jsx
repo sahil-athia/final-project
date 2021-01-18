@@ -46,7 +46,7 @@ const Jobs = ({user_id, organization_id}) => {
   console.log(options);
   console.log(selected);
   
-  const handelSubmit = (selected) => {
+  const handleSubmit = (selected) => {
     const selectedWithId = {...selected[0], job_id: jobId};
     axios.post('http://localhost:8080/api/v1/shared_job', {selectedWithId}, {withCredentials: true})
     .then((res) => {
@@ -75,7 +75,7 @@ const Jobs = ({user_id, organization_id}) => {
           setOrgJobs={setOrgJobs}
           referredJobs={referredJobs}
           setReferredJobs={setReferredJobs}
-          handelSubmit={handelSubmit}
+          handleSubmit={handleSubmit}
         />
       <h2>Jobs From your employer</h2>
         <OrganizationJobs
@@ -91,7 +91,7 @@ const Jobs = ({user_id, organization_id}) => {
         setOrgJobs={setOrgJobs}
         referredJobs={referredJobs}
         setReferredJobs={setReferredJobs}
-        handelSubmit={handelSubmit}
+        handleSubmit={handleSubmit}
         />
       </article>
     </>
