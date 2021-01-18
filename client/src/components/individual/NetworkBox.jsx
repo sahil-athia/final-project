@@ -1,6 +1,17 @@
+import axios from "axios";
 import { Link } from "react-router-dom";
+import UserPage from "./UserPage";
 
 export default function NetworkBox(props) {
+  const createConnection = () => {
+    let data = {
+      recipient_id: props.id,
+      sender_id: props.user_id
+    }
+    axios.post('/api/v1/connection', {data}, {withCredentials: true})
+    .then(res => console.log(res))
+  }
+
   return(
     <div>
       <hr></hr>
@@ -13,6 +24,7 @@ export default function NetworkBox(props) {
           hash: `#${props.id}` 
         }}
       >View</Link>
+      <button onClick={createConnection}>Connect</button>
       <hr></hr>
     </div>
   )

@@ -16,8 +16,7 @@ export default function Connections(props) {
     });
   }, [])
 
-  
-  console.log(data)
+
   const connections = () => data.map((connection) => {
     console.log(connection)
     return <ConnectionBox
