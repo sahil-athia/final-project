@@ -2,10 +2,10 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
+import OrganizationHeader from "./OrganizationHeader"
 import Dashboard from "./organization/Dashboard"
 import Employees from "./organization/Employees"
 import Jobs from "./organization/Jobs"
@@ -16,25 +16,8 @@ const Organization = ({state}) => {
 
   return (
     <Router>
-      <h1> This Is the Organization Page </h1>
-
       <div className="organization">
-      <nav>
-        <ul>
-          <li>
-            <Link to="/organization/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/organization/employees">Employees</Link>
-          </li>
-          <li>
-            <Link to="/organization/jobs">Jobs</Link>
-          </li>
-          <li>
-            <Link to="/organization/notifications">Notifications</Link>
-          </li>
-        </ul>
-      </nav>
+        <OrganizationHeader />
 
         <Switch>
           <Route path="/organization/dashboard">
