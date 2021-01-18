@@ -62,7 +62,21 @@ const Jobs = ({user_id, organization_id}) => {
       <article class='jobs'>
       <h1>This is the Jobs component</h1>
       <h2>Jobs you have been referred to</h2> 
-        {/* <ReferredJobs/> */}
+        <ReferredJobs
+          show={show}
+          setShow={setShow}
+          options={options}
+          setOptions={setOptions}
+          selected={selected}
+          setSelected={setSelected}
+          jobId={jobId}
+          setJobId={setJobId}
+          orgJobs={orgJobs}
+          setOrgJobs={setOrgJobs}
+          referredJobs={referredJobs}
+          setReferredJobs={setReferredJobs}
+          handelSubmit={handelSubmit}
+        />
       <h2>Jobs From your employer</h2>
         <OrganizationJobs
         show={show}

@@ -6,7 +6,7 @@ import Modal from './Modal'
 const OrganizationJobs = (props) => {
   const {show, setShow, options, setOptions, selected, setSelected, jobId, setJobId, orgJobs, setOrgJobs, referredJobs, setReferredJobs, handelSubmit} = props;
   
-  const organizationJobs = orgJobs.map((job) => (
+  const jobList = orgJobs.map((job) => (
     <div>
       <div>id: </div>
       <div>{job.id}</div>
@@ -46,7 +46,7 @@ const OrganizationJobs = (props) => {
     </div>
   ));
 
-  return organizationJobs;
+  return jobList;
 
 };
 
