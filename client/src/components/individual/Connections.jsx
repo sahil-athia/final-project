@@ -9,6 +9,7 @@ export default function Connections(props) {
   const [data, setData] = useState({})
   const [dataFilterd, setDataFilterd] = useState({})
   const [reload, setReload] = useState(false)
+  const [search, setSearch] = useState("By Name")
   
   useEffect(() => {
     axios
@@ -24,11 +25,19 @@ export default function Connections(props) {
   }, [reload])
 
   const updateInput = async (input) => {
-    const filtered = data.filter(connection => {
-     return connection[0].name.toLowerCase().includes(input.toLowerCase())
-    })
-    setInput(input);
-    setDataFilterd(filtered);
+    if (search === "By Name") {
+      const filtered = data.filter(connection => {
+       return connection[0].name.toLowerCase().includes(input.toLowerCase())
+      })
+      setInput(input);
+      setDataFilterd(filtered);
+    } else {
+      const filtered = data.filter(connection => {
+        return connection[0].industry.toLowerCase().includes(input.toLowerCase())
+       })
+       setInput(input);
+       setDataFilterd(filtered);
+    }
  }
 
   const connections = () => dataFilterd.map((connection) => {
@@ -48,6 +57,7 @@ export default function Connections(props) {
       <SearchBar 
        input={input} 
        onChange={updateInput}
+       setSearch={setSearch}
       />
       {dataFilterd.length > 0 && connections()}
       {0 === dataFilterd.length && <p>No Connections Found</p>}

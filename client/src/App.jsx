@@ -77,7 +77,7 @@ function App() {
   // remove the user state on logout
   return (
     <Router>
-      {() => state.isLoggedIn === false && <Redirect to='/' />}
+      {/* {() => state.isLoggedIn === false && <Redirect to='/' />} */}
       <div className="App">
         <ul>
           <li>
