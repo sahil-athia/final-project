@@ -1,20 +1,21 @@
-import {Link} from 'react-router-dom'
-import {fragment} from "react"
+import {Link, useHistory} from 'react-router-dom'
+import {useCallback} from 'react'
 import './Home.scss'
 export default function Home(props) {
-  
-  return (
-    <>
-      <div className="home">
-        <h1> This Is the Home Page</h1>
+  let history = useHistory()
+  const handleOnClick = useCallback(() => history.push('/login'), [history]);
 
-        {!props.state.isLoggedIn && 
-          <p>
-            <Link to='/login'>Log In</Link>
-            <br></br>
-            <Link to='/signup'>Sign Up</Link>
-          </p>}
-      </div>
-    </>
+  return (
+    <div className="home">
+      <h1> This Is the Home Page</h1>
+      {!props.state.isLoggedIn && 
+        <button type="button" onClick={handleOnClick}>
+        Get Connected
+      </button>}
+
+      <video className='videoTag grow' autoPlay loop muted>
+          <source src="https://cdn.dribbble.com/users/32512/screenshots/14887210/media/2fbfa27c436be05c378aee863d251110.mp4" type='video/mp4' />
+      </video>
+    </div>
   )
 }

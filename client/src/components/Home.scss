@@ -1,3 +1,24 @@
 .home {
-  
+  display: flexbox;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  size: 100%;
+
+  .videoTag {
+    @keyframes slideInFromLeft {
+      0% {
+        transform: translateX(-500%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    margin-left: 68vh;
+    height: 100vh;
+    animation: 1.8s ease-out 0s 1 slideInFromLeft;
+  }
+  // .grow { transition: all .2s ease-in-out; }
+  // .grow:hover { transform: scale(1.1); }
 }
