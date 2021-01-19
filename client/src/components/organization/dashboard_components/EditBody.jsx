@@ -2,14 +2,17 @@ import { useState } from 'react'
 import axios from 'axios';
 
 const EditBody = (props) => {
-  const { name, industry, website, email, location, introduction, image_url, onClick } = props; 
+  const { name, industry, website, email, location, introduction, image_url, onClick, reload } = props; 
   const [state, setState] = useState(props); 
 
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log(state);
-    axios.post(`/api/v1/organization/update_body`, {state}, {withCredentials: true})
-    .then(() => onClick(false))
+    axios.post(`http://localhost:8080/api/v1/organization/update_body`, {state}, {withCredentials: true})
+    .then(() => {
+      reload(currentState => !currentState)
+      onClick(false)
+    })
     .catch((err) => console.log(err));
   };
   
@@ -22,7 +25,7 @@ const EditBody = (props) => {
             placeholder="name"
             type="text"
             name="name"
-            value={name}
+            value={state.name}
             onChange={event => setState(prev => ({...prev, name: event.target.value}))}
           />
           <br></br>
@@ -32,7 +35,7 @@ const EditBody = (props) => {
             placeholder="industry"
             type="text"
             name="industry"
-            value={industry}
+            value={state.industry}
             onChange={event => setState(prev => ({...prev, industry: event.target.value}))}
           />
           <br></br>
@@ -42,7 +45,7 @@ const EditBody = (props) => {
             placeholder="website"
             type="text"
             name="website"
-            value={website}
+            value={state.website}
             onChange={event => setState(prev => ({...prev, website: event.target.value}))}
           />          
           <br></br>
@@ -52,7 +55,7 @@ const EditBody = (props) => {
             placeholder="email"
             type="text"
             name="email"
-            value={email}
+            value={state.email}
             onChange={event => setState(prev => ({...prev, email: event.target.value}))}
           />          
           <br></br>
@@ -62,7 +65,7 @@ const EditBody = (props) => {
             placeholder="location"
             type="text"
             name="location"
-            value={location}
+            value={state.location}
             onChange={event => setState(prev => ({...prev, location: event.target.value}))}
           />          
           <br></br>
@@ -72,7 +75,7 @@ const EditBody = (props) => {
             placeholder="introduction"
             type="text"
             name="introduction"
-            value={introduction}
+            value={state.introduction}
             onChange={event => setState(prev => ({...prev, introduction: event.target.value}))}
           />          
           <br></br>
@@ -82,7 +85,7 @@ const EditBody = (props) => {
             placeholder="image_url"
             type="text"
             name="image_url"
-            value={image_url}
+            value={state.image_url}
             onChange={event => setState(prev => ({...prev, image_url: event.target.value}))}
           />          
           <br></br>

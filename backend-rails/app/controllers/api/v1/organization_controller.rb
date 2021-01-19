@@ -11,6 +11,17 @@ module Api
         @organization = Organization.find(params[:id])
         render json: @organization, status: :ok
       end
+
+      def update_body
+        @organization = Organization.find(update_body_params[:id])
+        @organization.update(update_body_params)
+      end
+
+      private
+
+      def update_body_params
+        params.require(:state).permit(:id, :name, :industry, :website, :email, :location, :introduction, :image_url)
+      end
       
     end
   end

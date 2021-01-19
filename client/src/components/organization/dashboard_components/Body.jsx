@@ -3,7 +3,7 @@ const Body = (props) => {
 
   return(
     <>
-    {onClick && <button onClick={onClick(true)}>
+    {onClick && <button onClick={() => onClick(true)}>
       Edit
     </button>}
       <div className="organization_profile_body">
