@@ -33,11 +33,20 @@ const Candidates = ({job_id, organization_id}) => {
     </div>)
   })
 
+  let itemsToRender;
+  if (list.length) {
+    itemsToRender = list;
+  } else {
+    itemsToRender = <p>No references yet.</p>;
+  }
 
   return (
     <>
-      <button onClick={handelClick}>Show Reference</button>
-      {show && <div>{list}</div>}
+      {!show && <button onClick={handelClick}>Show Reference</button>}
+      {show && <> 
+        <button onClick={handelClick}>Hide Reference</button>
+        {itemsToRender}
+      </>}
     </>
   )
   
