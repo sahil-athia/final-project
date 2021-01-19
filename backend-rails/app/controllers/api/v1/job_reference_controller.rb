@@ -30,6 +30,16 @@ module Api
         end
       end
 
+      def get_by_job_id
+        job_references = JobReference.where(job_id: params[:id], accepted: true)
+        filteredList = job_references.map {|reference| 
+        candidateId = reference.candidate_id
+        refereeId = reference.referred_by_id
+        { "candidate" => User.where(id: candidateId), "referee" => User.where(id: refereeId)}
+        }
+        render json: filteredList, status: :ok
+      end
+
       def accept_reference
         reference = JobReference.where(job_id: params[:job_id], organization_id: params[:organization_id])
         reference.update(accepted: true)

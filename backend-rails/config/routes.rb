@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   
   get 'api/v1/user/show_networks/:id', to: 'api/v1/user#show_networks'
   get 'api/v1/job/by_organization_id/:id', to: 'api/v1/job#get_by_organization_id'
+  get 'api/v1/job_reference/by_job_id/:id', to: 'api/v1/job_reference#get_by_job_id'
   post 'api/v1/job_reference/job/', to: 'api/v1/job_reference#accept_reference'
   post 'api/v1/user/update_head/', to: 'api/v1/user#update_head'
   post 'api/v1/user/update_body/', to: 'api/v1/user#update_body'
