@@ -1,7 +1,8 @@
-import {useEffect, useState} from 'react'
+import { useState } from 'react'
 import axios from 'axios';
 import { useHistory, Link } from "react-router-dom";
 import  Alert  from "react-bootstrap/Alert"
+import { Form } from 'react-bootstrap';
 
 export default function Signup(props) {
   let history = useHistory();
@@ -16,6 +17,7 @@ export default function Signup(props) {
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState(""); 
   const [password_confirmation, setPassword_confirmation] = useState(""); 
+  const [type, setType] = useState("user")
   const [error, setError] = useState(false)
 
   const handleSubmit = (event) => {
@@ -24,9 +26,10 @@ export default function Signup(props) {
       name: name,
       email: email,
       password: password,
-      password_confirmation: password_confirmation
+      password_confirmation: password_confirmation,
+      profile_type: type
     }
-    axios.post('http://localhost:8080/api/v1/user', {user}, {withCredentials: true})
+    axios.post(`http://localhost:8080/api/v1/${type}`, {user}, {withCredentials: true})
     .then(response => {
       
       if (response.data.status === 'created') {
@@ -53,7 +56,16 @@ export default function Signup(props) {
               </p>
         </Alert>
         }     
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Select Profile Type: </Form.Label>
+            <Form.Control as="select" onChange={e => setType(e.target.value)}>
+              <option>user</option>
+              <option>organization</option>
+            </Form.Control>
+        </Form.Group>
+
+
           <input
             placeholder="name"
             type="text"
@@ -90,7 +102,7 @@ export default function Signup(props) {
             or <Link to='/login'>Login</Link>
           </div>
       
-        </form>
+        </Form>
       </div>
   )
 }

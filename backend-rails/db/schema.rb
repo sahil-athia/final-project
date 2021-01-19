@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_164059) do
+ActiveRecord::Schema.define(version: 2021_01_19_181150) do
 
   create_table "connections", force: :cascade do |t|
     t.integer "sender_id", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_164059) do
     t.text "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "profile_type"
   end
 
   create_table "shared_jobs", force: :cascade do |t|
@@ -91,6 +92,8 @@ ActiveRecord::Schema.define(version: 2021_01_18_164059) do
     t.integer "organization_id"
     t.boolean "verified"
     t.string "password_digest"
+    t.string "profile_type"
+    t.text "photo_url"
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 

@@ -21,7 +21,8 @@ end
     industry: Faker::Lorem.characters(number: 10),
     website: Faker::Lorem.characters(number: 10),
     location: Faker::Address.street_address,
-    image_url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGJ1c2luZXNzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    image_url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGJ1c2luZXNzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    profile_type: "organization"
   })
 end
 
@@ -38,7 +39,7 @@ end
   User.create({
     organization: nil,
     name: "Random Name",
-    email: "example@email.com",
+    email: "random@email.com",
     summary: Faker::Lorem.sentence,
     industry: "Buisness",
     skills: Faker::Lorem.sentence,
@@ -48,7 +49,9 @@ end
     contact: Faker::Lorem.sentence,
     verified: false,
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
-    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J.",
+    profile_type: "user",
+    photo_url: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png'
   })
 
   User.create({
@@ -64,7 +67,9 @@ end
     contact: Faker::Lorem.sentence,
     verified: false,
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
-    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J.",
+    profile_type: "user",
+    photo_url: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png'
   })
 
 
@@ -72,7 +77,7 @@ end
   User.create({
     organization: nil,
     name: Faker::Name.name,
-    email: "something@email.com",
+    email: "someone@email.com",
     summary: Faker::Lorem.sentence,
     industry: "Engineering",
     skills: Faker::Lorem.sentence,
@@ -82,7 +87,9 @@ end
     contact: Faker::Lorem.sentence,
     verified: false,
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
-    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J.",
+    profile_type: "user",
+    photo_url: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png'
   })
 
   User.create({
@@ -98,14 +105,16 @@ end
     contact: Faker::Lorem.sentence,
     verified: false,
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
-    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J.",
+    profile_type: "user",
+    photo_url: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png'
   })
 
 
 User.create({
     organization: Organization.first,
     name: Faker::Name.name,
-    email: "person@email.com",
+    email: "email@email.com",
     summary: Faker::Lorem.sentence,
     industry: "Arts",
     skills: Faker::Lorem.sentence,
@@ -115,7 +124,9 @@ User.create({
     contact: Faker::Lorem.sentence,
     verified: false,
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
-    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J.",
+    profile_type: "user",
+    photo_url: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png'
   })
 
   User.create({
@@ -131,7 +142,9 @@ User.create({
     contact: Faker::Lorem.sentence,
     verified: false,
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
-    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J."
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J.",
+    profile_type: "user",
+    photo_url: 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png'
   })
 
 Connection.create({
