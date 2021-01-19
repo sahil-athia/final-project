@@ -20,11 +20,11 @@ const ReferredJobs = (props) => {
         <button 
         className="btn"
         type="button"
-        disabled={buttonContent === 'ACCEPTED'? true : false}
+        disabled={buttonContent === 'Accepted'? true : false}
         onClick={(e) => {
           e.preventDefault();
           handleAccept(job.id, job.organization_id);
-          setButtonContent('ACCEPTED')
+          setButtonContent('Accepted')
         }}>
           {buttonContent}
         </button>

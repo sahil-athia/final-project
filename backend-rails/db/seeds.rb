@@ -168,3 +168,19 @@ JobReference.create({
   candidate: User.last,
   accepted: true
 })
+
+JobReference.create({
+  job: Job.second,
+  organization: Organization.first,
+  referred_by: User.last,
+  candidate: User.second,
+  accepted: false
+})
+
+JobReference.create({
+  job: Job.first,
+  organization: Organization.first,
+  referred_by: User.second,
+  candidate: User.last,
+  accepted: true
+})
