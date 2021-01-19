@@ -1,33 +1,39 @@
-const Dashboard = ({profiles}) => {
+import { useState } from 'react'
 
-  const organizationProfiles = profiles.map((profile) => (
-    <div>
-      <div>id: </div>
-      <div>{profile.id}</div>
-      <div>name: </div>
-      <div>{profile.name}</div>
-      <div>email: </div>
-      <div>{profile.email}</div>
-      <div>introduction: </div>
-      <div>{profile.introduction}</div>
-      <div>industry: </div>
-      <div>{profile.industry}</div>
-      <div>website: </div>
-      <div>{profile.website}</div>
-      <div>location: </div>
-      <div>{profile.location}</div>
-      <div>image_url: </div>
-      <div>{profile.image_url}</div>
-    </div>
-  ));
+import Body from "./dashboard_components/Body"
+import EditBody from "./dashboard_components/EditBody"
+import "./dashboard.css"
+
+const Dashboard = ({profile, reload}) => {
+  const [edit, setEdit] = useState(false)
 
   return (
-    <>
-      <article class='dashboard'>
-      <h1>This is the Dashboard component</h1>
-        {organizationProfiles}
-      </article>
-    </>
+  <article>
+    <div className="organization_profile">
+      {!edit && <Body 
+        name={profile.name}
+        industry={profile.industry}
+        website={profile.website}
+        email={profile.email}
+        location={profile.location}
+        introduction={profile.introduction}
+        image_url={profile.image_url}
+        onClick={setEdit} 
+      />}
+      {edit && <EditBody
+        id={profile.id}
+        name={profile.name}
+        industry={profile.industry}
+        website={profile.website}
+        email={profile.email}
+        location={profile.location}
+        introduction={profile.introduction}
+        image_url={profile.image_url}
+        onClick={setEdit} 
+        reload={reload}
+      />}
+    </div>
+  </article>
   )
 };
 

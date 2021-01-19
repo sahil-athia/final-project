@@ -22,6 +22,9 @@ import Signup from "./components/Signup"
 
 
 function App() {
+  // Hard code organization_id for now, needs org auth
+  const organization_id = 1;
+
   let history = useHistory();
   const [state, setState] = useState({isLoggedIn: false, user: {}})
 
@@ -111,7 +114,7 @@ function App() {
           </Route>
 
           <Route path="/organization">
-            <Organization state={state}/>
+            <Organization organization_id={organization_id}/>
           </Route>
 
           <Route exact path='/login'>
