@@ -30,7 +30,6 @@ export default function Login(props) {
     .post('http://localhost:8080/login', {user}, {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
-        console.log(response.data)
         props.handleLogin(response.data)
         setError(false)
 
@@ -44,7 +43,6 @@ export default function Login(props) {
           if(response.data.errors) {
             setError(true)
           }
-          console.log(response.data.errors)
       }
     })
     .catch(error => console.log('api errors:', error))

@@ -33,10 +33,14 @@ export default function Signup(props) {
     .then(response => {
       
       if (response.data.status === 'created') {
+        props.handleLogin(response.data)
         setError(false)
-        console.log(response.data)
-        // props.handleLogin(response.data)
-        // history.push("/indvidual")
+
+        if (response.data.user.profile_type === "organization") {
+          history.push("/organization")
+        } else  {
+          history.push("/individual")
+        }
       } else {
         if(response.data.errors) {
           setError(true)
