@@ -13,14 +13,12 @@ const Jobs = ({user_id, organization_id}) => {
   const [acceptedJobs, setAcceptedJobs] = useState([]);
   const [buttonContent, setButtonContent] = useState('Accept Reference');
 
-  console.log(buttonContent);
   useEffect(() => {    
     Promise.all([
       axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`),
       axios.get(`http://localhost:8080/api/v1/job_reference/${user_id}`)
       // axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
     ]).then((all) => {
-      console.log(all);
       setOrgJobs(all[0].data);
       setReferredJobs(all[1].data[0]);
       // Hardcode for now, need to populate database
@@ -40,11 +38,6 @@ const Jobs = ({user_id, organization_id}) => {
     });;
 
   }, []);
-  console.log(orgJobs);
-  console.log(referredJobs);
-  console.log(jobId);
-  console.log(options);
-  console.log(selected);
   
   const handleSubmit = (selected) => {
     const selectedWithId = {...selected[0], job_id: jobId};
@@ -76,9 +69,8 @@ const Jobs = ({user_id, organization_id}) => {
     });
   };
 
-  console.log(acceptedJobs);
   const acceptedJobList = acceptedJobs.map((job) => (
-  <div>
+  <div key={job.id}>
     <div>id: </div>
     <div>{job.id}</div>
     <div>title: </div>
@@ -95,7 +87,7 @@ const Jobs = ({user_id, organization_id}) => {
 
   return (
     <>
-      <article class='jobs'>
+      <article className='jobs'>
       <h1>This is the Jobs component</h1>
       <h2>Jobs you have been referred to</h2> 
         <ReferredJobs

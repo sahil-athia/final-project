@@ -56,7 +56,6 @@ const Organization = (props) => {
               organization_id={organization_id}
               current_jobs={org_jobs}
               reload={setReload} 
-              // job_references={job_references}
             />
           </Route>
 
