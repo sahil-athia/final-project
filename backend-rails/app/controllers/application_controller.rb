@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       if session[:user_id]
         @current_user ||= User.find(session[:user_id]) if session[:user_id] 
       else 
-        @current_user ||= Organization.find(session[:organization]) if session[:organization_id] 
+        @current_user ||= Organization.find(session[:organization_id]) if session[:organization_id] 
       end
   end
 
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logout!
-      session.delete(:user_id) || session.delete(:organization_id) 
+      session.delete(:user_id) && session.delete(:organization_id) 
   end
 
   def set_user

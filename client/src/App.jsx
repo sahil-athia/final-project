@@ -50,6 +50,7 @@ function App() {
               {withCredentials: true})    
       .then(response => {
         if (response.data.logged_in) {
+          console.log(response)
           handleLogin(response)
         } else {
           handleLogout()
@@ -69,11 +70,12 @@ function App() {
   const handleLogout = () => {
     let user = state.user
     axios.post("http://localhost:8080/logout", {user}, {withCredentials: true})
-    .then(() => {
+    .then((res) => {
       setState({
         isLoggedIn: false,
         user: {}
         })
+        console.log(res)
     })
     
   }
@@ -86,12 +88,12 @@ function App() {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          {state.user.profile_type === "user" && <li>
             <Link to="/individual">Individual</Link>
-          </li>
-          <li>
+          </li>}
+          {state.user.profile_type === "organization" && <li>
             <Link to="/organization">Organization</Link>
-          </li>
+          </li>}
         </ul>
         <hr />
 
@@ -114,7 +116,9 @@ function App() {
           </Route>
 
           <Route path="/organization">
-            <Organization organization_id={organization_id}/>
+            <Organization 
+              onClick={handleLogout}
+            />
           </Route>
 
           <Route exact path='/login'>
