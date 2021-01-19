@@ -1,20 +1,22 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import  Alert  from "react-bootstrap/Alert"
 
 export default function Signup(props) {
   let history = useHistory();
-  const [state, setState] = useState({ 
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
-    errors: ''
-   })
+  // const [state, setState] = useState({ 
+  //   name: '',
+  //   email: '',
+  //   password: '',
+  //   password_confirmation: '',
+  //   errors: ''
+  //  })
   const [name, setName] = useState(""); 
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState(""); 
   const [password_confirmation, setPassword_confirmation] = useState(""); 
+  const [error, setError] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -28,12 +30,13 @@ export default function Signup(props) {
     .then(response => {
       
       if (response.data.status === 'created') {
+        setError(false)
         props.handleLogin(response.data)
         history.push("/indvidual")
       } else {
-        setState({
-          errors: response.data.errors
-        })
+        if(response.data.errors) {
+          setError(true)
+        }
       }
     })
     .catch(error => console.log('api errors:', error))
@@ -41,7 +44,15 @@ export default function Signup(props) {
 
   return(
     <div>
-        <h1>Sign Up</h1>        
+        <h1>Sign Up</h1>   
+        {error && 
+          <Alert variant="danger" onClose={() => setError(false)} dismissible>
+            <Alert.Heading>Error!</Alert.Heading>
+              <p>
+                Please ensure all fields are filled in correctly
+              </p>
+        </Alert>
+        }     
         <form onSubmit={handleSubmit}>
           <input
             placeholder="name"
@@ -75,6 +86,9 @@ export default function Signup(props) {
           <button placeholder="submit" type="submit">
             Sign Up
           </button>
+          <div>
+            or <Link to='/login'>Login</Link>
+          </div>
       
         </form>
       </div>

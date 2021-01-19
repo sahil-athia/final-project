@@ -1,18 +1,20 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios';
 import { Redirect, Link, useHistory } from "react-router-dom";
+import  Alert  from "react-bootstrap/Alert"
 
 export default function Login(props) {
   let history = useHistory();
-  const [state, setState] = useState({ 
-    name: '',
-    email: '',
-    password: '',
-    errors: ''
-   })
+  // const [state, setState] = useState({ 
+  //   name: '',
+  //   email: '',
+  //   password: '',
+  //   errors: ''
+  //  })
   const [name, setName] = useState(props.name || ""); 
   const [email, setEmail] = useState(props.email || ""); 
   const [password, setPassword] = useState(props.password || ""); 
+  const [error, setError] = useState(false)
    
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -25,11 +27,12 @@ export default function Login(props) {
     .then(response => {
       if (response.data.logged_in) {
         props.handleLogin(response.data)
+        setError(false)
         history.push("/individual")
       } else {
-        setState({
-          errors: response.data.errors
-        })
+          if(response.data.errors) {
+            setError(true)
+          }
       }
     })
     .catch(error => console.log('api errors:', error))
@@ -37,7 +40,15 @@ export default function Login(props) {
 
   return(
     <div>
-        <h1>Log In</h1>        
+      <h1>Log In</h1>        
+      {error && 
+      <Alert variant="danger" onClose={() => setError(false)} dismissible>
+        <Alert.Heading>Error!</Alert.Heading>
+          <p>
+            Invalid login credentials, please try again
+          </p>
+      </Alert>
+      }
       <form onSubmit={handleSubmit}>
           <input
             placeholder="name"
