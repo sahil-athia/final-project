@@ -6,7 +6,7 @@ class Organization < ApplicationRecord
   has_many :jobs_references
 
   validates :name, presence: true
-  validates :password, presence: true
+  validates :password_digest, presence: true
   validates :email, presence: true
   validates :name, uniqueness: true
   validates :name, length: { minimum: 1 }

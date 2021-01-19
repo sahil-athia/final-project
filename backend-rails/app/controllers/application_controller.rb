@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
-  helper_method :login!, :logged_in?, :current_user,     :authorized_user?, :logout!, :set_user, :org_login!
+  helper_method :login!, :logged_in?, :current_user, :org_logout!, :authorized_user?, :logout!, :set_user, :org_login!
       
   def login!
         session[:user_id] = @user.id
@@ -27,7 +27,11 @@ class ApplicationController < ActionController::Base
   end
 
   def logout!
-      session.delete(:user_id) && session.delete(:organization_id) 
+      session.delete(:user_id)
+  end
+
+  def org_logout!
+      session.delete(:organization_id) 
   end
 
   def set_user
