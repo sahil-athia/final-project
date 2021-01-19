@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   
   def create
+    if (session_params[:profile_type] == "user")
       @user = User.find_by(name: session_params[:name], email: session_params[:email])
     
       if @user && @user.authenticate(session_params[:password])
@@ -15,6 +16,24 @@ class SessionsController < ApplicationController
           errors: ['no such user, please try again']
         }
       end
+
+    elsif (session_params[:profile_type] == "organization")
+
+      @organization = Organization.find_by(name: session_params[:name], email: session_params[:email])
+    
+      if @organization && @organization.authenticate(session_params[:password])
+        org_login!
+        render json: {
+          logged_in: true,
+          user: @organization
+        }
+      else
+        render json: { 
+          status: 401,
+          errors: ['no such organization, please try again']
+        }
+      end
+    end
   end
 
   def is_logged_in?
@@ -40,6 +59,6 @@ class SessionsController < ApplicationController
   end
   private
     def session_params
-          params.require(:user).permit(:name, :password, :email)
+          params.require(:user).permit(:name, :password, :email, :profile_type)
     end
 end

@@ -1,7 +1,8 @@
-import {useEffect, useState} from 'react'
+import { useState } from 'react'
 import axios from 'axios';
-import { Redirect, Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import  Alert  from "react-bootstrap/Alert"
+import { Form } from 'react-bootstrap';
 
 export default function Login(props) {
   let history = useHistory();
@@ -13,7 +14,8 @@ export default function Login(props) {
   //  })
   const [name, setName] = useState(props.name || ""); 
   const [email, setEmail] = useState(props.email || ""); 
-  const [password, setPassword] = useState(props.password || ""); 
+  const [password, setPassword] = useState(props.password || "");
+  const [type, setType] = useState("user") 
   const [error, setError] = useState(false)
    
   const handleSubmit = (event) => {
@@ -21,18 +23,28 @@ export default function Login(props) {
     let user = {
       name: name,
       email: email,
-      password: password
+      password: password,
+      profile_type: type
     }
-    axios.post('http://localhost:8080/login', {user}, {withCredentials: true})
+    axios
+    .post('http://localhost:8080/login', {user}, {withCredentials: true})
     .then(response => {
       if (response.data.logged_in) {
+        console.log(response.data)
         props.handleLogin(response.data)
         setError(false)
-        history.push("/individual")
+
+        if (response.data.user.profile_type === "organization") {
+          history.push("/organization")
+        } else  {
+          history.push("/individual")
+        }
+        
       } else {
           if(response.data.errors) {
             setError(true)
           }
+          console.log(response.data.errors)
       }
     })
     .catch(error => console.log('api errors:', error))
@@ -49,7 +61,14 @@ export default function Login(props) {
           </p>
       </Alert>
       }
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Select Profile Type: </Form.Label>
+            <Form.Control as="select" onChange={e => setType(e.target.value)}>
+              <option>user</option>
+              <option>organization</option>
+            </Form.Control>
+        </Form.Group>
           <input
             placeholder="name"
             type="text"
@@ -78,7 +97,7 @@ export default function Login(props) {
             or <Link to='/signup'>sign up</Link>
           </div>
           
-         </form>
+         </Form>
       </div>
   )
 }

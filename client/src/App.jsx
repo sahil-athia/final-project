@@ -27,7 +27,7 @@ function App() {
 
   let history = useHistory();
   const [state, setState] = useState({isLoggedIn: false, user: {}})
-
+  console.log(state.user)
   useEffect(() => {
     loginStatus()
 

@@ -15,7 +15,7 @@ module Api
       def create
         @organization = Organization.new(organization_params)
           if @organization.save
-            login!  
+            org_login!  
             render json: {
             status: :created,
             organization: @organization

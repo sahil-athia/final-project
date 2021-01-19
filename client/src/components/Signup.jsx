@@ -66,7 +66,6 @@ export default function Signup(props) {
             </Form.Control>
         </Form.Group>
 
-
           <input
             placeholder="name"
             type="text"
