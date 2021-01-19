@@ -4,17 +4,13 @@ import CreateJobs from './job_components/CreateJobs';
 import CurrentJobs from './job_components/CurrentJobs';
 
 const Jobs = ({organization_id, current_jobs}) => {
-  // const [show, setShow] = useState(false)
-  // const [options, setOptions] = useState([]);
-  // const [selected, setSelected] = useState([]);
-  // const [jobId, setJobId] = useState(null);
-
 
   return (
     <>
       <article class='jobs'>
       <h1>This is the Jobs component</h1>
       <CurrentJobs
+        current_jobs={current_jobs}
       />
       <CreateJobs
       />
@@ -53,46 +49,6 @@ const Jobs = ({organization_id, current_jobs}) => {
   //   });
   // };
 
-  // const organizationJobs = jobs.map((job) => (
-  //   <div>
-  //     <div>id: </div>
-  //     <div>{job.id}</div>
-  //     <div>title: </div>
-  //     <div>{job.title}</div>
-  //     <div>description: </div>
-  //     <div>{job.description}</div>
-  //     <div>salary: </div>
-  //     <div>{job.salary}</div>
-  //     <div>organization_id: </div>
-  //     <div>{job.organization_id}</div>
-  //     <button className="btn" type="button" onClick={() => {
-  //       setShow(true);
-  //       setJobId(job.id);
-  //     }}>
-  //       SHARE
-  //       </button>
-  //       <Modal show={show} setShow={setShow}>
-  //         This is inside the modal!
-  //         <form onSubmit={(e) => { 
-  //           e.preventDefault();
-  //           console.log(selected);
-  //           handelSubmit(selected)}}>
-  //           <Select
-  //             options={options}
-  //             values={[]}
-  //             name="select"
-  //             onChange={(value) => {
-  //               console.log(value);
-  //               setSelected(value);
-  //             }}
-  //           />
-  //           <button type="submit" >Submit</button>
-  //         </form>
-  //       </Modal>
-  //     <button>REFER</button>
-  //     <hr />
-  //   </div>
-  // ));
 
   // const organizationJobReferences = job_references.map((job_reference) => (
   //   <div>
