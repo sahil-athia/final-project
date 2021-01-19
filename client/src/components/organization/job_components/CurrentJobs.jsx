@@ -9,22 +9,27 @@ const CurrentJobs = ({current_jobs, reload}) => {
     return (
       <div key={job.id}>
         <div>
-          <div>Id: {job.id}</div>
           <div>Title: {job.title}</div>
           <div>Salary: {job.salary}</div>
           <div>Description: {job.description}</div>
         </div>
-        <EditJob
-          id={job.id}
-          title={job.title}
-          salary={job.salary}
-          description={job.description}
-          reload={reload}
-        />
-        <DeleteJob
-          id={job.id}
-          reload={reload}
-        />
+        <br />
+        <div>
+          <EditJob
+            id={job.id}
+            title={job.title}
+            salary={job.salary}
+            description={job.description}
+            reload={reload}
+          />
+        </div>
+        <br />
+        <div>
+          <DeleteJob
+            id={job.id}
+            reload={reload}
+          />
+        </div>
         <br />
         <div>
             <Candidates

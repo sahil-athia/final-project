@@ -6,7 +6,7 @@ const ReferredJobs = (props) => {
   const jobList = referredJobs.map((job) => {
 
     return (
-      <div>
+      <div key={job.id}>
         <div>id: </div>
         <div>{job.id}</div>
         <div>title: </div>

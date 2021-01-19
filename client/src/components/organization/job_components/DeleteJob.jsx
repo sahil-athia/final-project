@@ -22,7 +22,7 @@ const DeleteJob = (props) => {
       {!show && <button onClick={() => setShow(true)}>Delete</button>}
       {show && <> 
         <Confirm
-          message="Are you sure you want to DELETE this job?"
+          message="Are you sure you want to delete this job?"
           deleteConfirm={deleteJob}
           deleteCancel={deleteCancel}
         />

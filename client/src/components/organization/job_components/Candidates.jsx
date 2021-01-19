@@ -22,7 +22,7 @@ const Candidates = ({job_id, organization_id}) => {
   const list = data.map(reference => {
     const candidate = reference.candidate[0];
     const referee = reference.referee[0];
-    return(<div>
+    return(<div key={candidate.id}>
       <h3> Candidate: </h3>
       <div>{candidate.name}</div>
       <div>{candidate.email}</div>

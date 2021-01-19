@@ -7,7 +7,7 @@ const OrganizationJobs = (props) => {
   const {show, setShow, options, selected, setSelected, setJobId, orgJobs, handleSubmit} = props;
   
   const jobList = orgJobs.map((job) => (
-    <div>
+    <div key={job.id}>
       <div>id: </div>
       <div>{job.id}</div>
       <div>title: </div>
