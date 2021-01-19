@@ -8,7 +8,8 @@ const CurrentJobs = ({current_jobs}) => {
         <div>Title: {job.title}</div>
         <div>Salary: {job.salary}</div>
         <div>Description: {job.description}</div>
-        <button className="btn" type="button">EDIT</button>
+        <button className="btn" type="button">Edit</button>
+        <button className="btn" type="button">Delete</button>
         <hr />
       </div>
     ));

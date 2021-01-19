@@ -22,7 +22,7 @@ const OrganizationJobs = (props) => {
         setShow(true);
         setJobId(job.id);
       }}>
-        REFER SOMEONE
+        Refer Someone
         </button>
         <Modal show={show} setShow={setShow}>
           Please choose one of your connections:

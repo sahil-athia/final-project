@@ -11,7 +11,7 @@ const Jobs = ({user_id, organization_id}) => {
   const [orgJobs, setOrgJobs] = useState([]);
   const [referredJobs, setReferredJobs] = useState([]);
   const [acceptedJobs, setAcceptedJobs] = useState([]);
-  const [buttonContent, setButtonContent] = useState('ACCEPT REFERENCE');
+  const [buttonContent, setButtonContent] = useState('Accept Reference');
 
   console.log(buttonContent);
   useEffect(() => {    
