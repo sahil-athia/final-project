@@ -5,9 +5,11 @@ import DeleteJob from './DeleteJob';
 
 const CurrentJobs = ({current_jobs, reload}) => {
 
-  const jobs = current_jobs.map((job) => (
-      <div>
+  const jobs = current_jobs.map((job) => {
+    return (
+      <div key={job.id}>
         <div>
+          <div>Id: {job.id}</div>
           <div>Title: {job.title}</div>
           <div>Salary: {job.salary}</div>
           <div>Description: {job.description}</div>
@@ -31,8 +33,8 @@ const CurrentJobs = ({current_jobs, reload}) => {
             />
         </div>
         <hr/>
-    </div>
-  ));
+    </div>)
+  });
 
   return (
     <div>

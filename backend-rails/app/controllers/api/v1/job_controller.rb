@@ -28,11 +28,14 @@ module Api
       end
 
       def update
-        job = Job.find_by(id: update_params[:id])
+        job = Job.find(update_params[:id])
         job.update(update_params)
-        # job.update(title: params[:title], salary: params[:salary], description: params[:description])
         job.save
-        render json: job, status: :ok
+      end
+
+      def destroy
+        @job = Job.find(params[:id])
+        @job.destroy
       end
 
       def get_by_organization_id

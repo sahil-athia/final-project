@@ -7,24 +7,16 @@ const DeleteJob = (props) => {
   const [show, setShow] = useState(false);
 
   const deleteJob = () => {
-    const state = { id };
-    console.log("----inside-----")
-    console.log("id", id)
-    console.log("props", props)
-    console.log("show", show)
-    axios.delete(`/api/v1/job/${id}`, {state}, {withCredentials: true})
+    axios.delete(`http://localhost:8080/api/v1/job/${id}`)
     .then(() => reload(currentState => !currentState))
     .then(() => setShow(false))
+    .catch((err) => console.log(err));
   }
 
   const deleteCancel = () => {
     setShow(false)
   }
-  
-  console.log("----outside-----")
-  console.log("id", id)
-  console.log("props", props)
-  console.log("show", show)
+
   return(
     <div>
       {!show && <button onClick={() => setShow(true)}>Delete</button>}
