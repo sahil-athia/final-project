@@ -21,6 +21,7 @@ end
     industry: Faker::Lorem.characters(number: 10),
     website: Faker::Lorem.characters(number: 10),
     location: Faker::Address.street_address,
+    password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J.",
     image_url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGJ1c2luZXNzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     profile_type: "organization"
   })
