@@ -1,6 +1,6 @@
 const Body = (props) => {
   const { name, industry, website, email, location, introduction, image_url, onClick } = props; 
-
+//When org_authentication available, replace onClick to isLoggedIn!!!
   return(
     <>
     {onClick && <button onClick={() => onClick(true)}>

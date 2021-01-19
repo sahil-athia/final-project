@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const CurrentJobs = ({current_jobs}) => {
-  const [edit, setEdit] = useState(false)
+  // const [edit, setEdit] = useState(false)
   
   const jobs = current_jobs.map((job) => (
       <div>

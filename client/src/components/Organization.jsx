@@ -31,7 +31,7 @@ const Organization = ({organization_id}) => {
     });;
 
   }, [reload])
-
+  console.log("reload", reload)
   console.log(org_profile)
   console.log(org_jobs)
 
@@ -55,7 +55,8 @@ const Organization = ({organization_id}) => {
           <Route path="/organization/jobs">
             <Jobs 
               organization_id={organization_id}
-              current_jobs={org_jobs} 
+              current_jobs={org_jobs}
+              reload={setReload} 
               // job_references={job_references}
             />
           </Route>
