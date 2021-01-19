@@ -21,7 +21,6 @@ const Jobs = ({organization_id, current_jobs, reload}) => {
       
       <CurrentJobs
         current_jobs={current_jobs}
-        reload={reload}
       />
     </>
   )
