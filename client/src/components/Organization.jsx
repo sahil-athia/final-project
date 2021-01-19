@@ -14,17 +14,22 @@ import Notifications from "./organization/Notifications"
 
 const Organization = ({organization_id}) => {
 
-  const [data, setData] = useState({})
-  const [reload, setReload] = useState(false)
+  const [org_profile, setOrg_profile] = useState({});
+  const [org_jobs, setOrg_jobs] = useState([]);
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    axios.get(`/api/v1/organization/${organization_id}`)
-    .then((res) => {
-      setData(res.data)
-      console.log(res.data);
+
+    Promise.all([
+      axios.get(`/api/v1/organization/${organization_id}`),
+      axios.get(`/api/v1/job/by_organization_id/${organization_id}`)
+    ]).then((all) => {
+      setOrg_profile(all[0].data);
+      setOrg_jobs(all[1].data)
     }).catch((err) => {
       console.log(err);
-    });
+    });;
+
   }, [reload])
 
   return (
@@ -35,18 +40,23 @@ const Organization = ({organization_id}) => {
         <Switch>
           <Route path="/organization/dashboard">
             <Dashboard 
-            profile={data}
+            profile={org_profile}
             reload={setReload}
             />
           </Route>
 
-          {/* <Route path="/organization/employees">
-            <Employees employees={users}/>
+          <Route path="/organization/employees">
+            <Employees />
           </Route>
 
           <Route path="/organization/jobs">
-            <Jobs jobs={jobs} job_references={job_references}/>
-          </Route> */}
+            <Jobs 
+              organization_id={organization_id}
+              current_jobs={org_jobs}
+              reload={setReload} 
+              // job_references={job_references}
+            />
+          </Route>
 
           <Route path="/organization/notifications">
             <Notifications />
