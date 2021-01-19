@@ -27,7 +27,6 @@ function App() {
 
   let history = useHistory();
   const [state, setState] = useState({isLoggedIn: false, user: {}})
-  console.log(state.user)
   useEffect(() => {
     loginStatus()
 
@@ -50,7 +49,6 @@ function App() {
               {withCredentials: true})    
       .then(response => {
         if (response.data.logged_in) {
-          console.log(response)
           handleLogin(response)
         } else {
           handleLogout()
@@ -60,6 +58,7 @@ function App() {
   };
 
   const handleLogin = (data) => {
+    console.log(data)
     setState({
       isLoggedIn: true,
       user: data.user || data.data.user
@@ -75,7 +74,6 @@ function App() {
         isLoggedIn: false,
         user: {}
         })
-        console.log(res)
     })
     
   }

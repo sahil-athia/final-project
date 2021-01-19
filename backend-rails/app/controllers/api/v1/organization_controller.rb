@@ -18,7 +18,7 @@ module Api
             org_login!  
             render json: {
             status: :created,
-            organization: @organization
+            user: @organization
           }
           else 
             render json: {
