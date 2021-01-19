@@ -31,6 +31,7 @@ module Api
       def update_body
         @organization = Organization.find(update_body_params[:id])
         @organization.update(update_body_params)
+        @organization.save
       end
 
       private
