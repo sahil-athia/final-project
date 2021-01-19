@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Candidates from './Candidates';
 import EditJob from './EditJob';
+import DeleteJob from './DeleteJob';
 
 const CurrentJobs = ({current_jobs, reload}) => {
 
@@ -10,14 +11,16 @@ const CurrentJobs = ({current_jobs, reload}) => {
           <div>Title: {job.title}</div>
           <div>Salary: {job.salary}</div>
           <div>Description: {job.description}</div>
-          {/* <button onClick={setEdit(true)} className="btn" type="button">Edit</button> */}
-          <button className="btn" type="button">Delete</button>
         </div>
         <EditJob
           id={job.id}
           title={job.title}
           salary={job.salary}
           description={job.description}
+          reload={reload}
+        />
+        <DeleteJob
+          id={job.id}
           reload={reload}
         />
         <br />
