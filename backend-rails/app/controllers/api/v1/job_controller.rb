@@ -28,7 +28,7 @@ module Api
       end
 
       def get_by_organization_id
-        @job = Job.find_by_sql("SELECT * FROM Jobs WHERE organization_id = #{params[:id]}")
+        @job = Job.find_by_sql("SELECT * FROM Jobs WHERE organization_id = #{params[:id]} ORDER BY id DESC")
         render json: @job, status: :ok
       end
 

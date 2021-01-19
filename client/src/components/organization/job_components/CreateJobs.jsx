@@ -6,7 +6,6 @@ const CreateJobs = ({organization_id, setNewJob, reload}) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(state);
     const jobInfo = {...state, organization_id}
     axios.post(`http://localhost:8080/api/v1/job`, {jobInfo}, {withCredentials: true})
     .then(() => {

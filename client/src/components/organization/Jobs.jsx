@@ -5,7 +5,6 @@ import CurrentJobs from './job_components/CurrentJobs';
 
 const Jobs = ({organization_id, current_jobs, reload}) => {
   const [newJob, setNewJob] = useState(false);
-  console.log("newJob", newJob)
 
   const handelClick = () => {
     setNewJob(currentState => !currentState)

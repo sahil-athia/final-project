@@ -31,9 +31,6 @@ const Organization = ({organization_id}) => {
     });;
 
   }, [reload])
-  console.log("reload", reload)
-  console.log(org_profile)
-  console.log(org_jobs)
 
   return (
     <Router>
