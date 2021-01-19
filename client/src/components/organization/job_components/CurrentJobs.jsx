@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react';
 import Candidates from './Candidates';
+import EditJob from './EditJob';
 
-const CurrentJobs = ({current_jobs}) => {
+const CurrentJobs = ({current_jobs, reload}) => {
 
   const jobs = current_jobs.map((job) => (
       <div>
         <div>
-        <div>Title: {job.title}</div>
-        <div>Salary: {job.salary}</div>
-        <div>Description: {job.description}</div>
-        <button className="btn" type="button">Edit</button>
-        <button className="btn" type="button">Delete</button>
+          <div>Title: {job.title}</div>
+          <div>Salary: {job.salary}</div>
+          <div>Description: {job.description}</div>
+          {/* <button onClick={setEdit(true)} className="btn" type="button">Edit</button> */}
+          <button className="btn" type="button">Delete</button>
         </div>
+        <EditJob
+          id={job.id}
+          title={job.title}
+          salary={job.salary}
+          description={job.description}
+          reload={reload}
+        />
         <br />
         <div>
             <Candidates
@@ -20,13 +28,13 @@ const CurrentJobs = ({current_jobs}) => {
             />
         </div>
         <hr/>
-      </div>
+    </div>
   ));
 
   return (
     <div>
-      <h2>Current Jobs</h2>
-      {jobs}
+        <h2>Current Jobs</h2>
+        {jobs}
     </div>
   )
 };

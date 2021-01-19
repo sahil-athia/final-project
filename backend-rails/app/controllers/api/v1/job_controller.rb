@@ -27,6 +27,14 @@ module Api
         end
       end
 
+      def update
+        job = Job.find_by(id: update_params[:id])
+        job.update(update_params)
+        # job.update(title: params[:title], salary: params[:salary], description: params[:description])
+        job.save
+        render json: job, status: :ok
+      end
+
       def get_by_organization_id
         @job = Job.find_by_sql("SELECT * FROM Jobs WHERE organization_id = #{params[:id]} ORDER BY id DESC")
         render json: @job, status: :ok
@@ -36,8 +44,11 @@ module Api
 
       def job_params
         params.require(:jobInfo).permit(:organization_id, :title, :description, :salary)
-     end
+      end
 
+      def update_params
+        params.require(:state).permit(:id, :title, :salary, :description)
+      end
 
     end
   end
