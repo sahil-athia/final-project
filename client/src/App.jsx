@@ -15,7 +15,6 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 import Home from "./components/Home"
-import Main from "./components/Main"
 import Organization from "./components/Organization"
 import Individual from "./components/Individual"
 import Login from "./components/Login"
@@ -72,28 +71,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          {state.user.profile_type === "user" && <li>
-            <Link to="/individual">Individual</Link>
-          </li>}
-          {state.user.profile_type === "organization" && <li>
-            <Link to="/organization/dashboard">Organization</Link>
-          </li>}
-        </ul> */}
         <Switch>
           <Route exact path="/">
             <Home state={state}/>
           </Route>
-
-          <Route path="/main">
-            <Main />
-          </Route>
           
-          
-
           <Route exact path='/login'>
             <Login 
               handleLogin={handleLogin}
@@ -106,8 +88,9 @@ function App() {
               
             />
           </Route>
-          {state.isLoggedIn 
-            ? (
+
+          {state.isLoggedIn ?
+            (
               <>
                 <Route path="/individual">
                   <Individual 
@@ -124,8 +107,7 @@ function App() {
                   />
                 </Route>
               </>
-            ) 
-            : (
+            ) : (
               <Redirect to='/' />
             ) 
           }
@@ -137,13 +119,3 @@ function App() {
 
 
 export default App;
-
-
-// const user_type = "BUISNESS"
-//     const example = 4
-//     axios.get(`/api/v1/user/${example}`)
-//     .then((res) => {
-//       console.log(res.data);
-//     }).catch((err) => {
-//       console.log(err);
-//     });

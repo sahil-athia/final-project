@@ -4,6 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import  Alert  from "react-bootstrap/Alert"
 import { Form, Button } from 'react-bootstrap';
 import './Login.scss'
+import Loading from "./Loading"
 
 export default function Signup(props) {
   let history = useHistory();
@@ -20,8 +21,10 @@ export default function Signup(props) {
   const [password_confirmation, setPassword_confirmation] = useState(""); 
   const [type, setType] = useState("user")
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = (event) => {
+    setLoading(true)
     event.preventDefault()
     let user = {
       name: name,
@@ -30,28 +33,34 @@ export default function Signup(props) {
       password_confirmation: password_confirmation,
       profile_type: type
     }
-    axios.post(`http://localhost:8080/api/v1/${type}`, {user}, {withCredentials: true})
-    .then(response => {
-      
-      if (response.data.status === 'created') {
-        console.log(response)
-        props.handleLogin(response.data)
-        setError(false)
-        if (response.data.user.profile_type === "organization") {
-          history.push("/organization")
-        } else  {
-          history.push("/individual")
+    setTimeout(() => {
+      axios.post(`http://localhost:8080/api/v1/${type}`, {user}, {withCredentials: true})
+      .then(response => {
+        
+        if (response.data.status === 'created') {
+          setLoading(false)
+          props.handleLogin(response.data)
+          setError(false)
+          if (response.data.user.profile_type === "organization") {
+            history.push("/organization")
+          } else  {
+            history.push("/individual")
+          }
+        } else {
+          if(response.data.errors) {
+            setLoading(false)
+            setError(true)
+          }
         }
-      } else {
-        if(response.data.errors) {
-          setError(true)
-        }
-      }
-    })
-    .catch(error => console.log('api errors:', error))
+      })
+      .catch(error => console.log('api errors:', error))
+    }, 3500)
   };
 
   return(
+    loading ? (
+      <Loading/>
+      ) : (
     <section className='login'>
       <div className="box">
       <div className="text-box">
@@ -133,5 +142,6 @@ export default function Signup(props) {
         </div>
         </div>
       </section>
+      )
   )
 }

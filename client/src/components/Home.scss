@@ -1,31 +1,69 @@
 .home {
   display: flex;
-  flex-direction: row;
-  align-content: space-between;
+  justify-content: space-evenly;
   background-color: black;
   color: white;
-  overflow: hidden;
+  height: 100vh;
+
   .info {
     align-self: center;
-  }
-
-  .videoTag {
-    transform: rotate(23.5deg);
-    @keyframes slideInFromLeft {
+    @keyframes slideInFromBottom1 {
       0% {
-        transform: translateX(-500%);
+        transform: translateY(+2000%);
       }
       100% {
-        transform: translateX(0);
+        transform: translateY(0);
       }
     }
+    @keyframes slideInFromBottom2 {
+      0% {
+        transform: translateY(+2500%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideInFromBottom3 {
+      0% {
+        transform: translateY(+3000%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    h1 {
+      animation: 1.3s ease-out 0s 1 slideInFromBottom1;
+    }
+    h3 {
+      animation: 2.3s ease-out 0s 1 slideInFromBottom2;
+    }
+    button{
+      animation: 2.6s ease-out 0s 1 slideInFromBottom3;
+      color: white;
+      background: none;
+      border: 2px solid;
+      font: inherit;
+      line-height: 1;
+      margin: 0.5em;
+      padding: 1em 2em;
+    }
 
-    
+    button:hover{
+      color: black;
+      background: white;
+      border-color: black;
+    }
+  }
 
-    margin-left: 60vh;
-    height: 100vh;
-    
-    // animation: 1.5s ease-out 0s 1 slideInFromLeft;
+  .videoDiv {
+    align-self: center;
+    .videoTag {
+      margin-right: -30vh;
+      max-width: 90vw;
+      max-height: 90vh;
+      filter: saturate(120%);
+      
+    }
   }
   // .grow { transition: all .2s ease-in-out; }
   // .grow:hover { transform: scale(1.1); }

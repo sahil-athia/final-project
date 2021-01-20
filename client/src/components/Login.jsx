@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import  Alert  from "react-bootstrap/Alert"
 import { Form, Button, Image } from 'react-bootstrap';
 import './Login.scss'
+import Loading from "./Loading"
 
 export default function Login(props) {
   let history = useHistory();
@@ -13,44 +14,52 @@ export default function Login(props) {
   //   password: '',
   //   errors: ''
   //  })
-  const [name, setName] = useState(props.name || ""); 
   const [email, setEmail] = useState(props.email || ""); 
   const [password, setPassword] = useState(props.password || "");
   const [type, setType] = useState("user") 
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
    
   const handleSubmit = (event) => {
+    setLoading(true)
     event.preventDefault()
     let user = {
-      name: name,
       email: email,
       password: password,
       profile_type: type
     }
-    axios
-    .post('http://localhost:8080/login', {user}, {withCredentials: true})
-    .then(response => {
-      if (response.data.logged_in) {
-        props.handleLogin(response.data)
-        setError(false)
-
-        if (response.data.user.profile_type === "organization") {
-          history.push("/organization/dashboard")
-        } else  {
-          history.push("/individual")
-        }
-        
-      } else {
-          if(response.data.errors) {
-            setError(true)
+    setTimeout(() => {
+      axios
+      .post('http://localhost:8080/login', {user}, {withCredentials: true})
+      .then(response => {
+        if (response.data.logged_in) {
+          setLoading(false)
+          props.handleLogin(response.data)
+          setError(false)
+  
+          if (response.data.user.profile_type === "organization") {
+            history.push("/organization/dashboard")
+          } else  {
+            history.push("/individual")
           }
-      }
-    })
-    .catch(error => console.log('api errors:', error))
+          
+        } else {
+          setLoading(false)
+            if(response.data.errors) {
+              setError(true)
+            }
+        }
+      })
+      .catch(error => console.log('api errors:', error))
+    }, 3500)
+    
   };
 
   return(
-    <section className='login'>
+    loading ? (
+      <Loading/>
+      ) : (
+<section className='login'>
       <div className="box">
         <div className="text-box">
           <h1>Example Text</h1>
@@ -108,5 +117,7 @@ export default function Login(props) {
       </div>
       </div>
     </section>
+      )
+    
   )
 }
