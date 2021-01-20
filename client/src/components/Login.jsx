@@ -86,9 +86,6 @@ export default function Login(props) {
             value={email}
             onChange={event => setEmail(event.target.value)}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">

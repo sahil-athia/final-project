@@ -66,14 +66,13 @@ function App() {
         })
     })
   }
+  // remove the user state on logout
 
   const loggingOut = () => state.isLoggedIn === false
-  // remove the user state on logout
   return (
     <Router>
-      {/* {loggingOut() && <Redirect to='/' />} */}
       <div className="App">
-        <ul>
+        {/* <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -83,7 +82,7 @@ function App() {
           {state.user.profile_type === "organization" && <li>
             <Link to="/organization/dashboard">Organization</Link>
           </li>}
-        </ul>
+        </ul> */}
         <Switch>
           <Route exact path="/">
             <Home state={state}/>
@@ -93,20 +92,7 @@ function App() {
             <Main />
           </Route>
           
-          <Route path="/individual">
-            {state.isLoggedIn &&  
-            <Individual 
-              user_id ={state.user.id} 
-              onClick={handleLogout}
-            />}
-          </Route>
-
-          <Route path="/organization">
-            <Organization 
-              organization_id={state.user.id}
-              onClick={handleLogout}
-            />
-          </Route>
+          
 
           <Route exact path='/login'>
             <Login 
@@ -120,7 +106,29 @@ function App() {
               
             />
           </Route>
-          
+          {state.isLoggedIn 
+            ? (
+              <>
+                <Route path="/individual">
+                  <Individual 
+                    user_id ={state.user.id} 
+                    onClick={handleLogout}
+                  />
+                </Route>
+
+                <Route path="/organization">
+
+                  <Organization 
+                    organization_id={state.user.id}
+                    onClick={handleLogout}
+                  />
+                </Route>
+              </>
+            ) 
+            : (
+              <Redirect to='/' />
+            ) 
+          }
         </Switch>
       </div>
     </Router>
