@@ -58,6 +58,11 @@ module Api
           end
         end
 
+      def get_by_organization_id
+        @user = User.find_by_sql("SELECT * FROM Jobs WHERE organization_id = #{params[:id]}")
+        render json: @user, status: :ok
+      end
+
         def update_head
           @user = User.find(update_head_params[:id])
           @user.update(update_head_params)
