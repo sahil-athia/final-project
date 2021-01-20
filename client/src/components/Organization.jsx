@@ -23,15 +23,12 @@ const Organization = ({organization_id, onClick}) => {
       axios.get(`/api/v1/job/by_organization_id/${organization_id}`),
       axios.get(`http://localhost:8080/api/v1/user/by_organization_id/${organization_id}`)
     ]).then((all) => {
-      console.log(all)
       setState({ profile: all[0].data, jobs: all[1].data, employees: all[2].data })
     }).catch((err) => {
       console.log(err);
     });;
 
   }, [reload])
-
-  console.log(state);
 
   return (
     <Router>
@@ -53,7 +50,7 @@ const Organization = ({organization_id, onClick}) => {
             employees={state.employees}
             reload={setReload}
             />
-            
+
           </Route>
 
           <Route path="/organization/jobs">
