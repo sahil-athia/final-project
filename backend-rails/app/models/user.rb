@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :name, length: { minimum: 1 }
+  validates :profile_type, presence: true
 
   belongs_to :organization, optional: true
   

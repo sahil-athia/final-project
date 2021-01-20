@@ -59,7 +59,7 @@ export default function Login(props) {
       <div className="form-box">
       <h1>Log In</h1>        
       {error && 
-      <Alert variant="danger" onClose={() => setError(false)} dismissible>
+      <Alert variant="info" onClose={() => setError(false)} dismissible>
         <Alert.Heading>Error!</Alert.Heading>
           <p>
             Invalid login credentials, please try again

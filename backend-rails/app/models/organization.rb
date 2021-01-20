@@ -8,6 +8,7 @@ class Organization < ApplicationRecord
   validates :name, presence: true
   validates :password_digest, presence: true
   validates :email, presence: true
+  validates :profile_type, presence: true
   validates :email, uniqueness: true
   validates :name, length: { minimum: 1 }
 end

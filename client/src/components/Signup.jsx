@@ -2,7 +2,8 @@ import { useState } from 'react'
 import axios from 'axios';
 import { useHistory, Link } from "react-router-dom";
 import  Alert  from "react-bootstrap/Alert"
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
+import './Login.scss'
 
 export default function Signup(props) {
   let history = useHistory();
@@ -51,7 +52,13 @@ export default function Signup(props) {
   };
 
   return(
-    <div>
+    <section className='login'>
+      <div className="box">
+      <div className="text-box">
+          <h1>Example Text</h1>
+        </div>
+
+        <div className="form-box">
         <h1>Sign Up</h1>   
         {error && 
           <Alert variant="danger" onClose={() => setError(false)} dismissible>
@@ -70,43 +77,61 @@ export default function Signup(props) {
             </Form.Control>
         </Form.Group>
 
-          <input
-            placeholder="name"
-            type="text"
-            name="name"
-            value={name}
-            onChange={event => setName(event.target.value)}
-          />
-          <input
-            placeholder="email"
-            type="text"
-            name="email"
-            value={email}
-            onChange={event => setEmail(event.target.value)}
-          />
-          <input 
-            placeholder="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={event => setPassword(event.target.value)}
-          />          
-          <input
-            placeholder="password confirmation"
-            type="password"
-            name="password_confirmation"
-            value={password_confirmation}
-            onChange={event => setPassword_confirmation(event.target.value)}
-          />
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Name</Form.Label>
+            <Form.Control 
+              placeholder="name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={event => setName(event.target.value)}
+            />
+          </Form.Group> 
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control 
+              placeholder="email"
+              type="text"
+              name="email"
+              value={email}
+              onChange={event => setEmail(event.target.value)}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control 
+              placeholder="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={event => setPassword(event.target.value)}
+            />
+          </Form.Group> 
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password Confirmation</Form.Label>
+            <Form.Control 
+              placeholder="password confirmation"
+              type="password"
+              name="password_confirmation"
+              value={password_confirmation}
+              onChange={event => setPassword_confirmation(event.target.value)}
+            />
+          </Form.Group>         
         
-          <button placeholder="submit" type="submit">
-            Sign Up
-          </button>
+          <Button variant="primary" placeholder="submit" type="submit">Signup</Button>{' '}         
           <div>
             or <Link to='/login'>Login</Link>
           </div>
       
         </Form>
-      </div>
+        </div>
+        </div>
+      </section>
   )
 }
