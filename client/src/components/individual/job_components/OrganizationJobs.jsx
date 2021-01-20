@@ -8,16 +8,9 @@ const OrganizationJobs = (props) => {
   
   const jobList = orgJobs.map((job) => (
     <div key={job.id}>
-      <div>id: </div>
-      <div>{job.id}</div>
-      <div>title: </div>
-      <div>{job.title}</div>
-      <div>description: </div>
-      <div>{job.description}</div>
-      <div>salary: </div>
-      <div>{job.salary}</div>
-      <div>organization_id: </div>
-      <div>{job.organization_id}</div>
+      <div>Title: {job.title}</div>
+      <div>Description: {job.description}</div>
+      <div>Salary: {job.salary}</div>
       <button className="btn" type="button" onClick={() => {
         setShow(true);
         setJobId(job.id);
@@ -28,14 +21,12 @@ const OrganizationJobs = (props) => {
           Please choose one of your connections:
           <form onSubmit={(e) => { 
             e.preventDefault();
-            console.log(selected);
             handleSubmit(selected)}}>
             <Select
               options={options}
               values={[]}
               name="select"
               onChange={(value) => {
-                console.log(value);
                 setSelected(value);
               }}
             />
