@@ -11,7 +11,6 @@ const Jobs = ({user_id, organization_id}) => {
   const [orgJobs, setOrgJobs] = useState([]);
   const [referredJobs, setReferredJobs] = useState([]);
   const [acceptedJobs, setAcceptedJobs] = useState([]);
-  const [buttonContent, setButtonContent] = useState('Accept Reference');
 
   useEffect(() => {    
     Promise.all([
@@ -20,8 +19,9 @@ const Jobs = ({user_id, organization_id}) => {
       // axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
     ]).then((all) => {
       setOrgJobs(all[0].data);
-      setReferredJobs(all[1].data[0]);
-      // Hardcode for now, need to populate database
+      setReferredJobs(all[1].data);
+
+      //Hard code for now, need connections data
       // const newOptions = all[2].data.map((connectionArray) => {
       //   const {id, name, organization_id} = connectionArray[0];
       //   return {label: name, referred_by_id: user_id, candidate_id: id, job_id: jobId, organization_id, accepted: false}
@@ -71,16 +71,9 @@ const Jobs = ({user_id, organization_id}) => {
 
   const acceptedJobList = acceptedJobs.map((job) => (
   <div key={job.id}>
-    <div>id: </div>
-    <div>{job.id}</div>
-    <div>title: </div>
-    <div>{job.title}</div>
-    <div>description: </div>
-    <div>{job.description}</div>
-    <div>salary: </div>
-    <div>{job.salary}</div>
-    <div>organization_id: </div>
-    <div>{job.organization_id}</div>
+    <div>Title: {job.title}</div>
+    <div>Description: {job.description}</div>
+    <div>Salary: {job.salary}</div>
     <hr/>
   </div>
   ));
@@ -89,15 +82,18 @@ const Jobs = ({user_id, organization_id}) => {
     <>
       <article className='jobs'>
       <h1>This is the Jobs component</h1>
-      <h2>Jobs you have been referred to</h2> 
-        <ReferredJobs
-          referredJobs={referredJobs}
-          handleAccept={handleAccept}
-          buttonContent={buttonContent}
-          setButtonContent={setButtonContent}
-        />
-      <h2>Job references you have accepted</h2> 
-      {acceptedJobList}
+      <h2>Jobs you have been referred to</h2>
+      <div> 
+          <ReferredJobs
+            referredJobs={referredJobs}
+            handleAccept={handleAccept}
+          />
+      </div> 
+      <div>
+        <h2>Job references you have accepted</h2> 
+        <div>{acceptedJobList}</div>
+      </div> 
+      <div>
       <h2>Jobs From your employer</h2>
         <OrganizationJobs
         show={show}
@@ -109,6 +105,7 @@ const Jobs = ({user_id, organization_id}) => {
         orgJobs={orgJobs}
         handleSubmit={handleSubmit}
         />
+     </div> 
       </article>
     </>
   )

@@ -1,33 +1,21 @@
 import { React } from 'react';
+import AcceptButton from './AcceptButton';
 
 const ReferredJobs = (props) => {
-  const { referredJobs, handleAccept, buttonContent, setButtonContent} = props;
+  const { referredJobs, handleAccept} = props;
   
   const jobList = referredJobs.map((job) => {
 
     return (
       <div key={job.id}>
-        <div>id: </div>
-        <div>{job.id}</div>
-        <div>title: </div>
-        <div>{job.title}</div>
-        <div>description: </div>
-        <div>{job.description}</div>
-        <div>salary: </div>
-        <div>{job.salary}</div>
-        <div>organization_id: </div>
-        <div>{job.organization_id}</div>
-        <button 
-        className="btn"
-        type="button"
-        disabled={buttonContent === 'Accepted'? true : false}
-        onClick={(e) => {
-          e.preventDefault();
-          handleAccept(job.id, job.organization_id);
-          setButtonContent('Accepted')
-        }}>
-          {buttonContent}
-        </button>
+        <div>Title: {job.title}</div>
+        <div>Description: {job.description}</div>
+        <div>Salary: {job.salary}</div>
+        <AcceptButton
+          id={job.id}
+          organization_id={job.organization_id}
+          handleAccept={handleAccept}
+        />
         <hr />
       </div>
     );
