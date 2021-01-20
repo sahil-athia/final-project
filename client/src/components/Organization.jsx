@@ -12,8 +12,8 @@ import Employees from "./organization/Employees"
 import Jobs from "./organization/Jobs"
 import Notifications from "./organization/Notifications"
 
-const Organization = (props) => {
-  const organization_id = 1
+const Organization = ({organization_id, onClick}) => {
+
   const [org_profile, setOrg_profile] = useState({});
   const [org_jobs, setOrg_jobs] = useState([]);
   const [reload, setReload] = useState(false);
@@ -36,7 +36,7 @@ const Organization = (props) => {
     <Router>
       <div className="organization">
         <OrganizationHeader 
-          onClick={props.onClick}
+          onClick={onClick}
         />
 
         <Switch>

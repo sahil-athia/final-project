@@ -23,23 +23,12 @@ import Signup from "./components/Signup"
 
 function App() {
   // Hard code organization_id for now, needs org auth
-  const organization_id = 1;
+  // const organization_id = 1;
 
   let history = useHistory();
   const [state, setState] = useState({isLoggedIn: false, user: {}})
   useEffect(() => {
     loginStatus()
-
-    Promise.all([
-      axios.get('/api/v1/organization'),
-      axios.get('/api/v1/user'),
-      axios.get('/api/v1/job'),
-      axios.get('/api/v1/job_reference')
-    ]).then((all) => {
-      setState(prev => ({...prev, organizations: all[0].data, users: all[1].data, jobs: all[2].data, job_references: all[3].data }));
-    }).catch((err) => {
-      console.log(err);
-    });;
 
   }, []);
 
@@ -90,7 +79,7 @@ function App() {
             <Link to="/individual">Individual</Link>
           </li>}
           {state.user.profile_type === "organization" && <li>
-            <Link to="/organization">Organization</Link>
+            <Link to="/organization/dashboard">Organization</Link>
           </li>}
         </ul>
         <hr />
@@ -115,6 +104,7 @@ function App() {
 
           <Route path="/organization">
             <Organization 
+              organization_id={state.user.id}
               onClick={handleLogout}
             />
           </Route>
