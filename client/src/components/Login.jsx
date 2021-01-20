@@ -34,7 +34,7 @@ export default function Login(props) {
         setError(false)
 
         if (response.data.user.profile_type === "organization") {
-          history.push("/organization")
+          history.push("/organization/dashboard")
         } else  {
           history.push("/individual")
         }
