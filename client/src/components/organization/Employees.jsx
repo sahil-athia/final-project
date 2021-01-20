@@ -3,11 +3,11 @@ import axios from 'axios';
 import EmployeeBox from './search_components/EmployeeBox';
 import SearchBar from './search_components/SearchBar';
 
-const Employees = ({organization_id, employees}) => {
+const Employees = ({organization_id, employees, reload}) => {
   const [input, setInput] = useState('');
   const [data, setData] = useState({})
   const [dataFilterd, setDataFilterd] = useState({})
-  const [reload, setReload] = useState(false)
+  const [localReload, setReload] = useState(false)
   const [search, setSearch] = useState("By Name")
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Employees = ({organization_id, employees}) => {
     .catch((err) => {
       console.log(err);
     });
-  }, [reload]);
+  }, [localReload]);
 
   const updateInput = (input) => {
     if (search === "By Name") {
@@ -52,7 +52,8 @@ const Employees = ({organization_id, employees}) => {
       email={employee.email}
       summary={employee.summary}
       industry={employee.industry}
-      reload={setReload}
+      reload={reload}
+      localReload={setReload}
     />
   });
 
@@ -85,7 +86,10 @@ const Employees = ({organization_id, employees}) => {
       />
       <br/>
       {dataFilterd.length > 0 && newEmployees()}
-      {dataFilterd.length === 0 && <p>No results matched your search</p>}
+      {dataFilterd.length === 0 && <>
+      <p>No results matched your search</p>
+      <hr/>
+      </>}
     </div>
     <div>
       <h2>Current Employees</h2>
