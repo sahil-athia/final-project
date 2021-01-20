@@ -59,9 +59,9 @@ module Api
         end
 
       def update
-        job = Job.find(update_params[:id])
-        job.update(update_params)
-        job.save
+        @user = User.find(update_params[:id])
+        @user.update(update_params)
+        @user.save
       end
 
       def get_by_organization_id
@@ -70,7 +70,7 @@ module Api
       end
 
       def search_new
-        @user = User.find_by_sql("SELECT * FROM Users WHERE organization_id <> #{params[:id]}")
+        @user = User.find_by_sql("SELECT * FROM Users WHERE organization_id IS NULL OR organization_id != #{params[:id]}")
         render json: @user, status: :ok
       end
 
@@ -112,7 +112,7 @@ module Api
       end
 
       def update_params
-        params.require(:data).permit(:id, :verified)
+        params.require(:data).permit(:id, :organization_id, :verified)
       end
 
     end
