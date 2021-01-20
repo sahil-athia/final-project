@@ -6,8 +6,8 @@ const SearchBar = ({input, onChange, setSearch}) => {
 
   return (
     <Form>
-      <Form.Group controlId="exampleForm.ControlSelect2">
-        <Form.Label>Select Search Option: </Form.Label>
+      <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Label><h2>Search new employees</h2></Form.Label>
         <Form.Control as="select" onChange={e => setSearch(e.target.value)}>
           <option>By Name</option>
           <option>By Email</option>
@@ -15,9 +15,9 @@ const SearchBar = ({input, onChange, setSearch}) => {
       </Form.Group>
       <input 
        style={BarStyling}
-       key="random2"
+       key="random1"
        value={input}
-       placeholder={"Search employee"}
+       placeholder={"here"}
        onChange={(e) => onChange(e.target.value)}
       />
     </Form>
