@@ -47,6 +47,7 @@ const Organization = ({organization_id, onClick}) => {
 
           <Route path="/organization/employees">
             <Employees 
+            organization_id={organization_id}
             employees={state.employees}
             reload={setReload}
             />
