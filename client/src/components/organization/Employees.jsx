@@ -3,7 +3,7 @@ import axios from 'axios';
 import EmployeeBox from './search_components/EmployeeBox';
 import SearchBar from './search_components/SearchBar';
 
-const Employees = ({organization_id, employees, reload}) => {
+const Employees = ({organization_id, employees}) => {
   const [input, setInput] = useState('');
   const [data, setData] = useState({})
   const [dataFilterd, setDataFilterd] = useState({})
@@ -15,7 +15,7 @@ const Employees = ({organization_id, employees, reload}) => {
     .get(`/logged_in`)
     .then(res => {
       console.log(res);
-      axios.get(`/api/v1/user/by_organization_id/${organization_id}`)
+      axios.get(`http://localhost:8080/api/v1/user/search_new/${organization_id}`)
     })
     .then((res) => {
       console.log(res);
