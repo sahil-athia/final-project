@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {useState} from 'react'
 import Confirm from './small_components/Confirm'
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 export default function ConnectionBox(props) {
   let history = useHistory()
@@ -30,6 +30,12 @@ export default function ConnectionBox(props) {
       <p>{props.email}</p>
       <p>{props.summary}</p>
       <hr></hr>
+      <Link
+        to={{
+          pathname: "/individual/user_page",
+          hash: `#${props.id}` 
+        }}
+      >View</Link>
       <button onClick={() => setConfirm(true)}>Remove</button>
       </div>}
     {confirm === true && <Confirm

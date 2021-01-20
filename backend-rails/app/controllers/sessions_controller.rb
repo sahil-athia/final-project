@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   
   def create
     if (session_params[:profile_type] == "user")
-      @user = User.find_by(name: session_params[:name], email: session_params[:email])
+      @user = User.find_by(email: session_params[:email])
     
       if @user && @user.authenticate(session_params[:password])
         login!
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
     elsif (session_params[:profile_type] == "organization")
 
-      @organization = Organization.find_by(name: session_params[:name], email: session_params[:email])
+      @organization = Organization.find_by(email: session_params[:email])
     
       if @organization && @organization.authenticate(session_params[:password])
         org_login!
@@ -60,6 +60,6 @@ class SessionsController < ApplicationController
   end
   private
     def session_params
-          params.require(:user).permit(:name, :password, :email, :profile_type)
+          params.require(:user).permit(:password, :email, :profile_type)
     end
 end

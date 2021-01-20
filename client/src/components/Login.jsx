@@ -2,7 +2,8 @@ import { useState } from 'react'
 import axios from 'axios';
 import { Link, useHistory } from "react-router-dom";
 import  Alert  from "react-bootstrap/Alert"
-import { Form } from 'react-bootstrap';
+import { Form, Button, Image } from 'react-bootstrap';
+import './Login.scss'
 
 export default function Login(props) {
   let history = useHistory();
@@ -49,7 +50,13 @@ export default function Login(props) {
   };
 
   return(
-    <div>
+    <section className='login'>
+      <div className="box">
+        <div className="text-box">
+          <h1>Example Text</h1>
+        </div>
+
+      <div className="form-box">
       <h1>Log In</h1>        
       {error && 
       <Alert variant="danger" onClose={() => setError(false)} dismissible>
@@ -59,43 +66,50 @@ export default function Login(props) {
           </p>
       </Alert>
       }
-      <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label>Select Profile Type: </Form.Label>
-            <Form.Control as="select" onChange={e => setType(e.target.value)}>
-              <option>user</option>
-              <option>organization</option>
-            </Form.Control>
+
+      <Form onSubmit={handleSubmit} >
+
+        <Form.Group controlId="exampleForm.ControlSelect1" className="form-input">
+          <Form.Label>Select Profile Type: </Form.Label>
+          <Form.Control as="select" onChange={e => setType(e.target.value)}>
+            <option>user</option>
+            <option>organization</option>
+          </Form.Control>
         </Form.Group>
-          <input
-            placeholder="name"
-            type="text"
-            name="name"
-            value={name}
-            onChange={event => setName(event.target.value)}
-          />
-          <input
+
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control 
             placeholder="email"
             type="text"
             name="email"
             value={email}
             onChange={event => setEmail(event.target.value)}
           />
-          <input
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control 
             placeholder="password"
             type="password"
             name="password"
             value={password}
             onChange={event => setPassword(event.target.value)}
-          />         
-      <button placeholder="submit" type="submit">
-            Log In
-          </button>          
-          <div>
-            or <Link to='/signup'>sign up</Link>
-          </div>
+          />
+        </Form.Group>     
+
+        <Button variant="primary" placeholder="submit" type="submit">Login</Button>{' '}         
+        <div>
+          or <Link to='/signup'>sign up</Link>
+        </div>
           
-         </Form>
+      </Form>
       </div>
+      </div>
+    </section>
   )
 }

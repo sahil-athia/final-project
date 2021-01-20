@@ -1,0 +1,45 @@
+.login {
+  background-image: url('https://s4827.pcdn.co/wp-content/uploads/2018/02/zac-ong-394558_iPad.jpg');
+  background-position:center; 
+  background-repeat:no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .box{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 80%;
+    border: 2px solid rgb(23, 24, 37);
+    border-radius: 27px;
+
+    .text-box {
+      text-align: center;
+      width: 60%;
+      color: white;
+      background-color: rgba(78, 74, 131, 0.301);
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+
+      h1 {
+        align-self: center;
+        margin-top: auto;
+      }
+    }
+    .form-box {
+      color: white;
+      width: 40%;
+      background-color: rgb(23, 24, 37);
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+      .form-control {
+        background-color: rgba(255, 255, 255, 0);
+        width: 80%;
+        margin: auto;
+      }
+    }
+  }
+}

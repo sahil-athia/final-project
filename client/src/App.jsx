@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,7 +27,7 @@ function App() {
   const organization_id = 1;
 
   let history = useHistory();
-  const [state, setState] = useState({isLoggedIn: false, user: {}})
+  const [state, setState] = useState({isLoggedIn: false, user: {}, isLoggingOut:false})
   useEffect(() => {
     loginStatus()
 
@@ -75,12 +76,13 @@ function App() {
         user: {}
         })
     })
-    
   }
+
+  const loggingOut = () => state.isLoggedIn === false
   // remove the user state on logout
   return (
     <Router>
-      {/* {() => state.isLoggedIn === false && <Redirect to='/' />} */}
+      {/* {loggingOut() && <Redirect to='/' />} */}
       <div className="App">
         <ul>
           <li>
@@ -93,9 +95,6 @@ function App() {
             <Link to="/organization">Organization</Link>
           </li>}
         </ul>
-        <hr />
-
-
         <Switch>
           <Route exact path="/">
             <Home state={state}/>
