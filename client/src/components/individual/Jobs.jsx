@@ -52,12 +52,10 @@ const Jobs = ({user_id, organization_id}) => {
 
   const handleAccept = (job_id, organization_id) => {
     const jobInfo = {job_id, organization_id, accepted: true};
-    axios.post('http://localhost:8080/api/v1/job_reference/job', {jobInfo}, {withCredentials: true})
+    axios.post('http://localhost:8080/api/v1/job_reference/accept', {jobInfo}, {withCredentials: true})
     .then((res) => {
-      console.log(res);
       axios.get(`http://localhost:8080/api/v1/job/${job_id}`)
       .then((res) => {
-        console.log(res);
         setAcceptedJobs(prev => [...prev, res.data]);
       })
       .catch((err) => {
