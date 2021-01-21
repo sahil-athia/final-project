@@ -20,15 +20,16 @@ const EmployeeBox = (props) => {
   return(
     <div>
       <hr></hr>
-      <h3>{name}: {industry}</h3>
+      <h3>{name}</h3>
+      <p>{industry}</p>
       <p>{email}</p>
       <p>{summary}</p>
-      <Link
+      {/* <Link
         to={{
           pathname: "/individual/user_page",
           hash: `#${id}` 
         }}
-      >View</Link>
+      >View</Link> */}
       <button onClick={verifyEmployee}>Add</button>
       <hr></hr>
     </div>

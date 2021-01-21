@@ -7,7 +7,6 @@ const EditBody = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(state);
     axios.post(`http://localhost:8080/api/v1/organization/update_body`, {state}, {withCredentials: true})
     .then(() => {
       reload(currentState => !currentState)

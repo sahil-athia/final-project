@@ -1,8 +1,7 @@
-import { React, useState, useEffect } from 'react';
+import { React } from 'react';
 
 const AcceptButton = (props) => {
-  const { id, organization_id, handleAccept} = props;
-  const [show, setShow] = useState(true);
+  const { id, organization_id, handleAccept, show, setShow} = props;
 
   const handelClick = (event) => {
     event.preventDefault();
@@ -12,12 +11,7 @@ const AcceptButton = (props) => {
 
   return (
     <div>
-      <div>
-        {show && <button onClick={handelClick}>Accept Reference</button>}
-      </div>
-      <div>
-        {!show && <button disabled={true}>Accepted</button>}
-      </div>
+      {show && <button onClick={handelClick}>Accept Reference</button>}
     </div>
   )
   
