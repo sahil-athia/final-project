@@ -11,8 +11,8 @@ export default function Head(props){
       <div className="user_header">
         <div className="user_summary">
           <h1>{props.name}<hr></hr></h1>
-          <h3>Industry: {props.industry}</h3>
-          <h5>Summary: {props.summary}</h5>
+          <h3><em>Industry: {props.industry}</em></h3>
+          <h5> {props.summary}</h5>
           {props.onClick && <button onClick={edit}>
             Edit
           </button>}
