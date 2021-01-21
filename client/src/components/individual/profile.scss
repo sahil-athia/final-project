@@ -1,0 +1,42 @@
+
+.user_header{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  margin: 2vh;
+  
+  .user_summary {
+    min-width: 60%;
+  }
+  .image-box {
+    min-width: 40%;
+
+
+    .stack {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      position: relative;
+    }
+
+    .user_resume {
+      margin: 1vh;
+      height:80vh;
+      position:relative; /* and this has to be relative */
+      width:30vw;
+      z-index: 0;
+      opacity: 0.8;
+      filter: invert(1);
+      }
+    
+    .user_resume:hover {
+      z-index: 1;
+    }
+    .user_photo {
+      height:40vh;
+      width:20vw;
+      margin-top: -65%;
+      margin-right: 5%;
+      float: right ;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
@@ -24,12 +25,10 @@ import Signup from "./components/Signup"
 function App() {
   // Hard code organization_id for now, needs org auth
   // const organization_id = 1;
-
   let history = useHistory();
-  const [state, setState] = useState({isLoggedIn: false, user: {}, isLoggingOut:false})
+  const [state, setState] = useState({isLoggedIn: false, user: {}})
   useEffect(() => {
     loginStatus()
-
   }, []);
 
   const loginStatus = () => {
@@ -47,7 +46,6 @@ function App() {
   };
 
   const handleLogin = (data) => {
-    console.log(data)
     setState({
       isLoggedIn: true,
       user: data.user || data.data.user
@@ -67,13 +65,16 @@ function App() {
   }
   // remove the user state on logout
 
-  const loggingOut = () => state.isLoggedIn === false
   return (
     <Router>
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Home state={state}/>
+            <Home 
+              state={state}
+              onClick={handleLogout}
+            />
+            
           </Route>
           
           <Route exact path='/login'>
@@ -88,29 +89,22 @@ function App() {
               
             />
           </Route>
+          {state.isLoggedIn && 
+            <Route path="/individual">
+              <Individual 
+                user_id ={state.user.id} 
+                onClick={handleLogout}
+              />
+            </Route>} 
+                
 
-          {state.isLoggedIn ?
-            (
-              <>
-                <Route path="/individual">
-                  <Individual 
-                    user_id ={state.user.id} 
-                    onClick={handleLogout}
-                  />
-                </Route>
-
-                <Route path="/organization">
+                 <Route path="/organization">
 
                   <Organization 
                     organization_id={state.user.id}
                     onClick={handleLogout}
                   />
                 </Route>
-              </>
-            ) : (
-              <Redirect to='/' />
-            ) 
-          }
         </Switch>
       </div>
     </Router>

@@ -1,4 +1,4 @@
-import "./profile.css"
+import "./profile.scss"
 import Head from "./profile_components/Head"
 import EditHead from "./profile_components/EditHead"
 import Body from "./profile_components/Body"
@@ -19,6 +19,7 @@ export default function Profile(props){
         industry={props.industry}
         summary={props.summary}
         resume_url={props.resume_url}
+        photo={props.photo}
         onClick={setEdit}
       />}
       {edit.head && <EditHead 

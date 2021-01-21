@@ -1,24 +1,19 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { Navbar, Nav } from 'react-bootstrap'
 
 export default function IndividualHeader(props) {
   return(
-    <div>
-       <nav>
-        <ul>
-          <Link to="/individual"> Profile </Link>
-          <Link to="/individual/networking"> Networking </Link>
-          <Link to="/individual/connections"> Connections </Link>
-          <Link to="/individual/jobs"> Jobs </Link>
-          <Link to="/individual/notifications"> Notifications </Link>
-          <button onClick={props.onClick} >Logout</button>
-        </ul>
-      </nav>
-    </div>
+    <>
+    <Navbar bg="dark" variant="dark">
+      <Navbar.Brand href="/">Insight</Navbar.Brand>
+      <Nav className="mr-auto">
+        <Nav.Link href="/individual">Profile</Nav.Link>
+        <Nav.Link href="/individual/networking">Networking</Nav.Link>
+        <Nav.Link href="/individual/connections">Connections</Nav.Link>
+        <Nav.Link href="/individual/jobs">Jobs</Nav.Link>
+        <button onClick={props.onClick} >Logout</button>
+      </Nav>
+    </Navbar>
+  </>
   )
 }

@@ -48,6 +48,7 @@ function Individual(props) {
               experience={data.experience}
               location={data.location}
               contact={data.contact}
+              photo={data.photo_url}
               reload={setReload}
             >   
             </Profile>
