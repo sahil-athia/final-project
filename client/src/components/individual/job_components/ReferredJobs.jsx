@@ -5,15 +5,15 @@ const ReferredJobs = (props) => {
   const { referredJobs, handleAccept} = props;
   
   const jobList = referredJobs.map((job) => {
-
+    const {id, title, description, salary, organization_id} = job[0];
     return (
-      <div key={job.id}>
-        <div>Title: {job.title}</div>
-        <div>Description: {job.description}</div>
-        <div>Salary: {job.salary}</div>
+      <div key={id}>
+        <div>Title: {title}</div>
+        <div>Description: {description}</div>
+        <div>Salary: {salary}</div>
         <AcceptButton
-          id={job.id}
-          organization_id={job.organization_id}
+          id={id}
+          organization_id={organization_id}
           handleAccept={handleAccept}
         />
         <hr />

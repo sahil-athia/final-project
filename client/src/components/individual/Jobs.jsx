@@ -19,6 +19,8 @@ const Jobs = ({user_id, organization_id}) => {
       // axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
     ]).then((all) => {
       setOrgJobs(all[0].data);
+      console.log(all[1].data);
+
       setReferredJobs(all[1].data);
 
       //Hard code for now, need connections data
@@ -51,7 +53,7 @@ const Jobs = ({user_id, organization_id}) => {
   };
 
   const handleAccept = (job_id, organization_id) => {
-    const jobInfo = {job_id, organization_id};
+    const jobInfo = {job_id, organization_id, accepted: true};
     axios.post('http://localhost:8080/api/v1/job_reference/job', {jobInfo}, {withCredentials: true})
     .then((res) => {
       console.log(res);
@@ -81,7 +83,6 @@ const Jobs = ({user_id, organization_id}) => {
   return (
     <>
       <article className='jobs'>
-      <h1>This is the Jobs component</h1>
       <h2>Jobs you have been referred to</h2>
       <div> 
           <ReferredJobs
