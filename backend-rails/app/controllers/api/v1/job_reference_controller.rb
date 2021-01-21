@@ -43,7 +43,6 @@ module Api
       def accept_reference
         reference = JobReference.where(job_id: params[:job_id], organization_id: params[:organization_id])
         reference.update(accepted: true)
-        # reference.update(accept_reference_params[:accepted])
       end
 
       private

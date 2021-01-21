@@ -19,8 +19,6 @@ const Jobs = ({user_id, organization_id}) => {
       // axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
     ]).then((all) => {
       setOrgJobs(all[0].data);
-      console.log(all[1].data);
-
       setReferredJobs(all[1].data);
 
       //Hard code for now, need connections data
