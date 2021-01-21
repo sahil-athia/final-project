@@ -30,6 +30,12 @@ module Api
         end
       end
 
+      # def update
+      #   @reference = JobReference.where(job_id: accept_reference_params[:job_id], organization_id: accept_reference_params[:organization_id])
+      #   @reference.update(accept_reference_params)
+      #   @reference.save
+      # end
+
       def get_by_job_id
         job_references = JobReference.where(job_id: params[:id], accepted: true)
         filteredList = job_references.map {|reference| 
@@ -41,9 +47,8 @@ module Api
       end
 
       def accept_reference
-        reference = JobReference.where(job_id: params[:job_id], organization_id: params[:organization_id])
-        reference.update(accepted: true)
-        reference.save
+        reference = JobReference.where(job_id: accept_reference_params[:job_id], organization_id: accept_reference_params[:organization_id])
+        reference.update(accept_reference_params)
       end
 
       private
@@ -53,7 +58,7 @@ module Api
       end
 
       def accept_reference_params
-        params.require(:jobInfo).permit(:job_id, :organization_id)
+        params.require(:jobInfo).permit(:job_id, :organization_id, :accepted)
       end
       
     end

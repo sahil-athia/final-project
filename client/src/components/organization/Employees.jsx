@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import EmployeeBox from './search_components/EmployeeBox';
-import SearchBar from './search_components/SearchBar';
+import RemoveEmployee from './employee_components/RemoveEmployee';
+import EmployeeBox from './employee_components/EmployeeBox';
+import SearchBar from './employee_components/SearchBar';
 
 const Employees = ({organization_id, employees, reload}) => {
   const [input, setInput] = useState('');
@@ -59,7 +60,7 @@ const Employees = ({organization_id, employees, reload}) => {
 
   const currentEmployees = employees.map((employee) => (
     <div key={employee.id}>
-      <h3>Name: {employee.name}</h3>
+      <h4>Name: {employee.name}</h4>
       <p>Summary: {employee.summary}</p>
       <p>Industry: {employee.industry}</p>
       <p>Skills: {employee.skills}</p>
@@ -69,9 +70,14 @@ const Employees = ({organization_id, employees, reload}) => {
       <p>Location: {employee.location}</p>
       <p>Contact: {employee.contact}</p>
       <img src={employee.resume_url} className="user_resume"></img>
-      {/* <p>Id: {employee.id}</p>
-      <p>Organization_id: {employee.organization_id}</p>
-      <p>Verified: {employee.verified}</p> */}
+      <div>
+        <RemoveEmployee
+          id={employee.id}
+          organization_id={organization_id}
+          reload={reload}
+          localReload={setReload}
+        />
+      </div>
       <hr/>
     </div>
   ));

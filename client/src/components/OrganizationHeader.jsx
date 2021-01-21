@@ -8,7 +8,7 @@ const OrganizationHeader = (props) => {
           <Link to="/organization/dashboard"> Dashboard </Link>
           <Link to="/organization/employees"> Employees </Link>
           <Link to="/organization/jobs"> Jobs </Link>
-          <Link to="/organization/notifications"> Notifications </Link>
+          {/* <Link to="/organization/notifications"> Notifications </Link> */}
           <button onClick={props.onClick} >Logout</button>
         </ul>
       </nav>
