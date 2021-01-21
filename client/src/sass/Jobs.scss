@@ -1,0 +1,109 @@
+body {
+  background-color: black;
+}
+
+.jobs {
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 30px;
+
+  .create-jobs {
+    width: 500px;
+    height: 200px;
+    display: flex;
+
+    img.add-btn {
+      width: 30px;
+      height: 30px;
+    }
+
+    button.add-btn {
+      height: 30px;
+      background-color: black;
+      color: aliceblue;
+      border: none;
+    }
+
+    form.edit-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 400px;
+      margin-left: 20px;
+
+      label.form-line-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        text-align: end;
+        width: 400px;
+        line-height: 25px;
+        margin-bottom: 10px;
+
+        input.form-line-input {
+          height: 25px;
+          width: 350px;
+          margin-left: 10px;
+          background-color: black;
+          color: white;
+          outline: 0;
+          border-width: 0 0 1px;
+          border-color: aliceblue;
+        }
+      
+      }
+    }
+
+    div.form-submit {
+      width: 400px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+          
+      img.done-btn {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+      }
+  
+      button.done-btn {
+        height: 30px;
+        background-color: black;
+        color: aliceblue;
+        border: none;
+      }
+
+    }
+    
+  }
+
+  .show-jobs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    .current-jobs {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: flex-start;
+
+      .job-card {
+        margin: 20px;
+        border-right: 5px solid whitesmoke;
+
+        .job-info {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+        }
+  
+      }
+    }
+  }
+}

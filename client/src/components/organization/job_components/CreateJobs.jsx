@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
+import done from '../../../icons/done.png';
 
 const CreateJobs = ({organization_id, setNewJob, reload}) => {
   const [state, setState] = useState({title: '', salary: '', description: ''}); 
@@ -16,48 +17,48 @@ const CreateJobs = ({organization_id, setNewJob, reload}) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Title: 
+      <form className="edit-form" onSubmit={handleSubmit}>
+        <div className="form-line">
+          <label className="form-line-title">Title 
           <input
-            placeholder="title"
+            className="form-line-input"
             type="text"
             name="title"
             value={state.title}
             onChange={event => setState(prev => ({...prev, title: event.target.value}))}
           />
+          </label>
         </div>
-        <br/>
-        <div>
-          Salary: 
+        <div className="form-line">
+          <label className="form-line-title">Salary
           <input
-            placeholder="salary"
+            className="form-line-input"
             type="text"
             name="salary"
             value={state.salary}
             onChange={event => setState(prev => ({...prev, salary: event.target.value}))}
           />
+          </label>
        </div>
-       <br/>
-       <div>
-          Description: 
+       <div className="form-line">
+          <label className="form-line-title">Description
           <input
-            placeholder="description"
+            className="form-line-input"
             type="text"
             name="description"
             value={state.description}
             onChange={event => setState(prev => ({...prev, description: event.target.value}))}
           />
+          </label>
         </div>
-        <br/>
-        <div>
-          <button placeholder="submit" type="submit">
-            Done
+        <div className="form-submit">
+          <button className="done-btn" type="submit">
+            Done   
+          <img className="done-btn" src={done} alt="done"/>
           </button>
+
         </div>
       </form>
-    </div>
   );
 
 };
