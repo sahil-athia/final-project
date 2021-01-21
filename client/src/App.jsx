@@ -23,8 +23,6 @@ import Signup from "./components/Signup"
 
 
 function App() {
-  // Hard code organization_id for now, needs org auth
-  // const organization_id = 1;
   let history = useHistory();
   const [state, setState] = useState({isLoggedIn: false, user: {}})
   useEffect(() => {
@@ -53,14 +51,20 @@ function App() {
   }
   // add a user state on authentication
 
-  const handleLogout = () => {
+  const handleLogout = (cb) => { 
+    console.log("uwviuwebviwubeviwbevibweivbwiebviwebuvwbeivbwievb")
+
     let user = state.user
     axios.post("http://localhost:8080/logout", {user}, {withCredentials: true})
     .then((res) => {
+      // history.push("/")
       setState({
         isLoggedIn: false,
         user: {}
         })
+        if (cb) {
+          cb()
+        }
     })
   }
   // remove the user state on logout

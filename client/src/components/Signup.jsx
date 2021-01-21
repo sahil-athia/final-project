@@ -8,13 +8,6 @@ import Loading from "./Loading"
 
 export default function Signup(props) {
   let history = useHistory();
-  // const [state, setState] = useState({ 
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  //   password_confirmation: '',
-  //   errors: ''
-  //  })
   const [name, setName] = useState(""); 
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState(""); 

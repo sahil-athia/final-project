@@ -1,54 +1,54 @@
 import React, { useEffect, useRef } from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {useHistory, withRouter} from 'react-router-dom'
 import {useCallback} from 'react'
 import './Home.scss'
 import {TextScramble} from '../helpers/scramble.js'
 
-export default function Home(props) {
+function Home(props) {
+  console.log(props.state.isLoggedIn)
   let history = useHistory()
-  const text = useRef(null);
+  
+  const text = useRef(<></>);
+
   useEffect(() => {
     const phrases = [
-      'Neo,',
-      'sooner or later',
-      'you\'re going to realize',
-      'just as I did',
-      'that there\'s a difference',
-      'between knowing the path',
-      'and walking the path',
-      ''
+      'Networking',
+      'Connections',
+      'Leverage',
+      'Business'
     ]
-    console.log(text.current.innerHTML)
     const el = text
     const fx = new TextScramble(el)
-    
+    let timeOut;
+
     let counter = 0
-    const next = () => {
-      console.log(phrases[counter])
+    async function next() {
       fx.setText(phrases[counter])
         .then(() => {
-        setTimeout(next, 800)
-      })
+        timeOut = setTimeout(next, 1000)
+        })
+        .catch(e => console.log(e))
       counter = (counter + 1) % phrases.length
-    }
-    
+    } 
     next()
+    
+    return function cleanup() {
+      clearTimeout(timeOut)
+    }
   }, [])
 
   const handleOnClick = useCallback(() => history.push('/login'), [history]);
-  
+  const handleBack = () => {
+    window.location.pathname = '/'
+  }
   
   return (
     <div className="home">
       <div className="info">
-      <div class="container">
-        <div 
-          class="text"
-          ref={text}
-        >hi
-        </div>
+      <div className="container">
+        <h4 className="text" ref={text} ></h4>
       </div>
-        <h1> Insight</h1>
+        <h1> Insight </h1>
         <br></br>
         <h3>Networking made easy</h3>
         <br></br>
@@ -57,7 +57,7 @@ export default function Home(props) {
               Get Connected
             </button>
           ) : (
-            <button type="button" onClick={props.onClick}>
+            <button type="button" onClick={props.onClick(handleBack)}>
               Logout
             </button>
           ) 
@@ -72,3 +72,5 @@ export default function Home(props) {
     </div>
   )
 }
+
+export default withRouter(Home)
