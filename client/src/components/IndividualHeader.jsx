@@ -7,7 +7,7 @@ export default function IndividualHeader(props) {
   }
   return(
     <>
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="" variant="">
       <Navbar.Brand >Insight</Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link href="/individual">Profile</Nav.Link>

@@ -22,6 +22,7 @@ export default function UserPage(props) {
         industry={data.industry}
         summary={data.summary}
         resume_url={data.resume_url}
+        photo={data.photo_url}
       />
       <Body 
         skills={data.skills}

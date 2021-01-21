@@ -7,13 +7,14 @@ export default function EditFooter(props){
   }
   return(
     <footer>
-        <hr></hr>
-        {props.onClick && <button onClick={edit}>
-          Edit
-        </button>}
-        <p>{props.email}</p>
-        <p>{props.contact}</p>
-        <p>{props.location}</p>
-      </footer>
+      <div>
+        <h5>{props.email}</h5>
+        <h5>{props.contact}</h5>
+        <h5>{props.location}</h5>
+      </div>
+      {props.onClick && <button onClick={edit}>
+        Edit
+      </button>}
+    </footer>
   )
 }
