@@ -23,14 +23,21 @@ const Candidates = ({job_id, organization_id}) => {
     const candidate = reference.candidate[0];
     const referee = reference.referee[0];
     return(<div key={candidate.id}>
-      <h3> Candidate: </h3>
-      <div>{candidate.name}</div>
-      <div>{candidate.email}</div>
-      <div>{candidate.summary}</div>
-      <br/>
       <h3> Referee: </h3>
-      <div>{referee.name}</div>
-      <div>{referee.email}</div>
+      <div>Name: {referee.name}</div>
+      <div>Email: {referee.email}</div>
+      <br/>
+      <h3> Candidate: </h3>
+      <div>Name: {candidate.name}</div>
+      <div>Email: {candidate.email}</div>
+      <div>Summary: {candidate.summary}</div>
+      <div>Skills: {candidate.skills}</div>
+      <div>Education: {candidate.education}</div>
+      <div>Experience: {candidate.experience}</div>
+      <div>Location: {candidate.location}</div>
+      <div>Contact: {candidate.contact}</div>
+      <img src={candidate.resume_url} className="user_resume"></img>
+      <hr/>
     </div>)
   })
 
