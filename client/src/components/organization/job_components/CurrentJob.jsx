@@ -4,11 +4,13 @@ import axios from 'axios';
 import ShowJob from './ShowJob';
 import EditJob from './EditJob';
 import Confirm from './Confirm';
+import Candidates from './Candidates';
 
 const CurrentJob = ({job, reload}) => {
   const SHOW         = "SHOW";
   const CONFIRM      = "CONFIRM";
   const EDIT         = "EDIT";
+  const CANDIDATES   = "CANDIDATES";
   const [mode, setMode] = useState(SHOW);
 
 
@@ -29,16 +31,16 @@ const CurrentJob = ({job, reload}) => {
       setMode(SHOW);
     })
     .catch((err) => console.log(err));
-  }
+  };
 
   return (
     <div className="job-card" key={job.id}>
       {mode === SHOW && (
       <ShowJob
         job={job}
-        reload={reload}
         onDelete={() => setMode(CONFIRM)}
         onEdit={() => setMode(EDIT) }
+        onReference={() => setMode(CANDIDATES)}
       />
       )}
       {mode === EDIT && (
@@ -47,7 +49,6 @@ const CurrentJob = ({job, reload}) => {
           title={job.title}
           salary={job.salary}
           description={job.description}
-          reload={reload}
           onSave={saveChange}
           onCancel={() => setMode(SHOW)}
         />
@@ -58,6 +59,12 @@ const CurrentJob = ({job, reload}) => {
         deleteConfirm={() => deleteJob(job.id)}
         deleteCancel={() => setMode(SHOW)}
         />
+      )}
+      {mode === CANDIDATES && (
+      <Candidates
+        job_id={job.id}
+        hideCandidates={() => setMode(SHOW)}
+      />
       )}
     </div>
   )

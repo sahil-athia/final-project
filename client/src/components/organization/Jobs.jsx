@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import CreateJobs from './job_components/CreateJobs';
 import CurrentJobs from './job_components/CurrentJobs';
 import '../../sass/Jobs.scss';
