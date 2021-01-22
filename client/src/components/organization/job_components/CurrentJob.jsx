@@ -1,39 +1,65 @@
-import { useState, useEffect } from 'react';
-import Candidates from './Candidates';
+import { React, useState } from 'react';
+import axios from 'axios';
+
+import ShowJob from './ShowJob';
 import EditJob from './EditJob';
-import DeleteJob from './DeleteJob';
+import Confirm from '../../individual/small_components/Confirm';
 
 const CurrentJob = ({job, reload}) => {
-console.log(job)
+  const SHOW         = "SHOW";
+  const CONFIRM      = "CONFIRM";
+  const EDIT         = "EDIT";
+  const [mode, setMode] = useState(SHOW);
+
+
+  const saveChange = (id, data) => {    
+    const state = {...data};
+    axios.put(`http://localhost:8080/api/v1/job/${id}`, {state}, {withCredentials: true})
+    .then(() => {
+      reload(currentState => !currentState)
+    })
+    .then(() => setMode(SHOW))
+    .catch((err) => console.log(err));
+  };
+
+  const deleteJob = (id) => {
+    axios.delete(`http://localhost:8080/api/v1/job/${id}`)
+    .then(() => {
+      reload(currentState => !currentState);
+      setMode(SHOW);
+    })
+    .catch((err) => console.log(err));
+  }
+
   return (
     <div className="job-card" key={job.id}>
-      <div className="job-info">
-        <div>Title: {job.title}</div>
-        <div>Salary: {job.salary}</div>
-        <div>Description: {job.description}</div>
-      </div>
-      <div>
+      {mode === SHOW && (
+      <ShowJob
+        job={job}
+        reload={reload}
+        onDelete={() => setMode(CONFIRM)}
+        onEdit={() => setMode(EDIT) }
+      />
+      )}
+      {mode === EDIT && (
         <EditJob
           id={job.id}
           title={job.title}
           salary={job.salary}
           description={job.description}
           reload={reload}
+          onSave={saveChange}
+          onCancel={() => setMode(SHOW)}
         />
-      </div>
-      <div>
-        <DeleteJob
-          id={job.id}
-          reload={reload}
+      )}
+      {mode === CONFIRM && (
+        <Confirm 
+        message="Are you sure you want to delete this job?"
+        deleteConfirm={() => deleteJob(job.id)}
+        deleteCancel={() => setMode(SHOW)}
         />
-      </div>
-      <div>
-          <Candidates
-            job_id={job.id}
-            organization_id={job.organization_id}
-          />
-      </div>
-  </div>
+      )}
+    </div>
   )
 };
 

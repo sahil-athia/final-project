@@ -25,7 +25,7 @@ body {
     button.add-btn {
       height: 30px;
       background-color: black;
-      color: aliceblue;
+      color: #00FFFF;
       border: none;
     }
 
@@ -51,7 +51,7 @@ body {
           width: 400px;
           margin-left: 10px;
           background-color: black;
-          color: white;
+          color: aliceblue;
           outline: 0;
           border-width: 0 0 1px;
           border-color: aliceblue;
@@ -100,7 +100,7 @@ body {
       width: 100vw;
 
       .job-card {
-        width: 20vw;
+        width: 90vw;
         margin: 2vw;
         padding: 2vw;
         background-color:	#181818;
@@ -113,6 +113,30 @@ body {
           margin: 10px;
         }
   
+      }
+
+      img.edit-btn {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+      }
+  
+      img.delete-btn {
+        width: 25px;
+        height: 25px;
+        margin-left: 5px;
+      }
+
+      img.reference-btn {
+        width: 22px;
+        height: 22px;
+        margin-left: 5px;
+      }
+
+      button.reference-btn {
+        background-color:	#181818;
+        color: #00FFFF;
+        border: none;
       }
     }
   }
