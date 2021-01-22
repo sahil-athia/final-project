@@ -22,7 +22,7 @@ $borderW: 0.3rem;
 .search {
   font-family: Garamond, serif;
   position: relative;
-  width: $w;
+  width: $w * 2;
   height: $h;
   margin: auto;
 
@@ -65,7 +65,7 @@ $borderW: 0.3rem;
   &__input {
     background-color: rgba(255, 255, 255, 0);
     position: relative;
-    width: $w - $h;
+    width: ($w * 1.85) - $h;
     height: $h;
     padding: $h*0.15 0 $h*0.15 $h*0.4;
     background: transparent;
@@ -95,7 +95,7 @@ $borderW: 0.3rem;
     z-index: 2;
     position: absolute;
     top: 0;
-    left: $w*0.41;
+    left: $w*0.41 * 2.2;
     width: $w*0.2125;
     height: $w*0.2;
     cursor: pointer;

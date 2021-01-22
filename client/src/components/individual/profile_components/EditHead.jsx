@@ -34,7 +34,7 @@ export default function EditHead(props){
       <div className="form-box">
       <Form onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Industry:</Form.Label>
+            <Form.Label>Industry & Title:</Form.Label>
             <Form.Control 
               as="textarea" 
               rows={1} 
