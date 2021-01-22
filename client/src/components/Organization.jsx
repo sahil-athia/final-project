@@ -6,11 +6,11 @@ import {
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-import OrganizationHeader from "./OrganizationHeader"
-import Dashboard from "./organization/Dashboard"
-import Employees from "./organization/Employees"
-import Jobs from "./organization/Jobs"
-import Notifications from "./organization/Notifications"
+import OrganizationHeader from "./OrganizationHeader";
+import Dashboard from "./organization/Dashboard";
+import Employees from "./organization/Employees";
+import Jobs from "./organization/Jobs";
+import UserPage from "./organization/UserPage";
 
 const Organization = ({organization_id, onClick}) => {
   const [state, setState] = useState({ profile: {}, jobs: [], employees: []});
@@ -62,8 +62,8 @@ const Organization = ({organization_id, onClick}) => {
             />
           </Route>
 
-          <Route path="/organization/notifications">
-            <Notifications />
+          <Route exact path="/organization/user_page">
+            <UserPage />
           </Route>
 
         </Switch>

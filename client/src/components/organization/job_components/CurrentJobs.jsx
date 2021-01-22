@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import CurrentJob from './CurrentJob';
 
 const CurrentJobs = ({current_jobs, reload}) => {
