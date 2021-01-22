@@ -26,7 +26,6 @@ const EditJob = (props) => {
     <div>
       {!show && <button onClick={handelClick}>Edit</button>}
       {show && <> 
-        <h5>EDIT SECTION</h5>
         <form onSubmit={handleSubmit}>
             Title:
             <input
@@ -55,7 +54,7 @@ const EditJob = (props) => {
               onChange={event => setData(prev => ({...prev, description: event.target.value}))}
             />          
             <br></br>
-            <button onClick={handleSubmit}>Done</button>
+            <button onClick={handleSubmit}>Save</button>
         
         </form>
       </>}

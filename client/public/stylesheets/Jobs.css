@@ -1,3 +1,103 @@
+body {
+  background-color: black;
+}
 
+.jobs {
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 30px;
+}
+.jobs .create-jobs {
+  width: 500px;
+  height: 150px;
+  display: flex;
+  margin-left: 5vw;
+}
+.jobs .create-jobs img.add-btn {
+  width: 30px;
+  height: 30px;
+}
+.jobs .create-jobs button.add-btn {
+  height: 30px;
+  background-color: black;
+  color: aliceblue;
+  border: none;
+}
+.jobs .create-jobs form.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+  height: 150px;
+  margin-left: 20px;
+}
+.jobs .create-jobs form.edit-form label.form-line-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  text-align: end;
+  width: 400px;
+  line-height: 25px;
+  margin-bottom: 10px;
+}
+.jobs .create-jobs form.edit-form label.form-line-title input.form-line-input {
+  height: 25px;
+  width: 400px;
+  margin-left: 10px;
+  background-color: black;
+  color: white;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: aliceblue;
+}
+.jobs .create-jobs div.form-submit {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.jobs .create-jobs div.form-submit img.done-btn {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.jobs .create-jobs div.form-submit button.done-btn {
+  height: 30px;
+  background-color: black;
+  color: aliceblue;
+  border: none;
+}
+.jobs .show-jobs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 100vw;
+}
+.jobs .show-jobs .show-jobs-title {
+  padding-left: 5vw;
+}
+.jobs .show-jobs .current-jobs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+.jobs .show-jobs .current-jobs .job-card {
+  width: 20vw;
+  margin: 2vw;
+  padding: 2vw;
+  background-color: #181818;
+  border-radius: 3%;
+}
+.jobs .show-jobs .current-jobs .job-card .job-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 10px;
+}
 
 /*# sourceMappingURL=Jobs.css.map */

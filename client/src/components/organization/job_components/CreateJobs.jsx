@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
-import done from '../../../icons/done.png';
+import Save from '../../../icons/Save.png';
 
 const CreateJobs = ({organization_id, setNewJob, reload}) => {
   const [state, setState] = useState({title: '', salary: '', description: ''}); 
@@ -52,9 +52,9 @@ const CreateJobs = ({organization_id, setNewJob, reload}) => {
           </label>
         </div>
         <div className="form-submit">
-          <button className="done-btn" type="submit">
-            Done   
-          <img className="done-btn" src={done} alt="done"/>
+          <button className="save-btn" type="submit">
+            Save   
+          <img className="save-btn" src={Save} alt="Save"/>
           </button>
 
         </div>
