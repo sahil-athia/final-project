@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import Candidates from './Candidates';
 import Edit from '../../..//icons/Edit.png';
 import Delete from '../../..//icons/Delete.png';
+import Reference from '../../..//icons/Reference.png';
 
-const ShowJob = ({job, reload, onEdit, onDelete}) => {
+const ShowJob = ({job, reload, onEdit, onDelete, onReference}) => {
   return (
     <>
       <div className="job-info">Title: {job.title}</div>
@@ -22,10 +22,10 @@ const ShowJob = ({job, reload, onEdit, onDelete}) => {
           alt="Delete"
           onClick={onDelete}
         />
-        <Candidates
-          job_id={job.id}
-          organization_id={job.organization_id}
-        />
+        <button className="reference-btn" onClick={onReference}>
+          <img className="reference-btn" src={Reference} alt="Reference"/>
+          Show Reference
+        </button>
       </section>
 
   </>
