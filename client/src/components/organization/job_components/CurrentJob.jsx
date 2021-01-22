@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import ShowJob from './ShowJob';
 import EditJob from './EditJob';
-import Confirm from '../../individual/small_components/Confirm';
+import Confirm from './Confirm';
 
 const CurrentJob = ({job, reload}) => {
   const SHOW         = "SHOW";

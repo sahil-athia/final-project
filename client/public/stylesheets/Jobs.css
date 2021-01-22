@@ -25,6 +25,7 @@ section.jobs div.create-jobs button.add-btn {
 section.jobs div.create-jobs button.add-btn img.add-btn {
   width: 30px;
   height: 30px;
+  margin-right: 5px;
 }
 section.jobs div.create-jobs form.create-form {
   display: flex;
@@ -117,6 +118,27 @@ section.jobs .show-jobs .current-jobs .job-card section.job-actions {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+section.jobs .show-jobs .current-jobs .job-card div.delete-msg {
+  margin-bottom: 2.5vw;
+  margin-top: 2.5vw;
+}
+section.jobs .show-jobs .current-jobs .job-card div.delete.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+section.jobs .show-jobs .current-jobs .job-card div.delete.actions button.delete-actions-cancel {
+  background-color: #181818;
+  color: #00FFFF;
+  border: none;
+  margin-right: 3px;
+}
+section.jobs .show-jobs .current-jobs .job-card div.delete.actions button.delete-actions-confirm {
+  background-color: #181818;
+  color: #00FFFF;
+  border: none;
+  margin-right: 3px;
 }
 section.jobs .show-jobs .current-jobs img.edit-btn {
   width: 20px;

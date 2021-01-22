@@ -24,7 +24,8 @@ section.jobs {
 
       img.add-btn {
         width: 30px;
-        height: 30px;      
+        height: 30px;
+        margin-right: 5px;      
       }
     }
 
@@ -136,7 +137,32 @@ section.jobs {
           flex-direction: row;
           justify-content: flex-end;
         }
-  
+
+        div.delete-msg {
+          margin-bottom: 4.5vw;
+          margin-top: 4.5vw;
+        }
+
+        div.delete-actions {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+        }
+
+        button.delete-actions-cancel {
+          background-color:	#181818;
+          color: #00FFFF;
+          border: none;
+          margin-right: 3px;
+        }
+
+        button.delete-actions-confirm {
+          background-color:	#181818;
+          color: #00FFFF;
+          border: none;
+          margin-right: 3px;
+        }
+        
       }
 
       img.edit-btn {
