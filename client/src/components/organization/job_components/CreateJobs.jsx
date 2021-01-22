@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios';
+import Save from '../../../icons/Save.png';
+import Cancel from '../../../icons/Cancel.png';
 
 const CreateJobs = ({organization_id, setNewJob, reload}) => {
   const [state, setState] = useState({title: '', salary: '', description: ''}); 
@@ -16,48 +18,49 @@ const CreateJobs = ({organization_id, setNewJob, reload}) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Title: 
+      <form className="create-form" autoComplete="off" onSubmit={handleSubmit}>
+        <div className="form-line">
+          <div className="form-line-title">Title: </div>
           <input
-            placeholder="title"
+            className="form-line-input"
             type="text"
             name="title"
             value={state.title}
             onChange={event => setState(prev => ({...prev, title: event.target.value}))}
           />
         </div>
-        <br/>
-        <div>
-          Salary: 
+        <div className="form-line">
+          <div className="form-line-title">Salary: </div>
           <input
-            placeholder="salary"
+            className="form-line-input"
             type="text"
             name="salary"
             value={state.salary}
             onChange={event => setState(prev => ({...prev, salary: event.target.value}))}
           />
        </div>
-       <br/>
-       <div>
-          Description: 
+       <div className="form-line">
+          <div className="form-line-title">Description: </div>
           <input
-            placeholder="description"
+            className="form-line-input"
             type="text"
             name="description"
             value={state.description}
             onChange={event => setState(prev => ({...prev, description: event.target.value}))}
           />
         </div>
-        <br/>
-        <div>
-          <button placeholder="submit" type="submit">
-            Done
+        <div className="form-submit">
+          <button className="cancel-btn">
+            <img className="cancel-btn" src={Cancel} alt="Cancel"/>
+            Cancel
           </button>
+          <button className="save-btn" type="submit">
+            <img className="save-btn" src={Save} alt="Save"/>
+            Save
+          </button>
+
         </div>
       </form>
-    </div>
   );
 
 };

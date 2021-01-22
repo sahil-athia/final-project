@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import Reference from '../../..//icons/Reference.png';
 
 const Candidates = ({job_id, organization_id}) => {
   const [data, setData] = useState([])
@@ -22,7 +23,8 @@ const Candidates = ({job_id, organization_id}) => {
   const list = data.map(reference => {
     const candidate = reference.candidate[0];
     const referee = reference.referee[0];
-    return(<div key={candidate.id}>
+    return(
+    <div key={candidate.id}>
       <h3> Referee: </h3>
       <div>Name: {referee.name}</div>
       <div>Email: {referee.email}</div>
@@ -38,7 +40,8 @@ const Candidates = ({job_id, organization_id}) => {
       <div>Contact: {candidate.contact}</div>
       <img src={candidate.resume_url} className="user_resume"></img>
       <hr/>
-    </div>)
+    </div>
+    )
   })
 
   let itemsToRender;
@@ -50,9 +53,17 @@ const Candidates = ({job_id, organization_id}) => {
 
   return (
     <>
-      {!show && <button onClick={handelClick}>Show Reference</button>}
+      {!show &&
+        <button className="reference-btn" onClick={handelClick}>
+          <img className="reference-btn" src={Reference} alt="Reference"/>
+          Show Reference
+        </button>
+      }
       {show && <> 
-        <button onClick={handelClick}>Hide Reference</button>
+        <button className="reference-btn" onClick={handelClick}>
+          <img className="reference-btn" src={Reference} alt="Reference"/>
+          Hide Reference
+        </button>
         {itemsToRender}
       </>}
     </>
