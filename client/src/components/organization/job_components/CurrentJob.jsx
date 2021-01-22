@@ -38,7 +38,6 @@ const CurrentJob = ({job, reload}) => {
       {mode === SHOW && (
       <ShowJob
         job={job}
-        reload={reload}
         onDelete={() => setMode(CONFIRM)}
         onEdit={() => setMode(EDIT) }
         onReference={() => setMode(CANDIDATES)}
@@ -50,7 +49,6 @@ const CurrentJob = ({job, reload}) => {
           title={job.title}
           salary={job.salary}
           description={job.description}
-          reload={reload}
           onSave={saveChange}
           onCancel={() => setMode(SHOW)}
         />
@@ -65,7 +63,6 @@ const CurrentJob = ({job, reload}) => {
       {mode === CANDIDATES && (
       <Candidates
         job_id={job.id}
-        organization_id={job.organization_id}
         hideCandidates={() => setMode(SHOW)}
       />
       )}

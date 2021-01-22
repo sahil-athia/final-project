@@ -2,9 +2,8 @@ import { React, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import Reference from '../../..//icons/Reference.png';
-import UserPage from "../UserPage";
 
-const Candidates = ({job_id, organization_id, hideCandidates}) => {
+const Candidates = ({job_id,  hideCandidates}) => {
   const [data, setData] = useState([])
 
   useEffect (() => {
@@ -46,20 +45,20 @@ const Candidates = ({job_id, organization_id, hideCandidates}) => {
     )
   })
 
-  // let itemsToShow;
-  // if (list.length) {
-  //   itemsToShow = list;
-  // } else {
-  //   itemsToShow = <p>No references yet.</p>;
-  // }
-
   return (
     <>
-        {list.length > 0 ? list : <p>No references yet.</p>}
-        {/* <button className="reference-btn" onClick={hideCandidates}>
+      {list.length && list}
+      {!list.length && <>
+      <div className="reference-card">
+        <p>No references yet.</p>
+      </div>
+      <div className="reference-card-actions">
+        <button className="reference-btn" onClick={hideCandidates}>
           <img className="reference-btn" src={Reference} alt="Reference"/>
-          Hide Reference
-        </button> */}
+          Hide References
+        </button>
+      </div>
+      </>}
     </>
   )
   

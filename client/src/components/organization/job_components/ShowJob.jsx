@@ -3,7 +3,7 @@ import Edit from '../../..//icons/Edit.png';
 import Delete from '../../..//icons/Delete.png';
 import Reference from '../../..//icons/Reference.png';
 
-const ShowJob = ({job, reload, onEdit, onDelete, onReference}) => {
+const ShowJob = ({job, onEdit, onDelete, onReference}) => {
   return (
     <>
       <div className="job-info">Title: {job.title}</div>
@@ -24,7 +24,7 @@ const ShowJob = ({job, reload, onEdit, onDelete, onReference}) => {
         />
         <button className="reference-btn" onClick={onReference}>
           <img className="reference-btn" src={Reference} alt="Reference"/>
-          Show Reference
+          Show References
         </button>
       </section>
 

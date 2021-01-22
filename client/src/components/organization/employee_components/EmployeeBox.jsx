@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
-import UserPage from "../UserPage";
 
 const EmployeeBox = (props) => {
   const { organization_id, id, name, email, summary, industry, reload, localReload } = props;
