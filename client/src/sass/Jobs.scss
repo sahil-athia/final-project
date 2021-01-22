@@ -29,7 +29,7 @@ body {
       border: none;
     }
 
-    form.edit-form {
+    form.create-form {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -112,25 +112,35 @@ body {
           align-items: start;
           margin: 10px;
         }
+
+        section.job-actions {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+        }
   
       }
 
       img.edit-btn {
         width: 20px;
         height: 20px;
-        margin-left: 5px;
+        margin-top: 3px;
+        margin-left: 7px;
+        margin-right: 7px;
       }
   
       img.delete-btn {
         width: 25px;
         height: 25px;
-        margin-left: 5px;
+        margin-left: 7px;
+        margin-right: 5px;
+
       }
 
       img.reference-btn {
         width: 22px;
         height: 22px;
-        margin-left: 5px;
+        margin-right: 5px;
       }
 
       button.reference-btn {
@@ -138,6 +148,48 @@ body {
         color: #00FFFF;
         border: none;
       }
+
     }
+
+    form.edit-form {
+      display: flex;
+      flex-direction: column;
+      margin-left: 5px;
+      margin-right: 5px;
+
+      div.edit-line {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        margin-bottom: 1vw;
+
+        div.edit-line-lable {
+          width: 12vw;
+        }
+
+        input.edit-line-input {
+          background-color:	#181818;
+          color: aliceblue;
+          outline: 0;
+          border-width: 0 0 1px;
+          border-color: aliceblue;
+          width: 40vw;
+        }
+      }
+
+      div.edit-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        button.edit-actions {
+          background-color:	#181818;
+          color: #00FFFF;
+          border: none;
+        }
+      }
+      
+    }
+
   }
 }

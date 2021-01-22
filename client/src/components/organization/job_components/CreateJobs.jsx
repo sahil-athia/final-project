@@ -17,7 +17,7 @@ const CreateJobs = ({organization_id, setNewJob, reload}) => {
   };
 
   return (
-      <form className="edit-form" autoComplete="off" onSubmit={handleSubmit}>
+      <form className="create-form" autoComplete="off" onSubmit={handleSubmit}>
         <div className="form-line">
           <label className="form-line-title">Title 
           <input

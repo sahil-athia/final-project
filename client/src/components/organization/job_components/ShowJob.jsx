@@ -6,9 +6,9 @@ import Delete from '../../..//icons/Delete.png';
 const ShowJob = ({job, reload, onEdit, onDelete}) => {
   return (
     <>
-      <div>Title: {job.title}</div>
-      <div>Salary: {job.salary}</div>
-      <div>Description: {job.description}</div>
+      <div className="job-info">Title: {job.title}</div>
+      <div className="job-info">Salary: {job.salary}</div>
+      <div className="job-info">Description: {job.description}</div>
       <section className="job-actions">
         <img
           className="edit-btn"
