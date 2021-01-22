@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_185235) do
     t.string "name"
     t.string "email"
     t.text "summary"
-    t.string "industry"
+    t.string "industry", default: ''
     t.text "skills"
     t.text "education"
     t.text "experience"

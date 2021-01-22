@@ -7,6 +7,7 @@ import { Form } from 'react-bootstrap';
 export default function EditHead(props){
   const [industry, setIndustry] = useState(props.industry); 
   const [summary, setSummary] = useState(props.summary); 
+  const [photo, setPhoto] = useState(props.photo); 
   const [url, setUrl] = useState(props.resume_url); 
 
   const handleSubmit = (event) => {
@@ -15,6 +16,7 @@ export default function EditHead(props){
       industry: industry,
       summary: summary,
       resume_url: url,
+      photo_url: photo,
       id: props.user_id
     }
     axios.post(`/api/v1/user/update_head`, {data}, {withCredentials: true})
@@ -49,11 +51,24 @@ export default function EditHead(props){
             <Form.Control 
               as="textarea" 
               rows={1} 
-              placeholder="url"
+              placeholder="resume url"
               type="text"
-              name="url"
+              name="resume url"
               value={url}
               onChange={event => setUrl(event.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Profile Pic Url:</Form.Label>
+            <Form.Control 
+              as="textarea" 
+              rows={1} 
+              placeholder="photo url"
+              type="text"
+              name="photo url"
+              value={photo}
+              onChange={event => setPhoto(event.target.value)}
             />
           </Form.Group>
 

@@ -8,6 +8,7 @@
 
   .text {
     max-width: 20vw;
+    max-height: 10vh;
     color: rgb(59, 59, 59);
   }
   .info {
@@ -40,8 +41,9 @@
     .scatter {
       opacity: 1;
 	    animation: 3s ease-in 0s 1 fadeInOpacity;
-      max-width: 20vw;
-      min-width: 20vw;
+      max-width: 90%;
+      min-width: 90%;
+      max-height: 10vh;
       margin: auto;
     }
     h1 {

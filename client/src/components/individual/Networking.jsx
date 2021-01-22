@@ -32,8 +32,10 @@ export default function Networking(props) {
       })
       setInput(input);
       setDataFilterd(filtered);
-    } else {
+
+    } else if (search === "By Industry") {
       const filtered = data.filter(network => {
+        console.log(network, input)
         return network.industry.toLowerCase().includes(input.toLowerCase())
        })
        setInput(input);
@@ -50,6 +52,7 @@ export default function Networking(props) {
       name={network.name}
       email={network.email}
       summary={network.summary}
+      photo={network.photo_url}
       industry={network.industry}
       reload={setReload}
     />

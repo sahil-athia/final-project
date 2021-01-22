@@ -51,7 +51,7 @@ export default function Login(props) {
         }
       })
       .catch(error => console.log('api errors:', error))
-    }, 3500)
+    }, 2500)
     
   };
 

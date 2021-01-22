@@ -27,6 +27,7 @@ export default function Profile(props){
         summary={props.summary}
         resume_url={props.resume_url}
         industry={props.industry}
+        photo={props.photo}
         onClick={setEdit} 
         reload={props.reload}
       />}
