@@ -21,8 +21,10 @@ export default function NetworkBox(props) {
     <div className="user-box">
       <div className="user-information">
         <img src={props.photo || "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"} alt="Your Profile Photo"></img>
+
         <div>
-          <h2>{props.name}: {props.industry}</h2>
+          <h2>{props.name}</h2>
+          <h4><em>{props.industry}</em></h4>
           <p>{props.email}</p>
         </div>
       </div>
