@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import Reference from '../../..//icons/Reference.png';
+import UserPage from "../UserPage";
 
 const Candidates = ({job_id, organization_id, hideCandidates}) => {
   const [data, setData] = useState([])
@@ -24,35 +25,41 @@ const Candidates = ({job_id, organization_id, hideCandidates}) => {
         <h4>Candidate Name: {candidate.name}</h4>
         <p>Email: {candidate.email}</p>
         <p>Summary: {candidate.summary}</p>
-        {/* <div>Skills: {candidate.skills}</div>
-        <div>Education: {candidate.education}</div>
-        <div>Experience: {candidate.experience}</div>
-        <div>Location: {candidate.location}</div>
-        <div>Contact: {candidate.contact}</div>
-        <img src={candidate.resume_url} className="user_resume"></img> */}
       </div>
       <div className="reference-card-referee">
         <h4> Referred by: {referee.name}</h4>
         <p>Email: {referee.email}</p>
       </div>
+      <div className="reference-card-actions">
+        <Link
+          to={{
+            pathname: "/organization/user_page",
+            hash: `#${candidate.id}` 
+          }}
+        >View</Link>
+        <button className="reference-btn" onClick={hideCandidates}>
+            <img className="reference-btn" src={Reference} alt="Reference"/>
+            Hide Reference
+        </button>
+      </div>
     </div>
     )
   })
 
-  let itemsToShow;
-  if (list.length) {
-    itemsToShow = list;
-  } else {
-    itemsToShow = <p>No references yet.</p>;
-  }
+  // let itemsToShow;
+  // if (list.length) {
+  //   itemsToShow = list;
+  // } else {
+  //   itemsToShow = <p>No references yet.</p>;
+  // }
 
   return (
     <>
-        {itemsToShow}
-        <button className="reference-btn" onClick={hideCandidates}>
+        {list.length > 0 ? list : <p>No references yet.</p>}
+        {/* <button className="reference-btn" onClick={hideCandidates}>
           <img className="reference-btn" src={Reference} alt="Reference"/>
           Hide Reference
-        </button>
+        </button> */}
     </>
   )
   
