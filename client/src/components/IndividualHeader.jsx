@@ -14,8 +14,8 @@ export default function IndividualHeader(props) {
         <Nav.Link className="link" href="/individual/networking">Networking</Nav.Link>
         <Nav.Link className="link" href="/individual/connections">Connections</Nav.Link>
         <Nav.Link className="link" href="/individual/jobs">Jobs</Nav.Link>
-      </Nav>
         <button onClick={() => props.onClick(handleBack)} >Logout</button>
+      </Nav>
     </Navbar>
     </div>
   )

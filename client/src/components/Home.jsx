@@ -45,7 +45,7 @@ function Home(props) {
   return (
     <div className="home">
       <div className="info">
-      <div className="container">
+      <div className="scatter">
         <h4 className="text" ref={text} ></h4>
       </div>
         <h1> Insight </h1>

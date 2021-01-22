@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState } from 'react'
 import { useHistory } from "react-router-dom";
+import { Form } from 'react-bootstrap';
+
 
 export default function EditHead(props){
   let history = useHistory();
@@ -27,44 +29,53 @@ export default function EditHead(props){
   };
   
   return(
-    <div>
-      <h1>EDIT SECTION</h1>
-      <form onSubmit={handleSubmit}>
-          Industry: 
-          <input
-            placeholder="industry"
-            type="text"
-            name="industry"
-            value={industry}
-            onChange={event => setIndustry(event.target.value)}
-          />
-          <br></br>
+    <div className="head-form">
+      <div className="form-box">
+      <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Industry:</Form.Label>
+            <Form.Control 
+              as="textarea" 
+              rows={1} 
+              placeholder="industry"
+              type="text"
+              name="industry"
+              value={industry}
+              onChange={event => setIndustry(event.target.value)}
+            />
+          </Form.Group>
 
-          Summary: 
-          <input
-            placeholder="summary"
-            type="text"
-            name="summary"
-            value={summary}
-            onChange={event => setSummary(event.target.value)}
-          />
-          <br></br>
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Resume Url:</Form.Label>
+            <Form.Control 
+              as="textarea" 
+              rows={1} 
+              placeholder="url"
+              type="text"
+              name="url"
+              value={url}
+              onChange={event => setUrl(event.target.value)}
+            />
+          </Form.Group>
 
-          Resume Url: 
-          <input 
-            placeholder="url"
-            type="text"
-            name="url"
-            value={url}
-            onChange={event => setUrl(event.target.value)}
-          />          
-          <br></br>
-
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Summary:</Form.Label>
+            <Form.Control 
+              as="textarea" 
+              rows={4} 
+              placeholder="summary"
+              type="text"
+              name="summary"
+              value={summary}
+              onChange={event => setSummary(event.target.value)}
+            />
+          </Form.Group>
           <button placeholder="submit" type="submit">
             Done
           </button>
       
-        </form>
+        </Form>
+      </div>
     </div>
   )
 }

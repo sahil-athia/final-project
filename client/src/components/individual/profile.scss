@@ -60,6 +60,39 @@
   }
 }
 
+.head-form {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Garamond, serif;
+
+  .form-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80%;
+    min-height: 80vh;
+    border: 3px solid #191919;
+    border-radius: 5px;
+    .form-control {
+      min-width: 60vw;
+    }
+  }
+
+  button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgb(150, 150, 150);
+    color:#969696;
+    &:hover {
+      color: #F7F7F7;
+      border: 1px solid #F7F7F7;
+      background-color: #191919;
+    }
+  }
+}
+
 // ------------------------------------------------------------------------------------------------------------
 .body {
   margin-bottom: 5vh;
@@ -110,6 +143,44 @@
   }
 }
 
+.body-form {
+  position: relative;
+  z-index: 10;
+  background-color: #F7F7F7;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Garamond, serif;
+
+  .form-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80%;
+    min-height: 90vh;
+    border: 3px solid #191919;
+    border-radius: 5px;
+    .form-control {
+      min-width: 60vw;
+    }
+  }
+
+  button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgb(150, 150, 150);
+    color:#969696;
+    &:hover {
+      color: #F7F7F7;
+      border: 1px solid #F7F7F7;
+      background-color: #191919;
+    }
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------------
 
 footer {
   padding: 2vh;
@@ -128,6 +199,44 @@ footer {
       border-bottom: 1px solid #F7F7F7;
     }
   }
+  button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #F7F7F7;
+    color:#F7F7F7;
+
+    &:hover {
+      color: #191919;
+      border: 1px solid #191919;
+      background-color: #F7F7F7;
+    }
+  }
+}
+
+.footer-form {
+  position: relative;
+  z-index: 10;
+  background-color: #191919;
+  color: #F7F7F7;
+  min-height: 30vh;
+  max-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Garamond, serif;
+
+  .form-box {
+    padding: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80%;
+    min-height: 20vh;
+    .form-control {
+      min-width: 60vw;
+    }
+  }
+
   button {
     background-color: rgba(255, 255, 255, 0);
     border: 1px solid #F7F7F7;

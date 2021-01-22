@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
+import { Form } from 'react-bootstrap';
 
 export default function EditBody(props){
   const [skills, setSkills] = useState(props.skills); 
@@ -25,44 +26,54 @@ export default function EditBody(props){
   };
   
   return(
-    <div>
-      <h1>EDIT SECTION</h1>
-      <form onSubmit={handleSubmit}>
-          Skills:
-          <input
+    <div className="body-form">
+      <div className="form-box">
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Skills:</Form.Label>
+          <Form.Control 
+            as="textarea" 
+            rows={4} 
             placeholder="skills"
             type="text"
             name="skills"
             value={skills}
             onChange={event => setSkills(event.target.value)}
           />
-          <br></br>
+        </Form.Group>
 
-          Education:
-          <input
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Education:</Form.Label>
+          <Form.Control 
+            as="textarea" 
+            rows={4} 
             placeholder="education"
             type="text"
             name="education"
             value={education}
             onChange={event => setEducation(event.target.value)}
           />
-          <br></br>
+        </Form.Group>
 
-          Experience:
-          <input 
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Experience</Form.Label>
+          <Form.Control 
+            as="textarea" 
+            rows={4} 
             placeholder="experience"
             type="text"
             name="experience"
             value={experience}
             onChange={event => setExperience(event.target.value)}
-          />          
-          <br></br>
+          />
+        </Form.Group>
 
-          <button placeholder="submit" type="submit">
-            Done
-          </button>
+        <button placeholder="submit" type="submit">
+          Done
+        </button>
       
-        </form>
+        </Form>
+      </div>
     </div>
   )
 }

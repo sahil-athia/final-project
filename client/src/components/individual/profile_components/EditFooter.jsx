@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
+import { Form } from 'react-bootstrap';
 
 export default function EditFooter(props){
   const [contact, setContact] = useState(props.contact); 
@@ -23,33 +24,39 @@ export default function EditFooter(props){
   };
   
   return(
-    <div>
-      <h1>EDIT SECTION</h1>
-      <form onSubmit={handleSubmit}>
-          Contact:
-          <input
-            placeholder="contact"
-            type="text"
-            name="contact"
-            value={contact}
-            onChange={event => setContact(event.target.value)}
-          />
-          <br></br>
-          Location:
-          <input
-            placeholder="location"
-            type="text"
-            name="location"
-            value={location}
-            onChange={event => setLocation(event.target.value)}
-          />        
-          <br></br>
-          
+    <div className="footer-form">
+      <div className="form-box">
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Contact:</Form.Label>
+            <Form.Control 
+              as="textarea" 
+              rows={1} 
+              placeholder="contact"
+              type="text"
+              name="contact"
+              value={contact}
+              onChange={event => setContact(event.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Location:</Form.Label>
+            <Form.Control 
+              as="textarea" 
+              rows={1} 
+              placeholder="location"
+              type="text"
+              name="location"
+              value={location}
+              onChange={event => setLocation(event.target.value)}
+            />
+          </Form.Group>          
           <button placeholder="submit" type="submit">
             Done
           </button>
       
-        </form>
+        </Form>
+      </div>
     </div>
   )
 }
