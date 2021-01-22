@@ -20,10 +20,10 @@ export default function Head(props){
 
         <div className="image-box">
           <div>
-            <img src={props.resume_url} className="stack user_resume"></img>
+            <img src={props.resume_url || "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png"} className="stack user_resume" alt="Your Resume"></img>
           </div>
           <div >
-            <img src={props.photo} className="stack user_photo"></img>
+            <img src={props.photo || "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"} className="stack user_photo" alt="Your Profile Photo"></img>
           </div>
         </div>
       </div>

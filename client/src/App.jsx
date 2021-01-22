@@ -57,7 +57,7 @@ function App() {
     let user = state.user
     axios.post("http://localhost:8080/logout", {user}, {withCredentials: true})
     .then((res) => {
-      // history.push("/")
+
       setState({
         isLoggedIn: false,
         user: {}
@@ -100,15 +100,14 @@ function App() {
                 onClick={handleLogout}
               />
             </Route>} 
-                
 
-                 <Route path="/organization">
-
-                  <Organization 
-                    organization_id={state.user.id}
-                    onClick={handleLogout}
-                  />
-                </Route>
+          {state.isLoggedIn && 
+            <Route path="/organization">
+              <Organization 
+                organization_id={state.user.id}
+                onClick={handleLogout}
+              />
+              </Route>} 
         </Switch>
       </div>
     </Router>

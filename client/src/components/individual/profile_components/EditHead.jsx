@@ -5,7 +5,6 @@ import { Form } from 'react-bootstrap';
 
 
 export default function EditHead(props){
-  let history = useHistory();
   const [industry, setIndustry] = useState(props.industry); 
   const [summary, setSummary] = useState(props.summary); 
   const [url, setUrl] = useState(props.resume_url); 

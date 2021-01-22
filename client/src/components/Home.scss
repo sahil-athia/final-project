@@ -1,4 +1,5 @@
 .home {
+  font-family: Garamond, serif;
   display: flex;
   justify-content: space-evenly;
   background-color: black;
@@ -12,14 +13,6 @@
   .info {
     align-self: center;
     @keyframes slideInFromBottom1 {
-      0% {
-        transform: translateY(+2000%);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-    @keyframes slideInFromBottom2 {
       0% {
         transform: translateY(+2500%);
       }
@@ -46,23 +39,22 @@
     }
     .scatter {
       opacity: 1;
-	    animation: 2s ease-in 0s 1 fadeInOpacity;
-	    // animation-iteration-count: 1;
-	    // animation-timing-function: ease-in;
-	    // animation-duration: 2s;
+	    animation: 3s ease-in 0s 1 fadeInOpacity;
+      max-width: 20vw;
+      min-width: 20vw;
+      margin: auto;
     }
     h1 {
-      animation: 1.3s ease-out 0s 1 slideInFromBottom1;
+      font-size: 500%;
+      animation: 2s ease-out 0s 1 slideInFromBottom1;
     }
-    h3 {
-      animation: 2.7s ease-out 0s 1 slideInFromBottom2;
-    }
+
     button{
       animation: 3.4s ease-out 0s 1 slideInFromBottom3;
       color: white;
       background: none;
       border: 2px solid;
-      font: inherit;
+      border-radius: 3px;
       line-height: 1;
       margin: 0.5em;
       padding: 1em 2em;

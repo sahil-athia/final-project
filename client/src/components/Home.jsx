@@ -5,17 +5,16 @@ import './Home.scss'
 import {TextScramble} from '../helpers/scramble.js'
 
 function Home(props) {
-  console.log(props.state.isLoggedIn)
   let history = useHistory()
   
   const text = useRef(<></>);
 
   useEffect(() => {
     const phrases = [
-      'Networking',
-      'Connections',
-      'Leverage',
-      'Business'
+      'Networking Made Easy',
+      'Expand Your Business',
+      'Make Connections',
+      'Leverage Your Tools'
     ]
     const el = text
     const fx = new TextScramble(el)
@@ -45,12 +44,11 @@ function Home(props) {
   return (
     <div className="home">
       <div className="info">
-      <div className="scatter">
-        <h4 className="text" ref={text} ></h4>
-      </div>
-        <h1> Insight </h1>
+        <h1>- Insight -</h1>
         <br></br>
-        <h3>Networking made easy</h3>
+        <div className="scatter">
+        <h4 className="text" ref={text} ></h4>
+        </div>
         <br></br>
         {!props.state.isLoggedIn ? (
             <button type="button" onClick={handleOnClick}>

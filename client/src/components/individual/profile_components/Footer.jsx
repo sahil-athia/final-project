@@ -6,7 +6,7 @@ export default function EditFooter(props){
     }))
   }
   return(
-    <footer>
+    <footer className="profile-footer">
       <div>
         <h5>{props.email}</h5>
         <h5>{props.contact}</h5>
