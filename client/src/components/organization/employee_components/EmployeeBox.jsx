@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
-// import UserPage from "../../individual/UserPage";
+import UserPage from "../UserPage";
 
 const EmployeeBox = (props) => {
   const { organization_id, id, name, email, summary, industry, reload, localReload } = props;
@@ -24,12 +24,12 @@ const EmployeeBox = (props) => {
       <p>{industry}</p>
       <p>{email}</p>
       <p>{summary}</p>
-      {/* <Link
+      <Link
         to={{
-          pathname: "/individual/user_page",
+          pathname: "/organization/user_page",
           hash: `#${id}` 
         }}
-      >View</Link> */}
+      >View</Link>
       <button onClick={verifyEmployee}>Add</button>
       <hr></hr>
     </div>
