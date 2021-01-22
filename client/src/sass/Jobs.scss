@@ -2,7 +2,7 @@ body {
   background-color: black;
 }
 
-.jobs {
+section.jobs {
   background-color: black;
   color: aliceblue;
   display: flex;
@@ -11,71 +11,89 @@ body {
   align-items: flex-start;
   margin: 30px;
 
-  .create-jobs {
-    width: 500px;
-    height: 150px;
+  div.create-jobs {
     display: flex;
-    margin-left: 5vw;
-
-    img.add-btn {
-      width: 30px;
-      height: 30px;
-    }
+    width: 100vw;
 
     button.add-btn {
       height: 30px;
       background-color: black;
       color: #00FFFF;
       border: none;
+      margin: 5vw;
+
+      img.add-btn {
+        width: 30px;
+        height: 30px;      
+      }
     }
 
     form.create-form {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      width: 400px;
       height: 150px;
-      margin-left: 20px;
+      width: 90vw;
+      margin: 2vw;
+      padding: 2vw;
+      background-color:	#181818;
+      border-radius: 3%;   
 
-      label.form-line-title {
+      div.form-line {
         display: flex;
         flex-direction: row;
-        justify-content: end;
-        text-align: end;
-        width: 400px;
-        line-height: 25px;
-        margin-bottom: 10px;
+        justify-content: start;
+
+        div.form-line-title {
+          width: 12vw;
+          margin-top: 0.5vw;
+        }
 
         input.form-line-input {
           height: 25px;
-          width: 400px;
+          width: 40vw;
           margin-left: 10px;
-          background-color: black;
+          background-color: #181818;
           color: aliceblue;
           outline: 0;
           border-width: 0 0 1px;
           border-color: aliceblue;
         }
-      
+
       }
+
     }
 
     div.form-submit {
-      width: 400px;
+      width: 85vw;
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: flex-end;
           
       img.save-btn {
         width: 20px;
         height: 20px;
-        margin-left: 5px;
+        margin-right: 5px;
       }
   
       button.save-btn {
         height: 30px;
-        background-color: black;
-        color: aliceblue;
+        background-color: 	#181818;
+        color: #00FFFF;
+        border: none;
+      }
+
+      img.cancel-btn {
+        width: 28px;
+        height: 28px;
+        margin-right: 5px;
+        margin-top: 2px;
+      }
+  
+      button.cancel-btn {
+        height: 30px;
+        background-color: #181818;
+        color: #00FFFF;
         border: none;
       }
 

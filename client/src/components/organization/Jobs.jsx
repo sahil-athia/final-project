@@ -12,12 +12,14 @@ const Jobs = ({organization_id, current_jobs, reload}) => {
   };
 
   return (
-    <div className="jobs">
+    <section className="jobs">
       <div className="create-jobs">
-      {!newJob && <>
-      <img className="add-btn" src={Add} alt="add"/>
-      <button className="add-btn" onClick={handelClick}>Create A New Job</button>
-      </>}
+      {!newJob && 
+      <button className="add-btn" onClick={handelClick}>
+        <img className="add-btn" src={Add} alt="add"/>
+        Create A New Job
+      </button>
+      }
       {newJob && <CreateJobs
       organization_id={organization_id}
       setNewJob={setNewJob}
@@ -28,7 +30,7 @@ const Jobs = ({organization_id, current_jobs, reload}) => {
         current_jobs={current_jobs}
         reload={reload}
       />
-    </div>
+    </section>
   )
   
 };
