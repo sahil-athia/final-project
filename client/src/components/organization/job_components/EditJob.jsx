@@ -8,7 +8,7 @@ const EditJob = (props) => {
     <form className="edit-form" autoComplete="off" onSubmit={event => event.preventDefault()}>
         <div className="edit-line">
           <div className="edit-line-lable">Title: </div>
-          <input
+          <textarea
             className="edit-line-input"
             placeholder="Title"
             type="text"
@@ -19,7 +19,7 @@ const EditJob = (props) => {
         </div>
         <div className="edit-line">
           <div className="edit-line-lable">Salary: </div>
-          <input
+          <textarea
             className="edit-line-input"
             placeholder="Salary"
             type="text"
@@ -30,7 +30,7 @@ const EditJob = (props) => {
         </div>
         <div className="edit-line">
           <div className="edit-line-lable">Description: </div>
-          <input
+          <textarea
             className="edit-line-input" 
             placeholder="Description"
             type="text"

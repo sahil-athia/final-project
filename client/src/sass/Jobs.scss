@@ -50,7 +50,7 @@ section.jobs {
   }
 
   div.jobs-body-blank2 {
-    height: 90vw;
+    height: 60vw;
     width: 1.5vw;
     border-right: solid;
     border-color: #969696;
@@ -93,7 +93,6 @@ section.jobs {
       border-top: solid;
       padding: 5vw;
       background-color:	#F7F7F7;
-      // justify-content: center;
 
       div.form-line {
         display: flex;
@@ -200,15 +199,18 @@ section.jobs {
 
     .current-jobs {
       display: flex;
-      flex-wrap: wrap;
-      // width: 100vw;
+      flex-direction: column;
+      width: 100%;
 
       .job-card {
-        // width: 90vw;
         margin: 2vw;
-        padding: 2vw;
-        // background-color:	#181818;
-        border-radius: 3%;    
+        padding: 1vw;
+        color: #505050;
+        border: solid;
+        border-color: #969696;
+        font-size: 1.8vw;
+        margin-left: 5vw;
+        margin-right: 5vw;  
 
         .job-info {
           display: flex;
@@ -270,6 +272,7 @@ section.jobs {
         width: 22px;
         height: 22px;
         margin-right: 5px;
+        margin-bottom: 5px;
       }
 
       button.reference-btn {
@@ -283,26 +286,32 @@ section.jobs {
     form.edit-form {
       display: flex;
       flex-direction: column;
-      margin-left: 5px;
-      margin-right: 5px;
+      width: 100%;
+      padding-left: 1vw;
+      padding-right: 1vw;
 
       div.edit-line {
         display: flex;
         flex-direction: row;
-        justify-content: start;
-        margin-bottom: 1vw;
+        justify-content: center;
+        width: 100%;
+        height: 4vw;
 
         div.edit-line-lable {
-          width: 12vw;
+          font-size: 2vw;
+          display: inline-block;
+          width: 15vw;
         }
 
-        input.edit-line-input {
-          background-color:	#F7F7F7;
-          color: aliceblue;
+        textarea.edit-line-input {
+          height: 3vw;
+          border: 0;
           outline: 0;
-          border-width: 0 0 1px;
-          border-color: aliceblue;
-          width: 40vw;
+          color: #505050;
+          width: 100%;
+          background-color: white;
+          border: 0;
+          resize: none;
         }
       }
 
@@ -317,8 +326,6 @@ section.jobs {
           border: none;
         }
       }
-      
     }
-
   }
 }
