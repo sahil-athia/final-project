@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import Reference from '../../..//icons/Reference.png';
+import Close from '../../..//icons/Close.png';
 
 const Candidates = ({job_id,  hideCandidates}) => {
   const [data, setData] = useState([])
@@ -20,45 +21,50 @@ const Candidates = ({job_id,  hideCandidates}) => {
     const referee = reference.referee[0];
     return(
     <div className="reference-card" key={candidate.id}>
-      <div className="reference-card-candidate">
-        <h4>Candidate Name: {candidate.name}</h4>
-        <p>Email: {candidate.email}</p>
-        <p>Summary: {candidate.summary}</p>
-      </div>
-      <div className="reference-card-referee">
-        <h4> Referred by: {referee.name}</h4>
-        <p>Email: {referee.email}</p>
+      <div className="reference-card-body">
+        <div className="reference-card-candidate">
+          <div className="reference-card-line">Name: {candidate.name}</div>
+          <div className="reference-card-line">Email: {candidate.email}</div>
+          <div className="reference-card-line">Summary: {candidate.summary}</div>
+        </div>
+        <div className="reference-card-referee">
+          <div className="reference-card-line">Referred by: {referee.name}</div>
+          <div className="reference-card-line">Email: {referee.email}</div>
+        </div>
       </div>
       <div className="reference-card-actions">
         <Link
           to={{
             pathname: "/organization/user_page",
             hash: `#${candidate.id}` 
-          }}
-        >View</Link>
-        <button className="reference-btn" onClick={hideCandidates}>
-            <img className="reference-btn" src={Reference} alt="Reference"/>
-            Hide Reference
+          }}>
+          <img className="show-reference-btn" src={Reference} alt="Reference"/>
+        </Link>
+        <button className="close-reference-btn" onClick={hideCandidates}>
+          <img className="close-reference-btn" src={Close} alt="Close"/>
         </button>
       </div>
     </div>
     )
   })
 
+  let itemsToRender;
+  if (list.length) {
+    itemsToRender = list;
+  } else {
+    itemsToRender = (<>
+      <div className="reference-card2">
+        <div className="reference-card-line2">No references yet.</div>
+      </div>
+      <div className="reference-card-actions2">
+        <img className="close-reference-btn2" onClick={hideCandidates} src={Close} alt="Close"/>
+      </div>
+    </>);
+  }
+
   return (
     <>
-      {list.length && list}
-      {!list.length && <>
-      <div className="reference-card">
-        <p>No references yet.</p>
-      </div>
-      <div className="reference-card-actions">
-        <button className="reference-btn" onClick={hideCandidates}>
-          <img className="reference-btn" src={Reference} alt="Reference"/>
-          Hide References
-        </button>
-      </div>
-      </>}
+      {itemsToRender}
     </>
   )
   

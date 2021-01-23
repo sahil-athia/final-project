@@ -1,31 +1,86 @@
 body {
-  // background-color: black;
+  background-color: #F7F7F7;
+  font-family: Garamond, serif;
+  color: rgb(150, 150, 150);
+
 }
 
 section.jobs {
-  background-color: black;
-  color: aliceblue;
+  background-color: #F7F7F7;
+  color: rgb(150, 150, 150);
+  font-family: Garamond, serif;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  margin: 30px;
+
+  div.jobs-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    div.jobs-top-part1 {
+      width: 40vw;
+      border:none;
+    }
+
+    div.jobs-top-part2 {
+      width: 60vw;
+      border-top:solid;
+      border-color: #505050;
+      height: 1.5vw;
+    }
+  }
+
+  div.jobs-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vw;
+    width: 100vw;
+    margin-top: 3vw;
+  }
+
+  div.jobs-body-blank {
+    height: 100vw;
+    width: 25vw;
+    border-right: solid;
+    border-color: #505050;
+  }
+
+  div.jobs-body-blank2 {
+    height: 85vw;
+    width: 1.5vw;
+    border-right: solid;
+    border-color: #969696;
+  }
 
   div.create-jobs {
     display: flex;
     width: 100vw;
 
+    img.create-jobs-img {
+      width: 65vw;
+      margin-top: 3vw;
+    }
+
     button.add-btn {
-      height: 30px;
-      background-color: black;
-      color: #00FFFF;
-      border: none;
-      margin: 5vw;
+      background-color: #F7F7F7;
+      border-top: 1px, solid;
+      border-color: #969696;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      font-size: 5vw;
+      color: #ff878d;
+      width: 35vw;
 
       img.add-btn {
         width: 30px;
         height: 30px;
-        margin-right: 5px;      
+        margin-right: 1vw;
+        margin-bottom: 0.5vw;      
       }
     }
 
@@ -33,54 +88,81 @@ section.jobs {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      height: 150px;
-      width: 90vw;
-      margin: 2vw;
-      padding: 2vw;
-      background-color:	#181818;
-      border-radius: 3%;   
+      height: 46.5vw;
+      width: 40vw;
+      border-top: solid;
+      padding: 5vw;
+      background-color:	#F7F7F7;
 
       div.form-line {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: start;
+        width: 100%;
+        height: 8vw;
 
         div.form-line-title {
-          width: 12vw;
-          margin-top: 0.5vw;
+          font-size: 2vw;
         }
 
-        input.form-line-input {
-          height: 25px;
-          width: 40vw;
-          margin-left: 10px;
-          background-color: #181818;
-          color: aliceblue;
+        textarea.form-line-input {
+          height: 3vw;
+          border: 0;
           outline: 0;
-          border-width: 0 0 1px;
-          border-color: aliceblue;
+          color: #505050;
+          min-width: 100%;
+          max-width: 100%;
+          background-color: white;
+          border: 0;
+          resize: none;
         }
 
       }
 
+      div.form-line-description {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+        height: 20vw;
+
+        div.form-line-title-description {
+          font-size: 2vw;
+        }
+
+        textarea.form-line-input-description {
+          height: 15vw;
+          border: 0;
+          outline: 0;
+          color: #505050;
+          min-width: 100%;
+          max-width: 100%;
+          background-color: white;
+          border: 0;
+          resize: none;
+        }
+      }
+
     }
 
+
     div.form-submit {
-      width: 85vw;
+      width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      justify-content: space-around;
           
       img.save-btn {
         width: 20px;
         height: 20px;
         margin-right: 5px;
+        margin-bottom: 2px;
       }
   
       button.save-btn {
         height: 30px;
-        background-color: 	#181818;
-        color: #00FFFF;
+        background-color: 	#F7F7F7;
+        color: #00CCFF;
         border: none;
       }
 
@@ -88,13 +170,13 @@ section.jobs {
         width: 28px;
         height: 28px;
         margin-right: 5px;
-        margin-top: 2px;
+        margin-bottom: 2px;
       }
   
       button.cancel-btn {
         height: 30px;
-        background-color: #181818;
-        color: #00FFFF;
+        background-color: #F7F7F7;
+        color: #00CCFF;
         border: none;
       }
 
@@ -110,26 +192,32 @@ section.jobs {
     width: 100vw;
 
     .show-jobs-title {
-      padding-left: 5vw
+      padding-left: 5vw;
+      color: #505050;
+      font-size: 6vw;
     }
 
     .current-jobs {
       display: flex;
-      flex-wrap: wrap;
-      width: 100vw;
+      flex-direction: column;
+      width: 100%;
 
       .job-card {
-        width: 90vw;
         margin: 2vw;
-        padding: 2vw;
-        background-color:	#181818;
-        border-radius: 3%;    
+        padding: 1vw;
+        color: #505050;
+        border: solid;
+        border-color: #969696;
+        font-size: 2vw;
+        margin-left: 5vw;
+        margin-right: 5vw;  
 
         .job-info {
           display: flex;
           flex-direction: column;
           align-items: start;
           margin: 10px;
+          font-size: 1.8vw;
         }
 
         section.job-actions {
@@ -139,8 +227,11 @@ section.jobs {
         }
 
         div.delete-msg {
+          font-family: Garamond, serif;
           margin-bottom: 4.5vw;
           margin-top: 4.5vw;
+          color: #ff878d;
+          font-size: 2.5vw;
         }
 
         div.delete-actions {
@@ -150,15 +241,15 @@ section.jobs {
         }
 
         button.delete-actions-cancel {
-          background-color:	#181818;
-          color: #00FFFF;
+          background-color:	#F7F7F7;
+          color: #00CCFF;
           border: none;
           margin-right: 3px;
         }
 
         button.delete-actions-confirm {
-          background-color:	#181818;
-          color: #00FFFF;
+          background-color:	#F7F7F7;
+          color: #00CCFF;
           border: none;
           margin-right: 3px;
         }
@@ -182,42 +273,137 @@ section.jobs {
       }
 
       img.reference-btn {
-        width: 22px;
-        height: 22px;
-        margin-right: 5px;
+        width: 23px;
+        height: 23px;
+        margin-left: 5px;
+        margin-top: 2.5px;
       }
 
       button.reference-btn {
-        background-color:	#181818;
-        color: #00FFFF;
+        background-color:	#F7F7F7;
+        color: #00CCFF;
         border: none;
       }
 
+      img.close-btn {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        margin-bottom: 3px;
+      }
+
+      div.reference-card {
+        font-size: 1.5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .reference-card-body {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          padding: 1.5vw;
+
+          .reference-card-candidate {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+
+          .reference-card-referee {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-left: 3vw;
+          }
+
+          .reference-card-line {
+            height: 4vw;
+          }
+        }
+
+        div.reference-card-actions {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+
+          img.show-reference-btn {
+            width: 23px;
+            height: 23px;
+            margin-right: 5px;
+            margin-top: 2px;
+          }
+    
+          button.close-reference-btn {
+            background-color:	#F7F7F7;
+            color: #00CCFF;
+            border: none;
+          }
+    
+          img.close-reference-btn {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      div.reference-card2 {
+        // font-size: 1.5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: 5vw;
+
+        div.reference-card-line2 {
+          font-size:1.8vw;
+        }
+      }
+      div.reference-card-actions2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        img.close-reference-btn2 {
+          width: 30px;
+          height: 30px;
+          margin-right: 5px;
+        }
+      }
     }
 
     form.edit-form {
       display: flex;
       flex-direction: column;
-      margin-left: 5px;
-      margin-right: 5px;
+      width: 100%;
+      padding-left: 1vw;
+      padding-right: 1vw;
 
       div.edit-line {
         display: flex;
         flex-direction: row;
-        justify-content: start;
-        margin-bottom: 1vw;
+        justify-content: center;
+        width: 100%;
+        height: 4vw;
 
         div.edit-line-lable {
-          width: 12vw;
+          font-size: 1.5vw;
+          display: inline-block;
+          width: 15vw;
         }
 
-        input.edit-line-input {
-          background-color:	#181818;
-          color: aliceblue;
+        textarea.edit-line-input {
+          height: 3vw;
+          border: 0;
           outline: 0;
-          border-width: 0 0 1px;
-          border-color: aliceblue;
-          width: 40vw;
+          color: #505050;
+          width: 100%;
+          background-color: white;
+          border: 0;
+          resize: none;
         }
       }
 
@@ -227,13 +413,12 @@ section.jobs {
         justify-content: flex-end;
 
         button.edit-actions {
-          background-color:	#181818;
-          color: #00FFFF;
+          background-color:	#F7F7F7;
+          color: #00CCFF;
           border: none;
         }
       }
-      
-    }
 
+    }
   }
 }

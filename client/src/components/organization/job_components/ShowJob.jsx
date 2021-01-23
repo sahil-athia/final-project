@@ -22,10 +22,7 @@ const ShowJob = ({job, onEdit, onDelete, onReference}) => {
           alt="Delete"
           onClick={onDelete}
         />
-        <button className="reference-btn" onClick={onReference}>
-          <img className="reference-btn" src={Reference} alt="Reference"/>
-          Show References
-        </button>
+        <img className="reference-btn" onClick={onReference} src={Reference} alt="Reference"/>
       </section>
 
   </>

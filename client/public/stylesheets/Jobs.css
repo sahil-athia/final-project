@@ -1,89 +1,159 @@
 body {
-  /* background-color: black; */
+  background-color: #F7F7F7;
+  font-family: Garamond, serif;
+  color: #969696;
 }
 
 section.jobs {
-  background-color: black;
-  color: aliceblue;
+  background-color: #F7F7F7;
+  color: #969696;
+  font-family: Garamond, serif;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  margin: 30px;
+}
+section.jobs div.jobs-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+section.jobs div.jobs-top div.jobs-top-part1 {
+  width: 40vw;
+  border: none;
+}
+section.jobs div.jobs-top div.jobs-top-part2 {
+  width: 60vw;
+  border-top: solid;
+  border-color: #505050;
+  height: 1.5vw;
+}
+section.jobs div.jobs-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100vw;
+  width: 100vw;
+  margin-top: 3vw;
+}
+section.jobs div.jobs-body-blank {
+  height: 100vw;
+  width: 15vw;
+  border-right: solid;
+  border-color: #505050;
+}
+section.jobs div.jobs-body-blank2 {
+  height: 60vw;
+  width: 1.5vw;
+  border-right: solid;
+  border-color: #969696;
 }
 section.jobs div.create-jobs {
   display: flex;
   width: 100vw;
 }
+section.jobs div.create-jobs img.create-jobs-img {
+  width: 65vw;
+  margin-top: 3vw;
+}
 section.jobs div.create-jobs button.add-btn {
-  height: 30px;
-  background-color: black;
-  color: #00FFFF;
-  border: none;
-  margin: 5vw;
+  background-color: #F7F7F7;
+  border-top: 1px, solid;
+  border-color: #969696;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  font-size: 5vw;
+  color: #ff878d;
+  width: 35vw;
 }
 section.jobs div.create-jobs button.add-btn img.add-btn {
   width: 30px;
   height: 30px;
-  margin-right: 5px;
+  margin-right: 1vw;
+  margin-bottom: 0.5vw;
 }
 section.jobs div.create-jobs form.create-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 150px;
-  width: 90vw;
-  margin: 2vw;
-  padding: 2vw;
-  background-color: #181818;
-  border-radius: 3%;
+  height: 46.5vw;
+  width: 40vw;
+  border-top: solid;
+  padding: 5vw;
+  background-color: #F7F7F7;
 }
 section.jobs div.create-jobs form.create-form div.form-line {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: start;
+  width: 100%;
+  height: 8vw;
 }
 section.jobs div.create-jobs form.create-form div.form-line div.form-line-title {
-  width: 12vw;
-  margin-top: 0.5vw;
+  font-size: 2vw;
 }
-section.jobs div.create-jobs form.create-form div.form-line input.form-line-input {
-  height: 25px;
-  width: 40vw;
-  margin-left: 10px;
-  background-color: #181818;
-  color: aliceblue;
+section.jobs div.create-jobs form.create-form div.form-line textarea.form-line-input {
+  height: 3vw;
+  border: 0;
   outline: 0;
-  border-width: 0 0 1px;
-  border-color: aliceblue;
+  color: #505050;
+  min-width: 100%;
+  max-width: 100%;
+  background-color: white;
+  border: 0;
+  resize: none;
+}
+section.jobs div.create-jobs form.create-form div.form-line-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  height: 20vw;
+}
+section.jobs div.create-jobs form.create-form div.form-line-description div.form-line-title-description {
+  font-size: 2vw;
+}
+section.jobs div.create-jobs form.create-form div.form-line-description textarea.form-line-input-description {
+  height: 15vw;
+  border: 0;
+  outline: 0;
+  color: #505050;
+  min-width: 100%;
+  max-width: 100%;
+  background-color: white;
+  border: 0;
+  resize: none;
 }
 section.jobs div.create-jobs div.form-submit {
-  width: 85vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 section.jobs div.create-jobs div.form-submit img.save-btn {
   width: 20px;
   height: 20px;
   margin-right: 5px;
+  margin-bottom: 2px;
 }
 section.jobs div.create-jobs div.form-submit button.save-btn {
   height: 30px;
-  background-color: #181818;
-  color: #00FFFF;
+  background-color: #F7F7F7;
+  color: #00CCFF;
   border: none;
 }
 section.jobs div.create-jobs div.form-submit img.cancel-btn {
   width: 28px;
   height: 28px;
   margin-right: 5px;
-  margin-top: 2px;
+  margin-bottom: 2px;
 }
 section.jobs div.create-jobs div.form-submit button.cancel-btn {
   height: 30px;
-  background-color: #181818;
-  color: #00FFFF;
+  background-color: #F7F7F7;
+  color: #00CCFF;
   border: none;
 }
 section.jobs .show-jobs {
@@ -95,18 +165,23 @@ section.jobs .show-jobs {
 }
 section.jobs .show-jobs .show-jobs-title {
   padding-left: 5vw;
+  color: #505050;
+  font-size: 6vw;
 }
 section.jobs .show-jobs .current-jobs {
   display: flex;
-  flex-wrap: wrap;
-  width: 100vw;
+  flex-direction: column;
+  width: 100%;
 }
 section.jobs .show-jobs .current-jobs .job-card {
-  width: 90vw;
   margin: 2vw;
-  padding: 2vw;
-  background-color: #181818;
-  border-radius: 3%;
+  padding: 1vw;
+  color: #505050;
+  border: solid;
+  border-color: #969696;
+  font-size: 2vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 section.jobs .show-jobs .current-jobs .job-card .job-info {
   display: flex;
@@ -120,23 +195,25 @@ section.jobs .show-jobs .current-jobs .job-card section.job-actions {
   justify-content: flex-end;
 }
 section.jobs .show-jobs .current-jobs .job-card div.delete-msg {
-  margin-bottom: 2.5vw;
-  margin-top: 2.5vw;
+  font-family: Garamond, serif;
+  margin-bottom: 4.5vw;
+  margin-top: 4.5vw;
+  color: #ff878d;
 }
-section.jobs .show-jobs .current-jobs .job-card div.delete.actions {
+section.jobs .show-jobs .current-jobs .job-card div.delete-actions {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
-section.jobs .show-jobs .current-jobs .job-card div.delete.actions button.delete-actions-cancel {
-  background-color: #181818;
-  color: #00FFFF;
+section.jobs .show-jobs .current-jobs .job-card button.delete-actions-cancel {
+  background-color: #F7F7F7;
+  color: #00CCFF;
   border: none;
   margin-right: 3px;
 }
-section.jobs .show-jobs .current-jobs .job-card div.delete.actions button.delete-actions-confirm {
-  background-color: #181818;
-  color: #00FFFF;
+section.jobs .show-jobs .current-jobs .job-card button.delete-actions-confirm {
+  background-color: #F7F7F7;
+  color: #00CCFF;
   border: none;
   margin-right: 3px;
 }
@@ -154,37 +231,98 @@ section.jobs .show-jobs .current-jobs img.delete-btn {
   margin-right: 5px;
 }
 section.jobs .show-jobs .current-jobs img.reference-btn {
-  width: 22px;
-  height: 22px;
+  width: 23px;
+  height: 23px;
   margin-right: 5px;
+  margin-bottom: 4px;
 }
 section.jobs .show-jobs .current-jobs button.reference-btn {
-  background-color: #181818;
-  color: #00FFFF;
+  background-color: #F7F7F7;
+  color: #00CCFF;
   border: none;
+}
+section.jobs .show-jobs .current-jobs img.close-btn {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+section.jobs .show-jobs .current-jobs div.reference-card {
+  font-size: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 1.5vw;
+}
+section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body .reference-card-candidate {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body .reference-card-referee {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 3vw;
+}
+section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body .reference-card-line {
+  height: 4vw;
+}
+section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body div.reference-card-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body div.reference-card-actions img.show-reference-btn {
+  width: 23px;
+  height: 23px;
+  margin-right: 5px;
+}
+section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body div.reference-card-actions button.show-reference-btn {
+  background-color: #F7F7F7;
+  color: #00CCFF;
+  border: none;
+}
+section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body div.reference-card-actions img.close-reference-btn {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
 }
 section.jobs .show-jobs form.edit-form {
   display: flex;
   flex-direction: column;
-  margin-left: 5px;
-  margin-right: 5px;
+  width: 100%;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
 section.jobs .show-jobs form.edit-form div.edit-line {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  margin-bottom: 1vw;
+  justify-content: center;
+  width: 100%;
+  height: 4vw;
 }
 section.jobs .show-jobs form.edit-form div.edit-line div.edit-line-lable {
-  width: 12vw;
+  font-size: 2vw;
+  display: inline-block;
+  width: 15vw;
 }
-section.jobs .show-jobs form.edit-form div.edit-line input.edit-line-input {
-  background-color: #181818;
-  color: aliceblue;
+section.jobs .show-jobs form.edit-form div.edit-line textarea.edit-line-input {
+  height: 3vw;
+  border: 0;
   outline: 0;
-  border-width: 0 0 1px;
-  border-color: aliceblue;
-  width: 40vw;
+  color: #505050;
+  width: 100%;
+  background-color: white;
+  border: 0;
+  resize: none;
 }
 section.jobs .show-jobs form.edit-form div.edit-actions {
   display: flex;
@@ -192,8 +330,8 @@ section.jobs .show-jobs form.edit-form div.edit-actions {
   justify-content: flex-end;
 }
 section.jobs .show-jobs form.edit-form div.edit-actions button.edit-actions {
-  background-color: #181818;
-  color: #00FFFF;
+  background-color: #F7F7F7;
+  color: #00CCFF;
   border: none;
 }
 
