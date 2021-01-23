@@ -12,7 +12,7 @@ const CurrentJobs = ({current_jobs, reload}) => {
 
   return (
     <div className="show-jobs">
-      <h2 className="show-jobs-title">Current Jobs</h2>
+      <h2 className="show-jobs-title">Open Positions</h2>
       <div className="current-jobs">
         {jobs}
       </div>

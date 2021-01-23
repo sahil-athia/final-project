@@ -44,13 +44,13 @@ section.jobs {
 
   div.jobs-body-blank {
     height: 100vw;
-    width: 15vw;
+    width: 25vw;
     border-right: solid;
     border-color: #505050;
   }
 
   div.jobs-body-blank2 {
-    height: 60vw;
+    height: 85vw;
     width: 1.5vw;
     border-right: solid;
     border-color: #969696;
@@ -208,7 +208,7 @@ section.jobs {
         color: #505050;
         border: solid;
         border-color: #969696;
-        font-size: 1.8vw;
+        font-size: 2vw;
         margin-left: 5vw;
         margin-right: 5vw;  
 
@@ -217,6 +217,7 @@ section.jobs {
           flex-direction: column;
           align-items: start;
           margin: 10px;
+          font-size: 1.8vw;
         }
 
         section.job-actions {
@@ -226,8 +227,11 @@ section.jobs {
         }
 
         div.delete-msg {
+          font-family: Garamond, serif;
           margin-bottom: 4.5vw;
           margin-top: 4.5vw;
+          color: #ff878d;
+          font-size: 2.5vw;
         }
 
         div.delete-actions {
@@ -269,10 +273,10 @@ section.jobs {
       }
 
       img.reference-btn {
-        width: 22px;
-        height: 22px;
-        margin-right: 5px;
-        margin-bottom: 5px;
+        width: 23px;
+        height: 23px;
+        margin-left: 5px;
+        margin-top: 2.5px;
       }
 
       button.reference-btn {
@@ -281,6 +285,94 @@ section.jobs {
         border: none;
       }
 
+      img.close-btn {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        margin-bottom: 3px;
+      }
+
+      div.reference-card {
+        font-size: 1.5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .reference-card-body {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          padding: 1.5vw;
+
+          .reference-card-candidate {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+
+          .reference-card-referee {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-left: 3vw;
+          }
+
+          .reference-card-line {
+            height: 4vw;
+          }
+        }
+
+        div.reference-card-actions {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+
+          img.show-reference-btn {
+            width: 23px;
+            height: 23px;
+            margin-right: 5px;
+            margin-top: 2px;
+          }
+    
+          button.close-reference-btn {
+            background-color:	#F7F7F7;
+            color: #00CCFF;
+            border: none;
+          }
+    
+          img.close-reference-btn {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      div.reference-card2 {
+        // font-size: 1.5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: 5vw;
+
+        div.reference-card-line2 {
+          font-size:1.8vw;
+        }
+      }
+      div.reference-card-actions2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        img.close-reference-btn2 {
+          width: 30px;
+          height: 30px;
+          margin-right: 5px;
+        }
+      }
     }
 
     form.edit-form {
@@ -298,7 +390,7 @@ section.jobs {
         height: 4vw;
 
         div.edit-line-lable {
-          font-size: 2vw;
+          font-size: 1.5vw;
           display: inline-block;
           width: 15vw;
         }
@@ -326,6 +418,7 @@ section.jobs {
           border: none;
         }
       }
+
     }
   }
 }
