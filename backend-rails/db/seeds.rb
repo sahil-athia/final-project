@@ -180,7 +180,7 @@ JobReference.create({
   organization: Organization.second,
   referred_by: User.first,
   candidate: User.last,
-  accepted: true
+  accepted: false
 })
 
 JobReference.create({
@@ -196,5 +196,5 @@ JobReference.create({
   organization: Organization.first,
   referred_by: User.second,
   candidate: User.last,
-  accepted: true
+  accepted: false
 })
