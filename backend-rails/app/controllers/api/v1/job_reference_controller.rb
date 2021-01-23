@@ -48,17 +48,10 @@ module Api
       def get_by_user_id
         job_references = JobReference.where(candidate_id: params[:id])
         filteredList = job_references.map {|reference| 
-        reference_id = reference.id
-        job_id = reference.job_id
-        { reference_id => Job.where(id: job_id) }
+        { reference.id => Job.where(id: reference.job_id), "accepted" => reference.accepted }
         }
         render json: filteredList, status: :ok
       end
-
-      # def accept_reference
-      #   reference = JobReference.where(job_id: accept_reference_params[:job_id], organization_id: accept_reference_params[:organization_id])
-      #   reference.update(accept_reference_params)
-      # end
 
       private
 
@@ -66,10 +59,6 @@ module Api
         params.require(:selectedWithId).permit(:referred_by_id, :candidate_id, :job_id)
       end
 
-      # def accept_reference_params
-      #   params.require(:jobInfo).permit(:job_id, :organization_id, :accepted)
-      # end
-      
       def update_params
         params.require(:jobInfo).permit(:id, :accepted)
       end

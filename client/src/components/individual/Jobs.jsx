@@ -19,7 +19,6 @@ const Jobs = ({user_id, organization_id}) => {
       // axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
     ]).then((all) => {
       setOrgJobs(all[0].data);
-      console.log(all[1].data)
       setReferredJobs(all[1].data);
 
       //Hard code for now, need connections data
@@ -55,7 +54,7 @@ const Jobs = ({user_id, organization_id}) => {
     const jobInfo = {"id": reference_id, "accepted": true};
     axios.put(`http://localhost:8080/api/v1/job_reference/${reference_id}`, {jobInfo}, {withCredentials: true})
     .then((res) => {
-      console.log(res)
+      // console.log(res)
     })
     .catch((err) => {
       console.log(err);
