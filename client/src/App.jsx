@@ -97,6 +97,7 @@ function App() {
             <Route path="/individual">
               <Individual 
                 user_id ={state.user.id} 
+                organization_id={state.user.organization_id}
                 onClick={handleLogout}
               />
             </Route>} 

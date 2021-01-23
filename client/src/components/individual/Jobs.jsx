@@ -90,7 +90,7 @@ const Jobs = ({user_id, organization_id}) => {
         <h2>Job references you have accepted</h2> 
         <div>{acceptedJobList}</div>
       </div> 
-      <div>
+      { orgJobs && <div>
       <h2>Jobs From your employer</h2>
         <OrganizationJobs
         show={show}
@@ -102,7 +102,7 @@ const Jobs = ({user_id, organization_id}) => {
         orgJobs={orgJobs}
         handleSubmit={handleSubmit}
         />
-     </div> 
+     </div>} 
       </article>
     </>
   )

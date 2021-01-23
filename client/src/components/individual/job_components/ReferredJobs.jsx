@@ -11,17 +11,17 @@ const ReferredJobs = (props) => {
       <>
         {show && 
           <div key={id}>
-          <div>Title: {title}</div>
-          <div>Description: {description}</div>
-          <div>Salary: {salary}</div>
-            <AcceptButton
-              id={id}
-              organization_id={organization_id}
-              handleAccept={handleAccept}
-              show={show}
-              setShow={setShow}
-            />
-          <hr />
+            <div>Title: {title}</div>
+            <div>Description: {description}</div>
+            <div>Salary: {salary}</div>
+              <AcceptButton
+                id={id}
+                organization_id={organization_id}
+                handleAccept={handleAccept}
+                show={show}
+                setShow={setShow}
+              />
+            <hr />
           </div>
         }
       </>
