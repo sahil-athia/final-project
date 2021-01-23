@@ -72,7 +72,6 @@ const Jobs = ({user_id, organization_id}) => {
     <div>Title: {job.title}</div>
     <div>Description: {job.description}</div>
     <div>Salary: {job.salary}</div>
-    <hr/>
   </div>
   ));
 
