@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import RemoveEmployee from './employee_components/RemoveEmployee';
 import EmployeeBox from './employee_components/EmployeeBox';
+import CurrentEmployee from './employee_components/CurrentEmployee';
 import SearchBar from './employee_components/SearchBar';
 import '../../sass/UserBox.scss';
 
@@ -61,27 +61,24 @@ const Employees = ({organization_id, employees, reload}) => {
   });
 
   const currentEmployees = employees.map((employee) => (
-    <div key={employee.id}>
-      <h4>Name: {employee.name}</h4>
-      <p>Summary: {employee.summary}</p>
-      <p>Industry: {employee.industry}</p>
-      <p>Skills: {employee.skills}</p>
-      <p>Education: {employee.education}</p>
-      <p>Experience: {employee.experience}</p>
-      <p>Email: {employee.email}</p>
-      <p>Location: {employee.location}</p>
-      <p>Contact: {employee.contact}</p>
-      <img src={employee.resume_url} className="user_resume"></img>
-      <div>
-        <RemoveEmployee
-          id={employee.id}
-          organization_id={organization_id}
-          reload={reload}
-          localReload={setReload}
-        />
-      </div>
-      <hr/>
-    </div>
+    <CurrentEmployee 
+      key={employee.id}
+      name={employee.name}
+      summary={employee.summary}
+      industry={employee.industry}
+      skills={employee.skills}
+      education={employee.education}
+      experience={employee.experience}
+      email={employee.email}
+      location={employee.location}
+      contact={employee.contact}
+      resume_url={employee.resume_url}
+      id={employee.id}
+      organization_id={organization_id}
+      reload={reload}
+      localReload={setReload}
+    />
+
   ));
 
   return (
@@ -93,17 +90,17 @@ const Employees = ({organization_id, employees, reload}) => {
         setSearch={setSearch}
       />
       <br/>
-      {dataFilterd.length > 0 && newEmployees()}
-      {dataFilterd.length === 0 && <>
-      <p>No results matched your search</p>
-      <hr/>
-      </>}
-    </div>
     <div>
       <h2>Current Employees</h2>
       <div className='employees'>
         {currentEmployees.length > 0 && currentEmployees}
       </div>
+    </div>
+      {dataFilterd.length > 0 && newEmployees()}
+      {dataFilterd.length === 0 && <>
+      <p>No results matched your search</p>
+      <hr/>
+      </>}
     </div>
     </>
   )

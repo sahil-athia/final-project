@@ -62,7 +62,7 @@ export default function Login(props) {
 <section className='login'>
       <div className="box">
         <div className="text-box">
-          <h1>Example Text</h1>
+          <h1>Insight</h1>
         </div>
 
       <div className="form-box">
