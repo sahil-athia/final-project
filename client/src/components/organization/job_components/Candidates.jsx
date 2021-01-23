@@ -34,10 +34,11 @@ const Candidates = ({job_id,  hideCandidates}) => {
           to={{
             pathname: "/organization/user_page",
             hash: `#${candidate.id}` 
-          }}
-        >View</Link>
+          }}>
+          <img className="reference-btn" src={Reference} alt="Reference"/>
+          View candidate profile
+        </Link>
         <button className="reference-btn" onClick={hideCandidates}>
-            <img className="reference-btn" src={Reference} alt="Reference"/>
             Hide Reference
         </button>
       </div>
@@ -54,7 +55,6 @@ const Candidates = ({job_id,  hideCandidates}) => {
       </div>
       <div className="reference-card-actions">
         <button className="reference-btn" onClick={hideCandidates}>
-          <img className="reference-btn" src={Reference} alt="Reference"/>
           Hide References
         </button>
       </div>

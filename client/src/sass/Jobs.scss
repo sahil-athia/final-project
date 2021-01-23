@@ -1,31 +1,86 @@
 body {
-  // background-color: black;
+  background-color: #F7F7F7;
+  font-family: Garamond, serif;
+  color: rgb(150, 150, 150);
+
 }
 
 section.jobs {
-  background-color: black;
-  color: aliceblue;
+  background-color: #F7F7F7;
+  color: rgb(150, 150, 150);
+  font-family: Garamond, serif;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  margin: 30px;
+
+  div.jobs-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    div.jobs-top-part1 {
+      width: 40vw;
+      border:none;
+    }
+
+    div.jobs-top-part2 {
+      width: 60vw;
+      border-top:solid;
+      border-color: #505050;
+      height: 1.5vw;
+    }
+  }
+
+  div.jobs-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vw;
+    width: 100vw;
+    margin-top: 3vw;
+  }
+
+  div.jobs-body-blank {
+    height: 100vw;
+    width: 15vw;
+    border-right: solid;
+    border-color: #505050;
+  }
+
+  div.jobs-body-blank2 {
+    height: 90vw;
+    width: 1.5vw;
+    border-right: solid;
+    border-color: #969696;
+  }
 
   div.create-jobs {
     display: flex;
     width: 100vw;
 
+    img.create-jobs-img {
+      width: 65vw;
+      margin-top: 3vw;
+    }
+
     button.add-btn {
-      height: 30px;
-      background-color: black;
-      color: #00FFFF;
-      border: none;
-      margin: 5vw;
+      background-color: #F7F7F7;
+      border-top: 1px, solid;
+      border-color: #969696;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      font-size: 3em;
+      color: #505050;
+      width: 35vw;
 
       img.add-btn {
         width: 30px;
         height: 30px;
-        margin-right: 5px;      
+        margin-right: 1vw;
+        margin-bottom: 0.5vw;      
       }
     }
 
@@ -64,6 +119,7 @@ section.jobs {
       }
 
     }
+
 
     div.form-submit {
       width: 85vw;
@@ -110,19 +166,21 @@ section.jobs {
     width: 100vw;
 
     .show-jobs-title {
-      padding-left: 5vw
+      padding-left: 5vw;
+      color: #505050;
+      font-size: 4em;
     }
 
     .current-jobs {
       display: flex;
       flex-wrap: wrap;
-      width: 100vw;
+      // width: 100vw;
 
       .job-card {
-        width: 90vw;
+        // width: 90vw;
         margin: 2vw;
         padding: 2vw;
-        background-color:	#181818;
+        // background-color:	#181818;
         border-radius: 3%;    
 
         .job-info {
