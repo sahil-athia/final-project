@@ -56,7 +56,7 @@ module Api
       private
 
       def jobReference_params
-        params.require(:selectedWithId).permit(:referred_by_id, :candidate_id, :job_id)
+        params.require(:selected).permit(:referred_by_id, :candidate_id, :job_id, :organization_id, :accepted)
       end
 
       def update_params

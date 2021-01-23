@@ -38,7 +38,7 @@ end
 
 
   User.create({
-    organization: nil,
+    organization: Organization.first,
     name: "Random Name",
     email: "random@email.com",
     summary: Faker::Lorem.sentence,
@@ -48,7 +48,7 @@ end
     experience: Faker::Lorem.sentence,
     location: Faker::Address.street_address,
     contact: Faker::Lorem.sentence,
-    verified: false,
+    verified: true,
     resume_url: "https://cdn.corporatefinanceinstitute.com/assets/investment-banking-resume-template-example.png",
     password_digest: "$2a$12$DY.36e1b.5FJXub0ad5HW.buZtoLNfeggiadNDhLinCZUIYBxR5J.",
     profile_type: "user",

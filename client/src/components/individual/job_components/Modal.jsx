@@ -7,7 +7,10 @@ const Modal = ({ children, show, setShow }) => {
         <button
           className="modal-close"
           type="button"
-          onClick={() => setShow(false)}
+          onClick={() => {
+            console.log("modal clicked")
+            setShow(false)
+          }}
         >
           X
         </button>

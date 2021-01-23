@@ -1,16 +1,12 @@
 import { React, useState, useEffect } from 'react';
 import axios from 'axios';
 import ReferredJobs from './job_components/ReferredJobs'
-import OrganizationJobs from './job_components/OrganizationJobs'
+import OpenPositions from './job_components/OpenPositions'
 
 const Jobs = ({user_id, organization_id}) => {
-  const [show, setShow] = useState(false)
   const [options, setOptions] = useState([]);
-  const [selected, setSelected] = useState([]);
-  const [jobId, setJobId] = useState(null);
   const [orgJobs, setOrgJobs] = useState([]);
   const [referredJobs, setReferredJobs] = useState([]);
-  const [acceptedJobs, setAcceptedJobs] = useState([]);
 
   useEffect(() => {    
     Promise.all([
@@ -24,12 +20,11 @@ const Jobs = ({user_id, organization_id}) => {
       //Hard code for now, need connections data
       // const newOptions = all[2].data.map((connectionArray) => {
       //   const {id, name, organization_id} = connectionArray[0];
-      //   return {label: name, referred_by_id: user_id, candidate_id: id, job_id: jobId, organization_id, accepted: false}
+      //   return {candidate_name: name, referred_by_id: user_id, candidate_id: id, accepted: false}
       // });
       const newOptions = [
-        {label: 'name1', referred_by_id: user_id, candidate_id: 2, job_id: jobId, organization_id, accepted: false},
-        {label: 'name2', referred_by_id: user_id, candidate_id: 3, job_id: jobId, organization_id, accepted: false},
-        {label: 'name3', referred_by_id: user_id, candidate_id: 4, job_id: jobId, organization_id, accepted: false}
+        {candidate_name: 'Sanjuanita Casper', referred_by_id: user_id, candidate_id: 3, accepted: false},
+        {candidate_name: 'Example User Name', referred_by_id: user_id, candidate_id: 6, accepted: false}
       ];
       setOptions(newOptions)
 
@@ -40,8 +35,8 @@ const Jobs = ({user_id, organization_id}) => {
   }, []);
   
   const handleSubmit = (selected) => {
-    const selectedWithId = {...selected[0], job_id: jobId};
-    axios.post('http://localhost:8080/api/v1/job_reference', {selectedWithId}, {withCredentials: true})
+    console.log("in jobs page", selected)
+    axios.post('http://localhost:8080/api/v1/job_reference', {selected}, {withCredentials: true})
     .then((res) => {
       console.log(res);
     })
@@ -61,37 +56,19 @@ const Jobs = ({user_id, organization_id}) => {
     });
   };
 
-  const acceptedJobList = acceptedJobs.map((job) => (
-  <div key={job.id}>
-    <div>Title: {job.title}</div>
-    <div>Description: {job.description}</div>
-    <div>Salary: {job.salary}</div>
-  </div>
-  ));
-
   return (
     <>
       <article className='jobs'>
-      <h2>Jobs you have been referred to</h2>
+      <div>Jobs Referred To You</div>
       <div> 
           <ReferredJobs
             referredJobs={referredJobs}
             handleAccept={handleAccept}
           />
       </div> 
-      {/* <div>
-        <h2>Job references you have accepted</h2> 
-        <div>{acceptedJobList}</div>
-      </div>  */}
       { orgJobs && <div>
-      <h2>Jobs From your employer</h2>
-        <OrganizationJobs
-        show={show}
-        setShow={setShow}
+        <OpenPositions
         options={options}
-        selected={selected}
-        setSelected={setSelected}
-        setJobId={setJobId}
         orgJobs={orgJobs}
         handleSubmit={handleSubmit}
         />
