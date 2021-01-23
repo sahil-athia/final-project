@@ -1,11 +1,13 @@
-export default function Confirm(props) {
+import './Confirm.scss'
+import { Button } from "react-bootstrap"
 
+export default function Confirm(props) {
   return(
-    <main>
-      <h1>{props.message}</h1>
-      <section className="appointment__actions">
-        <button onClick={props.deleteCancel}>Cancel</button>
-        <button onClick={props.deleteConfirm}>Confirm</button>
+    <main className="connection__actions">
+      <p className="remove-message">{props.message}</p>
+      <section>
+        <Button variant="success" onClick={props.deleteCancel}>Go Back</Button>
+        <Button variant="danger" onClick={props.deleteConfirm}>Remove</Button>
       </section>
     </main>
   );
