@@ -12,6 +12,14 @@ export default function Networking(props) {
   const [reload, setReload] = useState(false)
   const [search, setSearch] = useState("By Name")
 
+
+  const headerStyle = {
+    color: "rgb(150, 150, 150)",
+    fontSize: "250%",
+    fontFamily: "Garamond, serif",
+    fontWeight: "100"
+  }
+
   useEffect(() => {
     axios
     .get(`/logged_in`)
@@ -60,6 +68,7 @@ export default function Networking(props) {
 
   return (
     <>
+      <h1 style={headerStyle}>Networking</h1>
       <SearchBar 
        input={input} 
        onChange={updateInput}

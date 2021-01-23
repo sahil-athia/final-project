@@ -1,21 +1,29 @@
 import axios from 'axios'
 import {useState} from 'react'
 import Confirm from './small_components/Confirm'
+import Status from './small_components/Status.jsx'
 import { useHistory, Link } from "react-router-dom";
 
 export default function ConnectionBox(props) {
-  let history = useHistory()
   const [confirm, setConfirm] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const removeConnection = () => {
+    setLoading(true)
+    setConfirm(false)
     let data = {
       recipient_id: props.id,
       sender_id: props.user_id
     }
-    console.log(data)
-    axios.delete(`/api/v1/connection/${props.user_id}`, {data}, {withCredentials: true})
-    .then(() => props.reload(current => !current))
-    .then(() => setConfirm(false))
+    setTimeout(() => {
+      axios.delete(`/api/v1/connection/${props.user_id}`, {data}, {withCredentials: true})
+      .then(() => props.reload(current => !current))
+      .then(() => {
+        setLoading(false)
+      })
+      .catch((e) => console.log(e))
+    }, 1000)
+    
   }
 
   const deleteCancel = () => {
@@ -23,7 +31,8 @@ export default function ConnectionBox(props) {
   }
   return(
     <>
-    {confirm === false && 
+    {loading === true && <div className="user-box"><Status message="Removing"/></div>}
+    {(confirm || loading) === false && 
     <div className="user-box">
       <div className="user-information">
         <img src={props.photo || "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"} alt="Your Profile Photo"></img>
