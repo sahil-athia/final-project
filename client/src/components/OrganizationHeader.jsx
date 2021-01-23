@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {useHistory} from 'react-router-dom'
-import {useCallback} from 'react'
+import { Navbar, Nav } from 'react-bootstrap'
+import './IndividualHeader.scss'
 
 const OrganizationHeader = (props) => {
   let history = useHistory()
@@ -9,18 +10,21 @@ const OrganizationHeader = (props) => {
   }
   return(
     <div>
-       <nav>
-        <ul>
-          <Link to="/organization/dashboard"> Dashboard </Link>
-          <Link to="/organization/employees"> Employees </Link>
-          <Link to="/organization/jobs"> Jobs </Link>
-          <button type="button" onClick={() => props.onClick(handleBack)}>Logout</button>
-        </ul>
-      </nav>
-    </div>
+    <Navbar bg="" variant="">
+      <Navbar.Brand className="brand" >Insight</Navbar.Brand>
+      <Nav className="mr-auto">
+        <Nav.Link className="link" href="/organization/dashboard">Profile</Nav.Link>
+        <Nav.Link className="link" href="/organization/employees">Employees</Nav.Link>
+        <Nav.Link className="link" href="/organization/jobs">Jobs</Nav.Link>
+        <button type="button" onClick={() => props.onClick(handleBack)}>Logout</button>
+      </Nav>
+    </Navbar>
+  </div>
   )
 };
 
 export default OrganizationHeader;
 
 //onClick={props.onClick(handleBack)}
+
+  
