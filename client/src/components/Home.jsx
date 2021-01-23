@@ -11,6 +11,7 @@ function Home(props) {
 
   useEffect(() => {
     const phrases = [
+      'Welcome to Insight',
       'Networking Made Easy',
       'Expand Your Business',
       'Make Connections',

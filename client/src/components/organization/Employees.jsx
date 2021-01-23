@@ -3,6 +3,7 @@ import axios from 'axios';
 import RemoveEmployee from './employee_components/RemoveEmployee';
 import EmployeeBox from './employee_components/EmployeeBox';
 import SearchBar from './employee_components/SearchBar';
+import '../../sass/UserBox.scss';
 
 const Employees = ({organization_id, employees, reload}) => {
   const [input, setInput] = useState('');
@@ -53,6 +54,7 @@ const Employees = ({organization_id, employees, reload}) => {
       email={employee.email}
       summary={employee.summary}
       industry={employee.industry}
+      photo_url={employee.photo_url}
       reload={reload}
       localReload={setReload}
     />
