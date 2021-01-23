@@ -72,8 +72,8 @@ section.jobs {
       border-left: none;
       border-right: none;
       border-bottom: none;
-      font-size: 3em;
-      color: #505050;
+      font-size: 5vw;
+      color: #ff878d;
       width: 35vw;
 
       img.add-btn {
@@ -88,55 +88,82 @@ section.jobs {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      height: 150px;
-      width: 90vw;
-      margin: 2vw;
-      padding: 2vw;
-      background-color:	#181818;
-      border-radius: 3%;   
+      height: 46.5vw;
+      width: 40vw;
+      border-top: solid;
+      padding: 5vw;
+      background-color:	#F7F7F7;
+      // justify-content: center;
 
       div.form-line {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: start;
+        width: 100%;
+        height: 8vw;
 
         div.form-line-title {
-          width: 12vw;
-          margin-top: 0.5vw;
+          font-size: 2vw;
         }
 
-        input.form-line-input {
-          height: 25px;
-          width: 40vw;
-          margin-left: 10px;
-          background-color: #181818;
-          color: aliceblue;
+        textarea.form-line-input {
+          height: 3vw;
+          border: 0;
           outline: 0;
-          border-width: 0 0 1px;
-          border-color: aliceblue;
+          color: #505050;
+          min-width: 100%;
+          max-width: 100%;
+          background-color: white;
+          border: 0;
+          resize: none;
         }
 
+      }
+
+      div.form-line-description {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+        height: 20vw;
+
+        div.form-line-title-description {
+          font-size: 2vw;
+        }
+
+        textarea.form-line-input-description {
+          height: 15vw;
+          border: 0;
+          outline: 0;
+          color: #505050;
+          min-width: 100%;
+          max-width: 100%;
+          background-color: white;
+          border: 0;
+          resize: none;
+        }
       }
 
     }
 
 
     div.form-submit {
-      width: 85vw;
+      width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      justify-content: space-around;
           
       img.save-btn {
         width: 20px;
         height: 20px;
         margin-right: 5px;
+        margin-bottom: 2px;
       }
   
       button.save-btn {
         height: 30px;
-        background-color: 	#181818;
-        color: #00FFFF;
+        background-color: 	#F7F7F7;
+        color: #00CCFF;
         border: none;
       }
 
@@ -144,13 +171,13 @@ section.jobs {
         width: 28px;
         height: 28px;
         margin-right: 5px;
-        margin-top: 2px;
+        margin-bottom: 2px;
       }
   
       button.cancel-btn {
         height: 30px;
-        background-color: #181818;
-        color: #00FFFF;
+        background-color: #F7F7F7;
+        color: #00CCFF;
         border: none;
       }
 
@@ -168,7 +195,7 @@ section.jobs {
     .show-jobs-title {
       padding-left: 5vw;
       color: #505050;
-      font-size: 4em;
+      font-size: 6vw;
     }
 
     .current-jobs {
@@ -208,15 +235,15 @@ section.jobs {
         }
 
         button.delete-actions-cancel {
-          background-color:	#181818;
-          color: #00FFFF;
+          background-color:	#F7F7F7;
+          color: #00CCFF;
           border: none;
           margin-right: 3px;
         }
 
         button.delete-actions-confirm {
-          background-color:	#181818;
-          color: #00FFFF;
+          background-color:	#F7F7F7;
+          color: #00CCFF;
           border: none;
           margin-right: 3px;
         }
@@ -246,8 +273,8 @@ section.jobs {
       }
 
       button.reference-btn {
-        background-color:	#181818;
-        color: #00FFFF;
+        background-color:	#F7F7F7;
+        color: #00CCFF;
         border: none;
       }
 
@@ -270,7 +297,7 @@ section.jobs {
         }
 
         input.edit-line-input {
-          background-color:	#181818;
+          background-color:	#F7F7F7;
           color: aliceblue;
           outline: 0;
           border-width: 0 0 1px;
@@ -285,8 +312,8 @@ section.jobs {
         justify-content: flex-end;
 
         button.edit-actions {
-          background-color:	#181818;
-          color: #00FFFF;
+          background-color:	#F7F7F7;
+          color: #00CCFF;
           border: none;
         }
       }

@@ -21,7 +21,7 @@ const CreateJobs = ({organization_id, setNewJob, reload}) => {
       <form className="create-form" autoComplete="off" onSubmit={handleSubmit}>
         <div className="form-line">
           <div className="form-line-title">Title: </div>
-          <input
+          <textarea
             className="form-line-input"
             type="text"
             name="title"
@@ -31,7 +31,7 @@ const CreateJobs = ({organization_id, setNewJob, reload}) => {
         </div>
         <div className="form-line">
           <div className="form-line-title">Salary: </div>
-          <input
+          <textarea
             className="form-line-input"
             type="text"
             name="salary"
@@ -39,10 +39,10 @@ const CreateJobs = ({organization_id, setNewJob, reload}) => {
             onChange={event => setState(prev => ({...prev, salary: event.target.value}))}
           />
        </div>
-       <div className="form-line">
-          <div className="form-line-title">Description: </div>
-          <input
-            className="form-line-input"
+       <div className="form-line-description">
+          <div className="form-line-title-description">Description: </div>
+          <textarea
+            className="form-line-input-description"
             type="text"
             name="description"
             value={state.description}
