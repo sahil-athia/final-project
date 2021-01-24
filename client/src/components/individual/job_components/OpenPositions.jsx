@@ -1,7 +1,4 @@
 import { React } from 'react';
-import Select from 'react-dropdown-select';
-import './Modal.css'
-import Modal from './Modal'
 import OpenPosition from './OpenPosition'
 
 const OpenPositions = ({options, orgJobs, handleSubmit}) => {
