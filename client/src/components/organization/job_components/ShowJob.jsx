@@ -5,7 +5,7 @@ import Reference from '../../..//icons/Reference.png';
 const ShowJob = ({job, onEdit, onDelete, onReference}) => {
   return (
     <>
-      <div className="job-info">Title: {job.title}</div>
+      <div className="job-info-title">Title: {job.title}</div>
       <div className="job-info">Salary: {job.salary}</div>
       <div className="job-info">Description: {job.description}</div>
       <section className="job-actions">

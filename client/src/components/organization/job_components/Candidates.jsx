@@ -6,21 +6,20 @@ import Close from '../../..//icons/Close.png';
 
 const Candidates = ({job_id,  hideCandidates}) => {
   const [data, setData] = useState([])
-
   useEffect (() => {
     axios.get(`http://localhost:8080/api/v1/job_reference/by_job_id/${job_id}`)
     .then((res) => {
-      setData(res.data)
+      setData(res.data);
     }).catch((err) => {
       console.log(err);
     });
   }, []);
 
-  const list = data.map(reference => {
+  const list = data.map((reference, index) => {
     const candidate = reference.candidate[0];
     const referee = reference.referee[0];
     return(
-    <div className="reference-card" key={candidate.id}>
+    <div className="reference-card" key={index}>
       <div className="reference-card-body">
         <div className="reference-card-candidate">
           <div className="reference-card-line">Name: {candidate.name}</div>
