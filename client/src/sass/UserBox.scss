@@ -2,12 +2,13 @@
 
 
 .user-box {
+  background-color:  #191919;
   font-family: Garamond, serif;
   margin: 2vh;
   margin-right: auto;
   margin-left: auto;
-  border: 3px solid #191919;
-  border-radius: 3px;
+  border: 3px solid #F7F7F7;
+  border-radius: 15px;
   width: 60vw;
   height: 25vh;
   align-self: center;
@@ -15,7 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: #F7F7F7;
   @keyframes slideIn {
     0% {
       transform: translateY(+30%);

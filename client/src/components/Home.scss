@@ -72,10 +72,11 @@
   .videoDiv {
     align-self: center;
     .videoTag {
+      transform: rotate(23.5deg);
       margin-right: -30vh;
       max-width: 90vw;
       max-height: 90vh;
-      filter: saturate(120%);
+      filter: saturate(200%);
       
     }
   }

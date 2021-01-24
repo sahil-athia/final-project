@@ -17,7 +17,7 @@ export default function Networking(props) {
     color: "rgb(150, 150, 150)",
     fontSize: "250%",
     fontFamily: "Garamond, serif",
-    fontWeight: "100"
+    fontWeight: "100",
   }
 
   useEffect(() => {
