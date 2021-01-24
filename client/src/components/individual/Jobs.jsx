@@ -11,21 +11,16 @@ const Jobs = ({user_id, organization_id}) => {
   useEffect(() => {    
     Promise.all([
       axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`),
-      axios.get(`http://localhost:8080/api/v1/job_reference/by_user_id/${user_id}`)
-      // axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
+      axios.get(`http://localhost:8080/api/v1/job_reference/by_user_id/${user_id}`),
+      axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
     ]).then((all) => {
       setOrgJobs(all[0].data);
       setReferredJobs(all[1].data);
-
-      //Hard code for now, need connections data
-      // const newOptions = all[2].data.map((connectionArray) => {
-      //   const {id, name, organization_id} = connectionArray[0];
-      //   return {candidate_name: name, referred_by_id: user_id, candidate_id: id, accepted: false}
-      // });
-      const newOptions = [
-        {candidate_name: 'Sanjuanita Casper', referred_by_id: user_id, candidate_id: 3, accepted: false},
-        {candidate_name: 'Example User Name', referred_by_id: user_id, candidate_id: 6, accepted: false}
-      ];
+      
+      const newOptions = all[2].data.map((connectionArray) => {
+        const {id, name} = connectionArray[0];
+        return {candidate_name: name, referred_by_id: user_id, candidate_id: id, accepted: false}
+      });
       setOptions(newOptions)
 
     }).catch((err) => {
@@ -35,7 +30,6 @@ const Jobs = ({user_id, organization_id}) => {
   }, []);
   
   const handleSubmit = (selected) => {
-    console.log("in jobs page", selected)
     axios.post('http://localhost:8080/api/v1/job_reference', {selected}, {withCredentials: true})
     .then((res) => {
       console.log(res);
