@@ -90,17 +90,17 @@ const Employees = ({organization_id, employees, reload}) => {
         setSearch={setSearch}
       />
       <br/>
+      {dataFilterd.length > 0 && newEmployees()}
+      {dataFilterd.length === 0 && <>
+      <p>No results matched your search</p>
+      <hr/>
+      </>}
     <div>
       <h2>Current Employees</h2>
       <div className='employees'>
         {currentEmployees.length > 0 && currentEmployees}
       </div>
     </div>
-      {dataFilterd.length > 0 && newEmployees()}
-      {dataFilterd.length === 0 && <>
-      <p>No results matched your search</p>
-      <hr/>
-      </>}
     </div>
     </>
   )
