@@ -69,7 +69,7 @@ function Individual(props) {
           <Route path="/individual/jobs">
             <Jobs 
               user_id={props.user_id}
-              organization_id={data.organization_id}
+              organization_id={props.organization_id}
             />
           </Route>
 

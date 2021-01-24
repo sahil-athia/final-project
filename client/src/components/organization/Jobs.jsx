@@ -23,7 +23,7 @@ const Jobs = ({organization_id, current_jobs, reload}) => {
         {!newJob && 
         <button className="add-btn" onClick={handelClick}>
           <img className="add-btn" src={Add} alt="add"/>
-          New Post
+          New Job
         </button>
         }
         {newJob && <CreateJobs
