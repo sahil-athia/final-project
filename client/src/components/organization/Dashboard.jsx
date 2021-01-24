@@ -9,7 +9,7 @@ import EditFooter from "./profile_components/EditFooter"
 
 import "./dashboard.css"
 
-const Dashboard = ({profile, reload}) => {
+const Dashboard = ({id, profile, reload}) => {
   const [edit, setEdit] = useState({head:false, body:false, footer:false})
 
   return (
@@ -22,6 +22,7 @@ const Dashboard = ({profile, reload}) => {
         onClick={setEdit} 
       />}
       {edit && <EditHead
+        id={id}
         name={profile.name}
         industry={profile.industry}
         image_url={profile.image_url}
@@ -33,6 +34,7 @@ const Dashboard = ({profile, reload}) => {
         onClick={setEdit} 
       />}
       {edit && <EditBody
+        id={id}
         introduction={profile.introduction}
         onClick={setEdit} 
         reload={reload}
@@ -44,8 +46,8 @@ const Dashboard = ({profile, reload}) => {
         onClick={setEdit} 
       />}
       {edit && <EditFooter
+        id={id}
         website={profile.website}
-        email={profile.email}
         location={profile.location}
         onClick={setEdit} 
         reload={reload}

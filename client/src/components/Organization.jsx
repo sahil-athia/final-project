@@ -40,6 +40,7 @@ const Organization = ({organization_id, onClick}) => {
         <Switch>
           <Route path="/organization/dashboard">
             <Dashboard 
+            id={organization_id}
             profile={state.profile}
             reload={setReload}
             />

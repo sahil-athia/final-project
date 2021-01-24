@@ -2,21 +2,15 @@ import { useState } from 'react'
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 
-export default function EditFooter(props){
-  const [contact, setContact] = useState(props.contact); 
-  const [location, setLocation] = useState(props.location);
+const EditFooter = ({ id, website, location, onClick, reload }) => {
+  const [state, setState] = useState({website, location}); 
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    let data = {
-      contact: contact,
-      location: location,
-      id: props.user_id
-    }
     axios.post(`/api/v1/user/update_footer`, {data}, {withCredentials: true})
     .then(() => {
-      props.reload(current => !current)
-      props.onClick(prev => ({
+      reload(current => !current)
+      onClick(prev => ({
         ...prev,
         footer: false
       }))
@@ -28,15 +22,15 @@ export default function EditFooter(props){
       <div className="form-box">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Contact:</Form.Label>
+            <Form.Label>Website:</Form.Label>
             <Form.Control 
               as="textarea" 
               rows={1} 
-              placeholder="contact"
+              placeholder="website"
               type="text"
-              name="contact"
-              value={contact}
-              onChange={event => setContact(event.target.value)}
+              name="website"
+              value={website}
+              onChange={event => setState(prev => ({...prev, website: event.target.value}))}
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -48,7 +42,7 @@ export default function EditFooter(props){
               type="text"
               name="location"
               value={location}
-              onChange={event => setLocation(event.target.value)}
+              onChange={event => setState(prev => ({...prev, location: event.target.value}))}
             />
           </Form.Group>          
           <button placeholder="submit" type="submit">
@@ -59,4 +53,6 @@ export default function EditFooter(props){
       </div>
     </div>
   )
-}
+};
+
+export default EditFooter;

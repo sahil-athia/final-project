@@ -4,12 +4,13 @@ import { Form } from 'react-bootstrap';
 
 
 const EditHead = (props) => {
+  const [name, setName] = useState(props.name); 
   const [industry, setIndustry] = useState(props.industry); 
   const [url, setUrl] = useState(props.image_url); 
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const data = { industry, image_url, id: props.user_id };
+    const data = { industry, image_url, id: props.id };
     axios.post(`/api/v1/user/update_head`, {data}, {withCredentials: true})
     .then(() => {
       props.reload(current => !current)
@@ -24,8 +25,21 @@ const EditHead = (props) => {
     <div className="head-form">
       <div className="form-box">
       <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Name:</Form.Label>
+            <Form.Control 
+              as="textarea" 
+              rows={1} 
+              placeholder="name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={event => setIndustry(event.target.value)}
+            />
+          </Form.Group>
+
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Industry & Title:</Form.Label>
+            <Form.Label>Industry:</Form.Label>
             <Form.Control 
               as="textarea" 
               rows={1} 

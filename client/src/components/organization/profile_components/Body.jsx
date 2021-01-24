@@ -1,24 +1,24 @@
-const Body = (props) => {
-  const { name, industry, website, email, location, introduction, image_url, onClick } = props; 
-//When org_authentication available, replace onClick to isLoggedIn!!!
+const Body = ( {introduction, onClick} ) => {
+
+  const edit = () => {
+    onClick(prev => ({
+      ...prev,
+      body: true
+    }))
+  }
   return(
-    <>
-    {onClick && <button onClick={() => onClick(true)}>
-      Edit
-    </button>}
-      <div className="organization_profile_body">
-        <h1>{name}</h1>
-        <h3>Industry: {industry}</h3>
-        <h3>Website: {website}</h3>
-        <h3>Email: {email}</h3>
-        <h3>Location: {location}</h3>
-        <div>
-          <h2>Introduction: {introduction}</h2>
-          <img src={image_url} className="organization_image"></img>
+    <div className="body">
+    <section className="body-content">
+        <div className="info-box introduction">
+          <h2>Introduction:</h2>
+          <br></br>
+          <h4>{introduction}</h4>
         </div>
-        
-      </div>
-      </>
+      </section>
+      {onClick && <button onClick={edit} className="edit-button-body">
+          Edit
+        </button>}
+    </div>
   )
 };
 

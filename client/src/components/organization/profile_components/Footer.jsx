@@ -1,6 +1,6 @@
-export default function EditFooter(props){
+const EditFooter = ({ website, email, location, onClick }) => {
   const edit = () => {
-    props.onClick(prev => ({
+    onClick(prev => ({
       ...prev,
       footer: true
     }))
@@ -8,13 +8,15 @@ export default function EditFooter(props){
   return(
     <footer className="profile-footer">
       <div>
-        <h5>{props.email}</h5>
-        <h5>{props.contact}</h5>
-        <h5>{props.location}</h5>
+        <h5>{website}</h5>
+        <h5>{email}</h5>
+        <h5>{location}</h5>
       </div>
-      {props.onClick && <button onClick={edit}>
+      {onClick && <button onClick={edit}>
         Edit
       </button>}
     </footer>
   )
-}
+};
+
+export default EditFooter;
