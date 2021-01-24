@@ -23,7 +23,7 @@ const EditHead = (props) => {
   };
   
   return(
-    <div className="head-form">
+    <div className="org-head-form">
       <div className="form-box">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="exampleForm.ControlTextarea1">

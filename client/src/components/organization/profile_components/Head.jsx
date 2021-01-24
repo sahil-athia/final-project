@@ -8,9 +8,9 @@ const Head = ({ name, industry, image_url, onClick }) => {
 
   return(
     <>
-      <div className="user_header">
-        <div className="user_summary">
-          <h1>{name}<hr></hr></h1>
+      <div className="org_header">
+        <div className="org_summary">
+          <h1 className="org_name">{name}<hr></hr></h1>
           <h3><em>{industry}</em></h3>
           {onClick && <button onClick={edit}>
             Edit
@@ -18,7 +18,7 @@ const Head = ({ name, industry, image_url, onClick }) => {
         </div>
 
         <div className="image-box">
-          <img src={image_url} className="stack user_resume" alt="Your Resume"></img>
+          <img src={image_url} className="stack org_pic" alt="Your Resume"></img>
         </div>
       </div>
     </>

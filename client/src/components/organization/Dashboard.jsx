@@ -7,14 +7,14 @@ import EditBody from "./profile_components/EditBody"
 import Footer from "./profile_components/Footer"
 import EditFooter from "./profile_components/EditFooter"
 
-import "./dashboard.css"
+import "./dashboard.scss"
 
 const Dashboard = ({id, profile, reload}) => {
   const [edit, setEdit] = useState({head: false, body: false, footer: false})
 
   return (
   <article>
-    <div className="user_profile">
+    <div className="org_profile">
       {!edit.head && <Head 
         name={profile.name}
         industry={profile.industry}

@@ -20,7 +20,7 @@ const EditBody = (props) => {
   };
   
   return(
-    <div className="body-form">
+    <div className="org-body-form">
       <div className="form-box">
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlTextarea1">

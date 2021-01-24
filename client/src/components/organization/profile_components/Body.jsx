@@ -7,13 +7,13 @@ const Body = ( {introduction, onClick} ) => {
     }))
   }
   return(
-    <div className="body">
+    <div className="org-body">
     <section className="body-content">
-        <div className="info-box introduction">
-          <h2>Introduction:</h2>
-          <br></br>
-          <h4>{introduction}</h4>
-        </div>
+        <blockquote>
+          <h4>
+            {introduction}
+           </h4>
+        </blockquote>
       </section>
       {onClick && <button onClick={edit} className="edit-button-body">
           Edit
@@ -23,3 +23,4 @@ const Body = ( {introduction, onClick} ) => {
 };
 
 export default Body;
+
