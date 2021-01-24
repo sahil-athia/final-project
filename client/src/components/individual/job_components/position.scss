@@ -1,0 +1,64 @@
+.job-box {
+  height: 12vh;
+  width: 80vw;
+  color: black;
+  border: 2px solid rgb(209, 209, 209);
+  border-right: 0px;
+  border-radius: 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin: 2vh;
+  margin-left: auto ;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Garamond, serif;
+
+  @keyframes slideButton {
+    0% {
+      transform: translateX(+10%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+  &:hover {
+    background-color: rgb(241, 241, 241);
+    .refer-button {
+      visibility: visible;
+      animation: 0.2s ease-out 0s 1 slideButton;
+    }
+  }
+  .job-icon {
+    margin: 1vh;
+    max-width: 20%;
+    max-height: 80%;
+  }
+
+  .job-title {
+    margin-left: 1vh;
+    font-weight: 800;
+    font-size: 150%;
+  }
+
+  .job-salary {
+    color: rgb(0, 197, 0);
+    font-size: 120%;
+    font-weight: 800;
+  }
+
+  .job-description {
+    color: rgb(59, 59, 59);
+    font-size: 120%;
+  }
+  .refer-button {
+    width: 10%;
+    background-color: #3169F6;
+    height: 100%;
+    visibility: hidden;
+    border: 1px solid #3169F6;
+  }
+}
