@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
+import { Form } from 'react-bootstrap';
 
 const EditBody = ({id, introduction, onClick, reload}) => {
   const [state, setState] = useState(introduction); 

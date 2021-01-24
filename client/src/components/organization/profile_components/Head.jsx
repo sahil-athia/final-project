@@ -1,10 +1,10 @@
-const Head = ({name, industry, image_url, onClick}) => {
+const Head = ({ name, industry, image_url, onClick }) => {
   const edit = () => {
     onClick(prev => ({
       ...prev,
       head: true
     }))
-  }
+  };
 
   return(
     <>

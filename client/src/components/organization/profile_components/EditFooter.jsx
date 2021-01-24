@@ -7,7 +7,7 @@ const EditFooter = ({ id, website, location, onClick, reload }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    axios.post(`/api/v1/user/update_footer`, {data}, {withCredentials: true})
+    axios.post(`/api/v1/user/update_footer`, {state}, {withCredentials: true})
     .then(() => {
       reload(current => !current)
       onClick(prev => ({

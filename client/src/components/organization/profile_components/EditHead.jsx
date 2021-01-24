@@ -3,18 +3,15 @@ import { useState } from 'react'
 import { Form } from 'react-bootstrap';
 
 
-const EditHead = (props) => {
-  const [name, setName] = useState(props.name); 
-  const [industry, setIndustry] = useState(props.industry); 
-  const [url, setUrl] = useState(props.image_url); 
+const EditHead = ({ name, industry, image_url, onClick, reload }) => {
+  const [state, setState] = useState({name, industry, image_url}); 
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    const data = { industry, image_url, id: props.id };
-    axios.post(`/api/v1/user/update_head`, {data}, {withCredentials: true})
+    axios.post(`/api/v1/user/update_head`, {state}, {withCredentials: true})
     .then(() => {
-      props.reload(current => !current)
-      props.onClick(prev => ({
+      reload(current => !current)
+      onClick(prev => ({
         ...prev,
         head: false
       }))
@@ -34,7 +31,7 @@ const EditHead = (props) => {
               type="text"
               name="name"
               value={name}
-              onChange={event => setIndustry(event.target.value)}
+              onChange={event => setState(prev => ({...prev, name: event.target.value}))}
             />
           </Form.Group>
 
@@ -47,20 +44,20 @@ const EditHead = (props) => {
               type="text"
               name="industry"
               value={industry}
-              onChange={event => setIndustry(event.target.value)}
+              onChange={event => setState(prev => ({...prev, industry: event.target.value}))}
             />
           </Form.Group>
 
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Resume Url:</Form.Label>
+            <Form.Label>Image Url:</Form.Label>
             <Form.Control 
               as="textarea" 
               rows={1} 
-              placeholder="resume url"
+              placeholder="image url"
               type="text"
-              name="resume url"
-              value={url}
-              onChange={event => setUrl(event.target.value)}
+              name="image url"
+              value={image_url}
+              onChange={event => setState(prev => ({...prev, image_url: event.target.value}))}
             />
           </Form.Group>
 
