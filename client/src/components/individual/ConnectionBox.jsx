@@ -2,7 +2,6 @@ import axios from 'axios'
 import {useState} from 'react'
 import Confirm from './small_components/Confirm'
 import Status from './small_components/Status.jsx'
-import { useHistory, Link } from "react-router-dom";
 
 export default function ConnectionBox(props) {
   const [confirm, setConfirm] = useState(false)

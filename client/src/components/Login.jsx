@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import { Link, useHistory } from "react-router-dom";
 import  Alert  from "react-bootstrap/Alert"
-import { Form, Button, Image } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import './Login.scss'
 import Loading from "./Loading"
 
