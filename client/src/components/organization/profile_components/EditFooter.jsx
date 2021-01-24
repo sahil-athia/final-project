@@ -2,19 +2,22 @@ import { useState } from 'react'
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 
-const EditFooter = ({ id, website, location, onClick, reload }) => {
-  const [state, setState] = useState({website, location}); 
+const EditFooter = (props) => {
+  const [website, setWebsite] = useState(props.website); 
+  const [location, setLocation] = useState(props.location); 
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    axios.post(`/api/v1/user/update_footer`, {state}, {withCredentials: true})
+    const data = { 'id': props.id, website, location };
+    axios.put(`http://localhost:8080/api/v1/organization/${props.id}`, {data}, {withCredentials: true})
     .then(() => {
-      reload(current => !current)
-      onClick(prev => ({
+      props.reload(currentState => !currentState)
+      props.onClick(prev => ({
         ...prev,
         footer: false
       }))
     })
+    .catch((err) => console.log(err));
   };
   
   return(
@@ -30,7 +33,7 @@ const EditFooter = ({ id, website, location, onClick, reload }) => {
               type="text"
               name="website"
               value={website}
-              onChange={event => setState(prev => ({...prev, website: event.target.value}))}
+              onChange={event => setWebsite(event.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -42,7 +45,7 @@ const EditFooter = ({ id, website, location, onClick, reload }) => {
               type="text"
               name="location"
               value={location}
-              onChange={event => setState(prev => ({...prev, location: event.target.value}))}
+              onChange={event => setLocation(event.target.value)}
             />
           </Form.Group>          
           <button placeholder="submit" type="submit">

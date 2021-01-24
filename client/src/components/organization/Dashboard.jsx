@@ -10,18 +10,18 @@ import EditFooter from "./profile_components/EditFooter"
 import "./dashboard.css"
 
 const Dashboard = ({id, profile, reload}) => {
-  const [edit, setEdit] = useState({head:false, body:false, footer:false})
+  const [edit, setEdit] = useState({head: false, body: false, footer: false})
 
   return (
   <article>
     <div className="user_profile">
-      {!edit && <Head 
+      {!edit.head && <Head 
         name={profile.name}
         industry={profile.industry}
         image_url={profile.image_url}
         onClick={setEdit} 
       />}
-      {edit && <EditHead
+      {edit.head && <EditHead
         id={id}
         name={profile.name}
         industry={profile.industry}
@@ -29,23 +29,23 @@ const Dashboard = ({id, profile, reload}) => {
         onClick={setEdit} 
         reload={reload}
       />}
-      {!edit && <Body 
+      {!edit.body && <Body 
         introduction={profile.introduction}
         onClick={setEdit} 
       />}
-      {edit && <EditBody
+      {edit.body && <EditBody
         id={id}
         introduction={profile.introduction}
         onClick={setEdit} 
         reload={reload}
       />}
-      {!edit && <Footer 
+      {!edit.footer && <Footer 
         website={profile.website}
         email={profile.email}
         location={profile.location}
         onClick={setEdit} 
       />}
-      {edit && <EditFooter
+      {edit.footer && <EditFooter
         id={id}
         website={profile.website}
         location={profile.location}

@@ -2,15 +2,19 @@ import { useState } from 'react'
 import axios from 'axios';
 import { Form } from 'react-bootstrap';
 
-const EditBody = ({id, introduction, onClick, reload}) => {
-  const [state, setState] = useState(introduction); 
+const EditBody = (props) => {
+  const [state, setState] = useState(props.introduction); 
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    axios.post(`http://localhost:8080/api/v1/organization/update_body`, {state}, {withCredentials: true})
+    const data = { 'id': props.id, 'introduction': state };
+    axios.put(`http://localhost:8080/api/v1/organization/${props.id}`, {data}, {withCredentials: true})
     .then(() => {
-      reload(currentState => !currentState)
-      onClick(false)
+      props.reload(currentState => !currentState)
+      props.onClick(prev => ({
+        ...prev,
+        body: false
+      }))
     })
     .catch((err) => console.log(err));
   };
