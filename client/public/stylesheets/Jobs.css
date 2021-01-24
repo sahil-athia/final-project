@@ -39,12 +39,12 @@ section.jobs div.jobs-body {
 }
 section.jobs div.jobs-body-blank {
   height: 100vw;
-  width: 15vw;
+  width: 25vw;
   border-right: solid;
   border-color: #505050;
 }
 section.jobs div.jobs-body-blank2 {
-  height: 60vw;
+  height: 85vw;
   width: 1.5vw;
   border-right: solid;
   border-color: #969696;
@@ -188,6 +188,7 @@ section.jobs .show-jobs .current-jobs .job-card .job-info {
   flex-direction: column;
   align-items: start;
   margin: 10px;
+  font-size: 1.8vw;
 }
 section.jobs .show-jobs .current-jobs .job-card section.job-actions {
   display: flex;
@@ -199,6 +200,7 @@ section.jobs .show-jobs .current-jobs .job-card div.delete-msg {
   margin-bottom: 4.5vw;
   margin-top: 4.5vw;
   color: #ff878d;
+  font-size: 2.5vw;
 }
 section.jobs .show-jobs .current-jobs .job-card div.delete-actions {
   display: flex;
@@ -233,8 +235,8 @@ section.jobs .show-jobs .current-jobs img.delete-btn {
 section.jobs .show-jobs .current-jobs img.reference-btn {
   width: 23px;
   height: 23px;
-  margin-right: 5px;
-  margin-bottom: 4px;
+  margin-left: 5px;
+  margin-top: 2.5px;
 }
 section.jobs .show-jobs .current-jobs button.reference-btn {
   background-color: #F7F7F7;
@@ -248,7 +250,7 @@ section.jobs .show-jobs .current-jobs img.close-btn {
   margin-bottom: 3px;
 }
 section.jobs .show-jobs .current-jobs div.reference-card {
-  font-size: 2vw;
+  font-size: 1.5vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -275,22 +277,43 @@ section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body .r
 section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body .reference-card-line {
   height: 4vw;
 }
-section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body div.reference-card-actions {
+section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
-section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body div.reference-card-actions img.show-reference-btn {
+section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions img.show-reference-btn {
   width: 23px;
   height: 23px;
   margin-right: 5px;
+  margin-top: 2px;
 }
-section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body div.reference-card-actions button.show-reference-btn {
+section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions button.close-reference-btn {
   background-color: #F7F7F7;
   color: #00CCFF;
   border: none;
 }
-section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body div.reference-card-actions img.close-reference-btn {
+section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions img.close-reference-btn {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+section.jobs .show-jobs .current-jobs div.reference-card2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 5vw;
+}
+section.jobs .show-jobs .current-jobs div.reference-card2 div.reference-card-line2 {
+  font-size: 1.8vw;
+}
+section.jobs .show-jobs .current-jobs div.reference-card-actions2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+section.jobs .show-jobs .current-jobs div.reference-card-actions2 img.close-reference-btn2 {
   width: 30px;
   height: 30px;
   margin-right: 5px;
@@ -310,7 +333,7 @@ section.jobs .show-jobs form.edit-form div.edit-line {
   height: 4vw;
 }
 section.jobs .show-jobs form.edit-form div.edit-line div.edit-line-lable {
-  font-size: 2vw;
+  font-size: 1.5vw;
   display: inline-block;
   width: 15vw;
 }

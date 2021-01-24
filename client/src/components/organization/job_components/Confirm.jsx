@@ -6,8 +6,8 @@ const Confirm = ({message, deleteCancel, deleteConfirm}) => {
         {message}
       </div>
       <div className="delete-actions">
-        <button className="delete-actions-cancel" onClick={deleteCancel}>Cancel</button>
-        <button className="delete-actions-confirm" onClick={deleteConfirm}>Confirm</button>
+        <button className="delete-actions" onClick={deleteCancel}>Cancel</button>
+        <button className="delete-actions" onClick={deleteConfirm}>Confirm</button>
       </div>
     </section>
   );

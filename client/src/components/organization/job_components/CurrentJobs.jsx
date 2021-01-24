@@ -4,7 +4,7 @@ const CurrentJobs = ({current_jobs, reload}) => {
 
   const jobs = current_jobs.map((job) => {
     return (
-    <CurrentJob
+    <CurrentJob key={job.id}
       job={job}
       reload={reload}
     />)
