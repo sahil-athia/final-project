@@ -28,11 +28,11 @@ module Api
           end
         end
 
-      def update_body
-        @organization = Organization.find(update_body_params[:id])
-        @organization.update(update_body_params)
-        @organization.save
-      end
+        def update
+          organization = Organization.find(update_params[:id])
+          organization.update(update_params)
+          organization.save
+        end
 
       private
 
@@ -40,8 +40,8 @@ module Api
         params.require(:user).permit(:name, :password, :password_confirmation, :email, :profile_type)
       end
 
-      def update_body_params
-        params.require(:state).permit(:id, :name, :industry, :website, :email, :location, :introduction, :image_url)
+      def update_params
+        params.require(:data).permit(:id, :name, :industry, :website, :location, :introduction, :image_url)
       end
       
     end

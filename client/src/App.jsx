@@ -1,13 +1,10 @@
-// import logo from './logo.svg';
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  Redirect
+  Route
 } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 

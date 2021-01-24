@@ -75,7 +75,6 @@ const Employees = ({organization_id, employees, reload}) => {
       <div>
         <RemoveEmployee
           id={employee.id}
-          organization_id={organization_id}
           reload={reload}
           localReload={setReload}
         />

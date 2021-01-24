@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import Confirm from '../../individual/small_components/Confirm';
 
-const RemoveEmployee = ({id, organization_id, reload, localReload}) => {
+const RemoveEmployee = ({id, reload, localReload}) => {
 
   const [show, setShow] = useState(false);
 

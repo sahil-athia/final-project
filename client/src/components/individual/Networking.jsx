@@ -1,9 +1,7 @@
-import {Link} from 'react-router-dom'
 import {useEffect, useState} from "react"
 import axios from 'axios';
 import NetworkBox from "./NetworkBox"
 import SearchBar from './small_components/SearchBar'
-// import {Link} from 'react-router-dom'
 
 export default function Networking(props) {
   const [input, setInput] = useState('');
@@ -43,7 +41,7 @@ export default function Networking(props) {
 
     } else if (search === "By Industry") {
       const filtered = data.filter(network => {
-        console.log(network, input)
+        // console.log(network, input)
         return network.industry.toLowerCase().includes(input.toLowerCase())
        })
        setInput(input);
