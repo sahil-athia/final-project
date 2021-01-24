@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import "./reference.scss"
 
 const MakeReference = ({job_id, organization_id, offReference, options, handleSubmit}) => {
   const [data, setData] = useState(); 
@@ -13,9 +14,10 @@ const MakeReference = ({job_id, organization_id, offReference, options, handleSu
   };
 
   return (
-    <form onSubmit={() => beforeSubmit()}>
+    <div className="job-box" >
+    <form onSubmit={() => beforeSubmit()} className="reference-form">
       <label>
-        Refer your connections:
+        <h3>Refer your connections</h3>
         <select value={data} defaultValue={'DEFAULT'} onChange={(event) => setData(event.target.value)}>
           <option value="DEFAULT" disabled>By Name</option>
           {formedOptions}
@@ -23,6 +25,7 @@ const MakeReference = ({job_id, organization_id, offReference, options, handleSu
       </label>
       <input type="submit" value="Submit" />
     </form>
+    </div>
   )
 };
 

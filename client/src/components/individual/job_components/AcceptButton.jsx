@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import './accept.scss'
 
 const AcceptButton = (props) => {
   const { reference_id, handleAccept, accepted } = props;
@@ -12,8 +13,8 @@ const AcceptButton = (props) => {
 
   return (
     <div>
-      {!hide && <button onClick={handelClick}>Accept</button>}
-      {hide && <button disabled={true}>Accepted</button>}
+      {!hide && <button className="accept-button" onClick={handelClick}>Accept</button>}
+      {hide && <button className="accept-button" disabled={true} style={{backgroundColor: "rgb(0, 197, 0)"}}>Accepted</button>}
 
     </div>
   )

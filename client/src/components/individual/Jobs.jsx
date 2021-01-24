@@ -7,6 +7,12 @@ const Jobs = ({user_id, organization_id}) => {
   const [options, setOptions] = useState([]);
   const [orgJobs, setOrgJobs] = useState([]);
   const [referredJobs, setReferredJobs] = useState([]);
+  const headerStyle = {
+    color: "rgb(150, 150, 150)",
+    fontSize: "250%",
+    fontFamily: "Garamond, serif",
+    fontWeight: "100"
+  }
 
   useEffect(() => {    
     Promise.all([
@@ -53,7 +59,7 @@ const Jobs = ({user_id, organization_id}) => {
   return (
     <>
       <article className='jobs'>
-      <div>Jobs Referred To You</div>
+      <div style={headerStyle}>Jobs Referred To You</div>
       <div> 
           <ReferredJobs
             referredJobs={referredJobs}
