@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Edit from '../../..//icons/Edit.png';
 import Delete from '../../..//icons/Delete.png';
 import Reference from '../../..//icons/Reference.png';

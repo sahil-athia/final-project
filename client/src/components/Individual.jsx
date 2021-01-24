@@ -1,17 +1,14 @@
-// import './App.css';
 import {useEffect, useState} from "react"
 import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import Networking from "./individual/Networking"
 import Connections from "./individual/Connections"
 import Jobs from "./individual/Jobs"
-import Notifications from "./individual/Notifications"
 import IndividualHeader from "./IndividualHeader"
 import Profile from "./individual/Profile"
 import UserPage from "./individual/UserPage";
@@ -71,10 +68,6 @@ function Individual(props) {
               user_id={props.user_id}
               organization_id={props.organization_id}
             />
-          </Route>
-
-          <Route path="/individual/notifications">
-            <Notifications />
           </Route>
 
           <Route exact path="/individual/user_page">

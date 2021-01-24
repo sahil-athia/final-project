@@ -1,9 +1,8 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useState } from 'react'
 import Status from '../../individual/small_components/Status.jsx'
 const EmployeeBox = (props) => {
-  const { organization_id, id, name, email, summary, industry, reload, localReload, photo_url } = props;
+  const { organization_id, id, name, email, industry, reload, localReload, photo_url } = props;
   const [loading, setLoading] = useState(false)
   
   const verifyEmployee = () => {
