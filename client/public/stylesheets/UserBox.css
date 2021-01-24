@@ -1,0 +1,79 @@
+.user-box {
+  background-color: #191919;
+  font-family: Garamond, serif;
+  margin: 2vh;
+  margin-right: auto;
+  margin-left: auto;
+  border: 3px solid #F7F7F7;
+  border-radius: 15px;
+  width: 60vw;
+  height: 25vh;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #F7F7F7;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateY(30%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.user-box:hover {
+  box-shadow: 8px 8px #969696;
+}
+.user-box:hover .options {
+  align-self: center;
+  opacity: 1;
+  animation: 1s ease-in 0s 1 fadeIn;
+  animation: 0.2s ease-out 0s 1 slideIn;
+}
+.user-box:hover .user-information {
+  display: none;
+  visibility: hidden;
+}
+.user-box .options {
+  opacity: 0;
+  width: 60vw;
+  height: auto;
+}
+.user-box .options svg:hover {
+  cursor: pointer;
+}
+.user-box .options Link {
+  margin: 2vh;
+}
+.user-box .user-information {
+  text-align: right;
+  min-width: 70%;
+  margin-bottom: -7%;
+  align-self: center;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+}
+.user-box .user-information img {
+  margin: auto;
+  margin-left: 0;
+  max-width: 40%;
+  max-height: 40%;
+}
+.user-box .user-information h4 {
+  color: #969696;
+}
+
+/*# sourceMappingURL=UserBox.css.map */
