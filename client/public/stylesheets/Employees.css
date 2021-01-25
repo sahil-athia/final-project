@@ -1,41 +1,200 @@
-div.main-container {
+main.main-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  font-family: Garamond, serif;
 }
-div.main-container div.contianer-left {
+main.main-container div.container-left {
   width: 50vw;
   margin-top: 15vw;
   padding: 2vw;
 }
-div.main-container div.contianer-left form.search-form {
-  width: 50vw;
-}
-div.main-container div.contianer-left form.search-form div.search {
+main.main-container div.container-left form.search-form {
   width: 100%;
 }
-div.main-container div.contianer-left div.user-box {
+main.main-container div.container-left form.search-form div.search {
   width: 100%;
-  visibility: hidden;
 }
-div.main-container div.contianer-left div.newEmployee-container {
+main.main-container div.container-left div.newEmployee-container {
   margin-top: 15vw;
 }
-div.main-container div.container-right {
+main.main-container div.container-left div.newEmployee-container .user-box {
+  background-color: #191919;
+  font-family: Garamond, serif;
+  margin: 2vh;
+  margin-right: auto;
+  margin-left: auto;
+  border: 3px solid #F7F7F7;
+  border-radius: 15px;
+  width: 100%;
+  height: 25vh;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #F7F7F7;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateY(30%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+main.main-container div.container-left div.newEmployee-container .user-box:hover {
+  box-shadow: 8px 8px #969696;
+}
+main.main-container div.container-left div.newEmployee-container .user-box:hover .options {
+  align-self: center;
+  opacity: 1;
+  animation: 1s ease-in 0s 1 fadeIn;
+  animation: 0.2s ease-out 0s 1 slideIn;
+}
+main.main-container div.container-left div.newEmployee-container .user-box:hover .user-information {
+  display: none;
+  visibility: hidden;
+}
+main.main-container div.container-left div.newEmployee-container .user-box:hover .options {
+  display: block;
+  visibility: visible;
+}
+main.main-container div.container-left div.newEmployee-container .user-box .options {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  height: 8vw;
+}
+main.main-container div.container-left div.newEmployee-container .user-box .options svg:hover {
+  cursor: pointer;
+}
+main.main-container div.container-left div.newEmployee-container .user-box .options Link {
+  margin: 2vh;
+}
+main.main-container div.container-left div.newEmployee-container .user-box .user-information {
+  text-align: right;
+  min-width: 70%;
+  align-self: center;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+}
+main.main-container div.container-left div.newEmployee-container .user-box .user-information img {
+  margin: auto;
+  margin-left: 2vw;
+  max-width: 40%;
+  max-height: 40%;
+}
+main.main-container div.container-left div.newEmployee-container .user-box .user-information div.user-details {
+  padding-top: 1vw;
+  padding-right: 4vw;
+}
+main.main-container div.container-left div.newEmployee-container .user-box .user-information h4 {
+  color: #969696;
+}
+main.main-container div.container-left div.corner-image {
+  margin-top: 10vw;
+  position: sticky;
+  left: 0;
+  top: 0;
+}
+main.main-container div.container-left div.corner-image img.corner-img {
+  width: 40vw;
+}
+main.main-container div.container-right {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
   margin-top: 70vw;
 }
-div.main-container div.container-right img.corner-img {
+main.main-container div.container-right img.typewriter-img {
   width: 40vw;
   position: absolute;
   top: 0;
   right: 0;
 }
-div.main-container div.container-right img.corner-img div.currentEmployee-container {
+main.main-container div.container-right div.currentEmployee-container {
   width: 50vw;
+}
+main.main-container div.container-right div.currentEmployee-container div.currentEmployee-title {
+  position: sticky;
+  top: 0;
+  background-color: #F7F7F7;
+  margin: 5vw;
+  font-size: 3vw;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees {
+  padding-left: 8vw;
+  color: #191919;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 5vw;
+  padding-bottom: 1vw;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: #969696;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box div.employee-box-name {
+  font-size: 3vw;
+  margin-bottom: 1vw;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box div.employee-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box div.employee-actions a.employee-actions-link {
+  font-size: 1.5vw;
+  color: #336600;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box div.employee-actions button.delete-btn {
+  background-color: #F7F7F7;
+  border: none;
+  outline: none;
+  color: #336600;
+  font-size: 1.5vw;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box div.employee-actions button.delete-btn:active {
+  transform: translateY(2px);
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box section.delete-confirmation div.delete-msg {
+  font-size: 3vw;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box div.delete-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 1vw;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box div.delete-actions button.delete-actions {
+  background-color: #F7F7F7;
+  border: none;
+  outline: none;
+  color: #336600;
+  font-size: 1.5vw;
+}
+main.main-container div.container-right div.currentEmployee-container div.employees div.employee-box div.delete-actions button.delete-actions:active {
+  transform: translateY(2px);
 }
 
 /*# sourceMappingURL=Employees.css.map */

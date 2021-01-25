@@ -65,7 +65,7 @@ section.jobs div.create-jobs button.add-btn {
   border-right: none;
   border-bottom: none;
   font-size: 5vw;
-  color: #505050;
+  color: black;
   width: 35vw;
   outline: none;
 }
@@ -180,8 +180,8 @@ section.jobs .show-jobs {
 }
 section.jobs .show-jobs .show-jobs-title {
   padding-left: 5vw;
-  color: #505050;
-  font-size: 6vw;
+  color: black;
+  font-size: 5vw;
 }
 section.jobs .show-jobs .current-jobs {
   display: flex;
@@ -191,27 +191,28 @@ section.jobs .show-jobs .current-jobs {
 section.jobs .show-jobs .current-jobs .job-card {
   margin: 2vw;
   padding: 1vw;
-  background-color: #191919;
+  background-color: #303030;
   color: #F7F7F7;
   border: 3px solid #F7F7F7;
   border-radius: 15px;
   font-size: 2vw;
   margin-left: 5vw;
   margin-right: 5vw;
+  width: 70%;
 }
 section.jobs .show-jobs .current-jobs .job-card .job-info-title {
   display: flex;
   flex-direction: column;
   align-items: start;
   margin: 10px;
-  font-size: 3vw;
+  font-size: 2vw;
 }
 section.jobs .show-jobs .current-jobs .job-card .job-info {
   display: flex;
   flex-direction: column;
   align-items: start;
   margin: 10px;
-  font-size: 1.8vw;
+  font-size: 1.5vw;
   color: lightgray;
 }
 section.jobs .show-jobs .current-jobs .job-card section.job-actions {
@@ -232,7 +233,7 @@ section.jobs .show-jobs .current-jobs .job-card div.delete-actions {
   justify-content: flex-end;
 }
 section.jobs .show-jobs .current-jobs .job-card button.delete-actions {
-  background-color: #191919;
+  background-color: #303030;
   color: #00CCFF;
   border: none;
   outline: none;
@@ -242,7 +243,7 @@ section.jobs .show-jobs .current-jobs .job-card button.delete-actions:active {
   transform: translateY(2px);
 }
 section.jobs .show-jobs .current-jobs .job-card:hover {
-  border-color: #191919;
+  border-color: #303030;
   box-shadow: 10px 10px 0 0px lightgray;
 }
 section.jobs .show-jobs .current-jobs .job-card:hover .job-actions {
@@ -343,7 +344,7 @@ section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-acti
   transform: translateY(2px);
 }
 section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions button.close-reference-btn {
-  background-color: #191919;
+  background-color: #303030;
   color: #00CCFF;
   border: none;
 }
@@ -416,7 +417,7 @@ section.jobs .show-jobs form.edit-form div.edit-actions {
   justify-content: flex-end;
 }
 section.jobs .show-jobs form.edit-form div.edit-actions button.edit-actions {
-  background-color: #191919;
+  background-color: #303030;
   color: #00CCFF;
   border: none;
   outline: none;
