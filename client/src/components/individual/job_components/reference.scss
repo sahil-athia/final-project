@@ -16,8 +16,12 @@
         font-weight: bold;
       }
 
-      .select-box {
-        width: 15vw;;
+      select.select-box {
+        border: 1px solid #d1d1d1;
+        border-radius: 8px;
+        background-color: #F7F7F7;
+        width: 20vw;
+        outline: none;
       }
     }
 
@@ -35,6 +39,7 @@
         border-radius: 15px;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
+        outline: none;
       }
 
     }

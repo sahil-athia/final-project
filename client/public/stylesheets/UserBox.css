@@ -44,7 +44,13 @@
   display: none;
   visibility: hidden;
 }
+.user-box:hover .options {
+  display: block;
+  visibility: visible;
+}
 .user-box .options {
+  display: none;
+  visibility: hidden;
   opacity: 0;
   width: 60vw;
   height: auto;
@@ -58,7 +64,6 @@
 .user-box .user-information {
   text-align: right;
   min-width: 70%;
-  margin-bottom: -7%;
   align-self: center;
   max-height: 100%;
   display: flex;
