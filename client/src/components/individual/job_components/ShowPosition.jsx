@@ -19,4 +19,4 @@ const ShowPosition = ({job, onReference}) => {
 
 export default ShowPosition;
 
-{/* <img className="reference-btn" onClick={onReference} src={MakeReference} alt="Reference"/> */}
+/* <img className="reference-btn" onClick={onReference} src={MakeReference} alt="Reference"/> */

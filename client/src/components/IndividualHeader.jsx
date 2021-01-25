@@ -1,5 +1,5 @@
 
-import { Navbar, Nav, Button } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap'
 import './IndividualHeader.scss'
 export default function IndividualHeader(props) {
   const handleBack = () => {

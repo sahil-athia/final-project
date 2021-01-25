@@ -1,10 +1,7 @@
-import { Link } from "react-router-dom";
-import {useHistory} from 'react-router-dom'
 import { Navbar, Nav } from 'react-bootstrap'
 import './IndividualHeader.scss'
 
 const OrganizationHeader = (props) => {
-  let history = useHistory()
   const handleBack = () => {
     window.location.pathname = '/'
   }

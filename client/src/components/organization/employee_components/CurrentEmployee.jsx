@@ -12,7 +12,7 @@ export default function CurrentEmployee(props) {
       <p>Email: {props.email}</p>
       <p>Location: {props.location}</p>
       <p>Contact: {props.contact}</p>
-      <img src={props.resume_url} className="user_resume"></img>
+      <img src={props.resume_url} className="user_resume" alt="resume"></img>
       <div>
         <RemoveEmployee
           id={props.id}
