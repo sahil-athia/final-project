@@ -28,7 +28,7 @@ export default function NetworkBox(props) {
     ? <Status message="Adding"/> 
     : <>
         <div className="user-information">
-          <img src={props.photo || "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"} alt="Your Profile Photo"></img>
+          <img src={props.photo || "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"} alt="Your Profile Pic"></img>
           <div>
               <h2>{props.name}</h2>
               <h4><em>{props.industry}</em></h4>
@@ -51,9 +51,9 @@ export default function NetworkBox(props) {
   )
 }
 
-{/* <Link
-        to={{
-          pathname: "/individual/user_page",
-          hash: `#${props.id}` 
-        }}
-      >View</Link> */}
+/* <Link
+  to={{
+    pathname: "/individual/user_page",
+    hash: `#${props.id}` 
+  }}
+>View</Link> */

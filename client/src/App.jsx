@@ -1,13 +1,10 @@
 import './App.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-
 
 import { useState, useEffect } from "react";
 import axios from 'axios';
@@ -20,7 +17,6 @@ import Signup from "./components/Signup"
 
 
 function App() {
-  let history = useHistory();
   const [state, setState] = useState({isLoggedIn: false, user: {}})
   useEffect(() => {
     loginStatus()

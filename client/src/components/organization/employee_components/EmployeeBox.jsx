@@ -29,7 +29,7 @@ const EmployeeBox = (props) => {
     ? <Status message="Adding"/> 
     : <>
         <div className="user-information">
-          <img src={photo_url || "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"} alt="Your Profile Photo"></img>
+          <img src={photo_url || "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"} alt="Your Profile Pic"></img>
 
           <div className="user-details">
             <h2>{name}</h2>
@@ -55,7 +55,7 @@ const EmployeeBox = (props) => {
 
 export default EmployeeBox;
 
-{/* <div>
+/* <div>
 <hr></hr>
 <h3>{name}</h3>
 <p>{industry}</p>
@@ -68,4 +68,4 @@ export default EmployeeBox;
 >View</Link>
 <button onClick={verifyEmployee}>Add</button>
 <hr></hr>
-</div> */}
+</div> */
