@@ -15,15 +15,19 @@ const MakeReference = ({job_id, organization_id, offReference, options, handleSu
 
   return (
     <div className="job-box" >
-    <form onSubmit={() => beforeSubmit()} className="reference-form">
-      <label>
-        <h3>Refer your connections</h3>
-        <select value={data} defaultValue={'DEFAULT'} onChange={(event) => setData(event.target.value)}>
+    <form onSubmit={event => event.preventDefault()} className="reference-form">
+      <div className="reference-select">
+        <div className="select-title">Refer your connections</div>
+        <select clasName="select-box" value={data} defaultValue={'DEFAULT'} onChange={(event) => setData(event.target.value)}>
           <option value="DEFAULT" disabled>By Name</option>
           {formedOptions}
         </select>
-      </label>
-      <input type="submit" value="Submit" />
+      </div>
+      {/* <input type="submit" value="Submit" /> */}
+      <div className="reference-actions">      
+        <button className="reference-actions" onClick={() => offReference()}>Cancel</button>
+        <button className="reference-actions" onClick={() => beforeSubmit()}>Submit</button> 
+      </div>
     </form>
     </div>
   )
