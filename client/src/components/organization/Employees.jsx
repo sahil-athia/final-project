@@ -72,11 +72,7 @@ const Employees = ({organization_id, employees, reload}) => {
       education={employee.education}
       experience={employee.experience}
       email={employee.email}
-      location={employee.location}
-      contact={employee.contact}
-      resume_url={employee.resume_url}
       id={employee.id}
-      organization_id={organization_id}
       reload={reload}
       localReload={setReload}
     />

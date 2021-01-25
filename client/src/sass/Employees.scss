@@ -158,12 +158,69 @@ main.main-container {
           flex-direction: column;
           justify-content: flex-start;
           align-items: flex-start;
-          padding: 5vw;
+          padding-left: 5vw;
+          padding-right: 5vw;
+          padding-top: 5vw;
+          padding-bottom: 1vw;
+
+          border-bottom: solid;
+          border-width: 1px;
+          border-color: #969696;
 
           div.employee-box-name {
             font-size: 3vw;
             margin-bottom: 1vw;
           }
+
+          div.employee-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+  
+            a.employee-actions-link {
+              font-size: 1.5vw;
+              color: #336600;
+            }
+  
+            button.delete-btn {
+              background-color: #F7F7F7;
+              border: none;
+              outline: none;
+              color: #336600;
+              font-size: 1.5vw;
+            }
+
+            button.delete-btn:active {
+              transform: translateY(2px);
+            }
+  
+          }
+
+          section.delete-confirmation div.delete-msg {
+            font-size: 3vw;
+          }
+
+          div.delete-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-top: 1vw;
+
+            button.delete-actions {
+              background-color: #F7F7F7;
+              border: none;
+              outline: none;
+              color: #336600;
+              font-size: 1.5vw;
+            }
+
+            button.delete-actions:active {
+              transform: translateY(2px);
+            }
+
+          }
+
         }
       }
     }
