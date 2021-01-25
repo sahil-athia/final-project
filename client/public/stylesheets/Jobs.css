@@ -65,14 +65,18 @@ section.jobs div.create-jobs button.add-btn {
   border-right: none;
   border-bottom: none;
   font-size: 5vw;
-  color: #ff878d;
+  color: #505050;
   width: 35vw;
+  outline: none;
 }
 section.jobs div.create-jobs button.add-btn img.add-btn {
   width: 30px;
   height: 30px;
   margin-right: 1vw;
   margin-bottom: 0.5vw;
+}
+section.jobs div.create-jobs button.add-btn:hover {
+  color: #ff878d;
 }
 section.jobs div.create-jobs form.create-form {
   display: flex;
@@ -103,6 +107,7 @@ section.jobs div.create-jobs form.create-form div.form-line textarea.form-line-i
   max-width: 100%;
   background-color: white;
   border: 0;
+  border-radius: 5px;
   resize: none;
 }
 section.jobs div.create-jobs form.create-form div.form-line-description {
@@ -111,6 +116,7 @@ section.jobs div.create-jobs form.create-form div.form-line-description {
   justify-content: start;
   width: 100%;
   height: 20vw;
+  border-radius: 5px;
 }
 section.jobs div.create-jobs form.create-form div.form-line-description div.form-line-title-description {
   font-size: 2vw;
@@ -131,6 +137,7 @@ section.jobs div.create-jobs div.form-submit {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 2vw;
 }
 section.jobs div.create-jobs div.form-submit img.save-btn {
   width: 20px;
@@ -143,6 +150,10 @@ section.jobs div.create-jobs div.form-submit button.save-btn {
   background-color: #F7F7F7;
   color: #00CCFF;
   border: none;
+  outline: none;
+}
+section.jobs div.create-jobs div.form-submit button.save-btn:active {
+  transform: translateY(2px);
 }
 section.jobs div.create-jobs div.form-submit img.cancel-btn {
   width: 28px;
@@ -155,6 +166,10 @@ section.jobs div.create-jobs div.form-submit button.cancel-btn {
   background-color: #F7F7F7;
   color: #00CCFF;
   border: none;
+  outline: none;
+}
+section.jobs div.create-jobs div.form-submit button.cancel-btn:active {
+  transform: translateY(2px);
 }
 section.jobs .show-jobs {
   display: flex;
@@ -176,12 +191,20 @@ section.jobs .show-jobs .current-jobs {
 section.jobs .show-jobs .current-jobs .job-card {
   margin: 2vw;
   padding: 1vw;
-  color: #505050;
-  border: solid;
-  border-color: #969696;
+  background-color: #191919;
+  color: #F7F7F7;
+  border: 3px solid #F7F7F7;
+  border-radius: 15px;
   font-size: 2vw;
   margin-left: 5vw;
   margin-right: 5vw;
+}
+section.jobs .show-jobs .current-jobs .job-card .job-info-title {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 10px;
+  font-size: 3vw;
 }
 section.jobs .show-jobs .current-jobs .job-card .job-info {
   display: flex;
@@ -189,35 +212,44 @@ section.jobs .show-jobs .current-jobs .job-card .job-info {
   align-items: start;
   margin: 10px;
   font-size: 1.8vw;
+  color: lightgray;
 }
 section.jobs .show-jobs .current-jobs .job-card section.job-actions {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  visibility: hidden;
 }
 section.jobs .show-jobs .current-jobs .job-card div.delete-msg {
   font-family: Garamond, serif;
-  margin-bottom: 4.5vw;
-  margin-top: 4.5vw;
-  color: #ff878d;
-  font-size: 2.5vw;
+  margin-bottom: 4vw;
+  margin-top: 4vw;
+  font-size: 3vw;
 }
 section.jobs .show-jobs .current-jobs .job-card div.delete-actions {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
-section.jobs .show-jobs .current-jobs .job-card button.delete-actions-cancel {
-  background-color: #F7F7F7;
+section.jobs .show-jobs .current-jobs .job-card button.delete-actions {
+  background-color: #191919;
   color: #00CCFF;
   border: none;
+  outline: none;
   margin-right: 3px;
 }
-section.jobs .show-jobs .current-jobs .job-card button.delete-actions-confirm {
-  background-color: #F7F7F7;
-  color: #00CCFF;
-  border: none;
-  margin-right: 3px;
+section.jobs .show-jobs .current-jobs .job-card button.delete-actions:active {
+  transform: translateY(2px);
+}
+section.jobs .show-jobs .current-jobs .job-card:hover {
+  border-color: #191919;
+  box-shadow: 10px 10px 0 0px lightgray;
+}
+section.jobs .show-jobs .current-jobs .job-card:hover .job-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  visibility: visible;
 }
 section.jobs .show-jobs .current-jobs img.edit-btn {
   width: 20px;
@@ -226,11 +258,17 @@ section.jobs .show-jobs .current-jobs img.edit-btn {
   margin-left: 7px;
   margin-right: 7px;
 }
+section.jobs .show-jobs .current-jobs img.edit-btn:active {
+  transform: translateY(2px);
+}
 section.jobs .show-jobs .current-jobs img.delete-btn {
   width: 25px;
   height: 25px;
   margin-left: 7px;
   margin-right: 5px;
+}
+section.jobs .show-jobs .current-jobs img.delete-btn:active {
+  transform: translateY(2px);
 }
 section.jobs .show-jobs .current-jobs img.reference-btn {
   width: 23px;
@@ -238,10 +276,16 @@ section.jobs .show-jobs .current-jobs img.reference-btn {
   margin-left: 5px;
   margin-top: 2.5px;
 }
+section.jobs .show-jobs .current-jobs img.reference-btn:active {
+  transform: translateY(2px);
+}
 section.jobs .show-jobs .current-jobs button.reference-btn {
   background-color: #F7F7F7;
   color: #00CCFF;
   border: none;
+}
+section.jobs .show-jobs .current-jobs button.reference-btn:active {
+  transform: translateY(2px);
 }
 section.jobs .show-jobs .current-jobs img.close-btn {
   width: 30px;
@@ -249,11 +293,18 @@ section.jobs .show-jobs .current-jobs img.close-btn {
   margin-right: 5px;
   margin-bottom: 3px;
 }
+section.jobs .show-jobs .current-jobs img.close-btn:active {
+  transform: translateY(2px);
+}
 section.jobs .show-jobs .current-jobs div.reference-card {
-  font-size: 1.5vw;
+  font-size: 1.8vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  border: solid;
+  border-color: #282828;
+  margin-bottom: 1vw;
+  margin-top: 1vw;
 }
 section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body {
   display: flex;
@@ -288,25 +339,34 @@ section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-acti
   margin-right: 5px;
   margin-top: 2px;
 }
+section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions img.show-reference-btn:active {
+  transform: translateY(2px);
+}
 section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions button.close-reference-btn {
-  background-color: #F7F7F7;
+  background-color: #191919;
   color: #00CCFF;
   border: none;
+}
+section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions button.close-reference-btn:active {
+  transform: translateY(2px);
 }
 section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions img.close-reference-btn {
   width: 30px;
   height: 30px;
   margin-right: 5px;
 }
+section.jobs .show-jobs .current-jobs div.reference-card div.reference-card-actions img.close-reference-btn:active {
+  transform: translateY(2px);
+}
 section.jobs .show-jobs .current-jobs div.reference-card2 {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   height: 5vw;
 }
 section.jobs .show-jobs .current-jobs div.reference-card2 div.reference-card-line2 {
-  font-size: 1.8vw;
+  font-size: 3vw;
 }
 section.jobs .show-jobs .current-jobs div.reference-card-actions2 {
   display: flex;
@@ -318,12 +378,14 @@ section.jobs .show-jobs .current-jobs div.reference-card-actions2 img.close-refe
   height: 30px;
   margin-right: 5px;
 }
+section.jobs .show-jobs .current-jobs div.reference-card-actions2 img.close-reference-btn2:active {
+  transform: translateY(2px);
+}
 section.jobs .show-jobs form.edit-form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  padding: 1vw;
 }
 section.jobs .show-jobs form.edit-form div.edit-line {
   display: flex;
@@ -333,7 +395,7 @@ section.jobs .show-jobs form.edit-form div.edit-line {
   height: 4vw;
 }
 section.jobs .show-jobs form.edit-form div.edit-line div.edit-line-lable {
-  font-size: 1.5vw;
+  font-size: 2vw;
   display: inline-block;
   width: 15vw;
 }
@@ -341,10 +403,11 @@ section.jobs .show-jobs form.edit-form div.edit-line textarea.edit-line-input {
   height: 3vw;
   border: 0;
   outline: 0;
-  color: #505050;
+  color: #F7F7F7;
   width: 100%;
-  background-color: white;
+  background-color: #282828;
   border: 0;
+  border-radius: 5px;
   resize: none;
 }
 section.jobs .show-jobs form.edit-form div.edit-actions {
@@ -353,9 +416,13 @@ section.jobs .show-jobs form.edit-form div.edit-actions {
   justify-content: flex-end;
 }
 section.jobs .show-jobs form.edit-form div.edit-actions button.edit-actions {
-  background-color: #F7F7F7;
+  background-color: #191919;
   color: #00CCFF;
   border: none;
+  outline: none;
+}
+section.jobs .show-jobs form.edit-form div.edit-actions .edit-actions:active {
+  transform: translateY(2px);
 }
 
 /*# sourceMappingURL=Jobs.css.map */

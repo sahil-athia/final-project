@@ -31,7 +31,7 @@ const EmployeeBox = (props) => {
         <div className="user-information">
           <img src={photo_url || "https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"} alt="Your Profile Photo"></img>
 
-          <div>
+          <div className="user-details">
             <h2>{name}</h2>
             <h4><em>{industry}</em></h4>
             <p>{email}</p>

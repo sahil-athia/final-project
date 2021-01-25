@@ -2,7 +2,7 @@ import RemoveEmployee from './RemoveEmployee';
 
 export default function CurrentEmployee(props) {
   return(
-    <div key={props.id}>
+    <div className="employee-box" key={props.id}>
       <h4>Name: {props.name}</h4>
       <p>Summary: {props.summary}</p>
       <p>Industry: {props.industry}</p>
@@ -12,7 +12,6 @@ export default function CurrentEmployee(props) {
       <p>Email: {props.email}</p>
       <p>Location: {props.location}</p>
       <p>Contact: {props.contact}</p>
-      <img src={props.resume_url} className="user_resume"></img>
       <div>
         <RemoveEmployee
           id={props.id}
