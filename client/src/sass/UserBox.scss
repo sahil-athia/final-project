@@ -46,10 +46,15 @@
       display: none;
       visibility: hidden;
     }
+    .options {
+      display: block;
+      visibility: visible;
+    }
 
   }
   .options {
-    // visibility: hidden;
+    display: none;
+    visibility: hidden;
     opacity: 0;
     width: 60vw;
     height: auto;
@@ -66,7 +71,6 @@
   .user-information {
     text-align: right;
     min-width: 70%;
-    margin-bottom: -7%;
     align-self: center;
     max-height: 100%;
     display: flex;
