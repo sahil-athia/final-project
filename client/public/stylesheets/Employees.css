@@ -1,0 +1,41 @@
+div.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+div.main-container div.contianer-left {
+  width: 50vw;
+  margin-top: 15vw;
+  padding: 2vw;
+}
+div.main-container div.contianer-left form.search-form {
+  width: 50vw;
+}
+div.main-container div.contianer-left form.search-form div.search {
+  width: 100%;
+}
+div.main-container div.contianer-left div.user-box {
+  width: 100%;
+  visibility: hidden;
+}
+div.main-container div.contianer-left div.newEmployee-container {
+  margin-top: 15vw;
+}
+div.main-container div.container-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 70vw;
+}
+div.main-container div.container-right img.corner-img {
+  width: 40vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+div.main-container div.container-right img.corner-img div.currentEmployee-container {
+  width: 50vw;
+}
+
+/*# sourceMappingURL=Employees.css.map */

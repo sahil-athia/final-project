@@ -7,7 +7,7 @@ const SearchBar = ({input, onChange, setSearch}) => {
       onChange('')
     }
   return (
-    <Form>
+    <Form className="search-form">
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label><h2>Search new employees</h2></Form.Label>
         <Form.Control as="select" onChange={e => setSearch(e.target.value)}>

@@ -17,7 +17,7 @@
     flex-direction: row;
     width: 90%;
     height: 80%;
-    border: 2px solid #191919;
+    // border: 2px solid #191919;
     border-radius: 27px;
 
     .text-box {
@@ -41,6 +41,7 @@
       background-color: #191919;
       border-top-right-radius: 25px;
       border-bottom-right-radius: 25px;
+      padding: 3vw;
 
       .form-control {
         background-color: rgba(255, 255, 255, 0);

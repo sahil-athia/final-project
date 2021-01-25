@@ -3,7 +3,9 @@ import axios from 'axios';
 import EmployeeBox from './employee_components/EmployeeBox';
 import CurrentEmployee from './employee_components/CurrentEmployee';
 import SearchBar from './employee_components/SearchBar';
-import '../../sass/UserBox.scss';
+import '../../sass/Employees.scss';
+import Corner from '../../icons/Corner.jpg';
+import Typewriter from '../../icons/Typewriter.jpg';
 
 const Employees = ({organization_id, employees, reload}) => {
   const [input, setInput] = useState('');
@@ -70,11 +72,7 @@ const Employees = ({organization_id, employees, reload}) => {
       education={employee.education}
       experience={employee.experience}
       email={employee.email}
-      location={employee.location}
-      contact={employee.contact}
-      resume_url={employee.resume_url}
       id={employee.id}
-      organization_id={organization_id}
       reload={reload}
       localReload={setReload}
     />
@@ -83,25 +81,37 @@ const Employees = ({organization_id, employees, reload}) => {
 
   return (
     <>
-    <div>
-      <SearchBar 
-        input={input} 
-        onChange={updateInput}
-        setSearch={setSearch}
-      />
-      <br/>
-      {dataFilterd.length > 0 && newEmployees()}
-      {dataFilterd.length === 0 && <>
-      <p>No results matched your search</p>
-      <hr/>
-      </>}
-    <div>
-      <h2>Current Employees</h2>
-      <div className='employees'>
-        {currentEmployees.length > 0 && currentEmployees}
+    <main className="main-container">
+      <div className="container-left">
+        <SearchBar 
+          input={input} 
+          onChange={updateInput}
+          setSearch={setSearch}
+        />
+        <div className="newEmployee-container">
+          {dataFilterd.length > 0 && newEmployees()}
+          {dataFilterd.length === 0 && <>
+          <p>No results matched your search</p>
+          </>}
+        </div>
+
+        <div className="corner-image">
+            <img className="corner-img" src={Corner} alt="Corner"/>
+        </div>
+
       </div>
-    </div>
-    </div>
+      <div className="container-right">
+        <div className="typewriter-image">
+            <img className="typewriter-img" src={Typewriter} alt="Typewriter"/>
+        </div>
+        <div className="currentEmployee-container">
+          <div className="currentEmployee-title">Current Employees</div>
+          <div className='employees'>
+            {currentEmployees.length > 0 && currentEmployees}
+          </div>
+        </div>
+      </div>
+    </main>
     </>
   )
 };
