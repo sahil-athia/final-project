@@ -46,10 +46,15 @@
       display: none;
       visibility: hidden;
     }
+    .options {
+      display: block;
+      visibility: visible;
+    }
 
   }
   .options {
-    // visibility: hidden;
+    display: none;
+    visibility: hidden;
     opacity: 0;
     width: 60vw;
     height: auto;
