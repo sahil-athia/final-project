@@ -4,7 +4,7 @@ import EmployeeBox from './employee_components/EmployeeBox';
 import CurrentEmployee from './employee_components/CurrentEmployee';
 import SearchBar from './employee_components/SearchBar';
 import '../../sass/Employees.scss';
-
+import Corner from '../../icons/Corner.jpg';
 import Typewriter from '../../icons/Typewriter.jpg';
 
 const Employees = ({organization_id, employees, reload}) => {
@@ -98,10 +98,15 @@ const Employees = ({organization_id, employees, reload}) => {
           <p>No results matched your search</p>
           </>}
         </div>
+
+        <div className="corner-image">
+            <img className="corner-img" src={Corner} alt="Corner"/>
+        </div>
+
       </div>
       <div className="container-right">
-        <div className="container-image">
-            <img className="corner-img" src={Typewriter} alt="Typewriter"/>
+        <div className="typewriter-image">
+            <img className="typewriter-img" src={Typewriter} alt="Typewriter"/>
         </div>
         <div className="currentEmployee-container">
           <div className="currentEmployee-title">Current Employees</div>

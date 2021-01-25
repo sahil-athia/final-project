@@ -1,18 +1,22 @@
+import { Link } from "react-router-dom";
 import RemoveEmployee from './RemoveEmployee';
 
 export default function CurrentEmployee(props) {
   return(
     <div className="employee-box" key={props.id}>
-      <h4>Name: {props.name}</h4>
-      <p>Summary: {props.summary}</p>
-      <p>Industry: {props.industry}</p>
-      <p>Skills: {props.skills}</p>
-      <p>Education: {props.education}</p>
-      <p>Experience: {props.experience}</p>
+      <div className="employee-box-name">{props.name}</div>
       <p>Email: {props.email}</p>
-      <p>Location: {props.location}</p>
-      <p>Contact: {props.contact}</p>
+      <p>Summary: {props.summary}</p>
+      <p>Skills: {props.skills}</p>
+      <p>Experience: {props.experience}</p>
       <div>
+      <Link
+          to={{
+            pathname: "/organization/user_page",
+            hash: `#${props.id}` 
+          }}>
+        View profile
+      </Link>
         <RemoveEmployee
           id={props.id}
           organization_id={props.organization_id}

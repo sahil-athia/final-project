@@ -110,6 +110,17 @@ main.main-container {
         }
       }
     }
+
+    div.corner-image {
+      margin-top: 10vw;
+      position: sticky;
+      left: 0;
+      top: 0;
+
+      img.corner-img {
+        width: 40vw;
+      }
+    }
   }
 
   div.container-right {
@@ -119,7 +130,7 @@ main.main-container {
     width: 100%;
     margin-top: 70vw;
 
-    img.corner-img {
+    img.typewriter-img {
       width: 40vw;
       position: absolute;
       top: 0;
@@ -139,6 +150,7 @@ main.main-container {
 
       div.employees {
         padding-left: 8vw;
+        color: #191919;
 
 
         div.employee-box {
@@ -147,6 +159,11 @@ main.main-container {
           justify-content: flex-start;
           align-items: flex-start;
           padding: 5vw;
+
+          div.employee-box-name {
+            font-size: 3vw;
+            margin-bottom: 1vw;
+          }
         }
       }
     }
