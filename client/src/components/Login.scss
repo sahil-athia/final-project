@@ -9,10 +9,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-
+  margin-top: 0px;
 
 
   .box{
+    
     display: flex;
     flex-direction: row;
     width: 90%;
@@ -21,6 +22,7 @@
     border-radius: 27px;
 
     .text-box {
+      margin-top: 0px;
       text-align: center;
       width: 60%;
       color: white;
@@ -41,7 +43,8 @@
       background-color: #191919;
       border-top-right-radius: 25px;
       border-bottom-right-radius: 25px;
-      padding: 3vw;
+      // padding: 3vw;
+      
 
       .form-control {
         background-color: rgba(255, 255, 255, 0);

@@ -7,10 +7,12 @@
   position: relative;
   min-width: 90vw;
   min-height: 90vh;
+
   button {
+    visibility: hidden;
     background-color: rgba(255, 255, 255, 0);
-    border: 1px solid #F7F7F7;
-    color:#F7F7F7;
+    border: 1px solid #424242;
+    color: #424242;
 
     &:hover {
       color: #191919;
@@ -42,7 +44,11 @@
     color: white;
     font-size: 1em;
     font-weight: bold;
-
+    &:hover {
+      button {
+        visibility: visible;
+      }
+    }
     .org_name {
       font-size: 500%; 
     }
@@ -90,12 +96,17 @@
   margin-bottom: 5vh;
   background-color: #0A0A0A;
   font-family: Garamond, serif;
-
+  
+  &:hover {
+    button {
+      visibility: visible;
+    }
+  }
   button {
     background-color: rgba(255, 255, 255, 0);
-    border: 1px solid #F7F7F7;
-    color:#F7F7F7;
-
+    border: 1px solid #424242;
+    color: #424242;
+    visibility: hidden;
     &:hover {
       color: #191919;
       border: 1px solid #191919;
@@ -109,6 +120,7 @@
     margin:1.5em 10px;
     padding:.5em 10px;
     quotes:"\201C""\201D""\2018""\2019";
+
   }
   blockquote:before {
     color:#ccc;

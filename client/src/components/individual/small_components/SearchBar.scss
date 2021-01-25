@@ -25,6 +25,7 @@ $borderW: 0.3rem;
   width: $w * 2;
   height: $h;
   margin: auto;
+  max-width: 100vw;
 
   &__border {
     position: absolute;

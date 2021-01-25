@@ -1,17 +1,20 @@
 .home {
   font-family: Garamond, serif;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: black;
   color: white;
   height: 100vh;
 
-  .text {
-    max-width: 20vw;
-    max-height: 10vh;
+  h4.text {
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 15vh;
     color: rgb(59, 59, 59);
   }
   .info {
+    z-index: 100;
+    margin-right: -40vh;
     align-self: center;
     @keyframes slideInFromBottom1 {
       0% {
@@ -41,10 +44,7 @@
     .scatter {
       opacity: 1;
 	    animation: 3s ease-in 0s 1 fadeInOpacity;
-      max-width: 90%;
-      min-width: 90%;
       max-height: 10vh;
-      margin: auto;
     }
     h1 {
       font-size: 500%;
@@ -72,9 +72,9 @@
 
   .videoDiv {
     align-self: center;
+    overflow: hidden;
     .videoTag {
-      transform: rotate(23.5deg);
-      margin-right: -30vh;
+      margin-right: -20vh;
       max-width: 90vw;
       max-height: 90vh;
       filter: saturate(200%);
@@ -83,4 +83,24 @@
   }
   // .grow { transition: all .2s ease-in-out; }
   // .grow:hover { transform: scale(1.1); }
+}
+
+
+@media (max-width: 768px) {
+  .videoDiv {
+    display: none;
+  }
+  .home {
+    .text {
+      max-width: 40vw;
+      max-height: 10vh;
+      color: rgb(59, 59, 59);
+    }
+  
+    .info {
+      margin-right: 0px;
+    }
+  }
+
+  
 }

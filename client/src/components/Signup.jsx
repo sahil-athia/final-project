@@ -57,19 +57,19 @@ export default function Signup(props) {
     <section className='login'>
       <div className="box">
       <div className="text-box">
-      <h1>Insight</h1>
-        </div>
-
-        <div className="form-box">
-        <h1>Sign Up</h1>   
-        {error && 
-          <Alert variant="danger" onClose={() => setError(false)} dismissible>
+      {error && 
+          <Alert variant="info" onClose={() => setError(false)} dismissible style={{position: "relative", zIndex: "100"}}>
             <Alert.Heading>Error!</Alert.Heading>
               <p>
                 Please ensure all fields are filled in correctly
               </p>
         </Alert>
-        }     
+        }  
+      <h1>Insight</h1>
+        </div>
+
+        <div className="form-box">
+        <h1>Sign Up</h1>      
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Select Profile Type: </Form.Label>
