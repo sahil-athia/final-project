@@ -212,7 +212,7 @@ section.jobs {
     .show-jobs-title {
       padding-left: 5vw;
       color: #505050;
-      font-size: 6vw;
+      font-size: 5vw;
     }
 
     .current-jobs {
@@ -223,20 +223,21 @@ section.jobs {
       .job-card {
         margin: 2vw;
         padding: 1vw;
-        background-color: #191919;
+        background-color: #303030;
         color: #F7F7F7;
         border: 3px solid #F7F7F7;
         border-radius: 15px;
         font-size: 2vw;
         margin-left: 5vw;
-        margin-right: 5vw;  
+        margin-right: 5vw; 
+        width: 70%; 
 
         .job-info-title {
           display: flex;
           flex-direction: column;
           align-items: start;
           margin: 10px;
-          font-size: 3vw;
+          font-size: 2vw;
         }
 
         .job-info {
@@ -244,7 +245,7 @@ section.jobs {
           flex-direction: column;
           align-items: start;
           margin: 10px;
-          font-size: 1.8vw;
+          font-size: 1.5vw;
           color: lightgray
         }
 
@@ -269,7 +270,7 @@ section.jobs {
         }
 
         button.delete-actions {
-          background-color: #191919;
+          background-color: #303030;
           color: #00CCFF;
           border: none;
           outline: none;
@@ -283,7 +284,7 @@ section.jobs {
       }
 
       .job-card:hover {
-        border-color: #191919;
+        border-color: #303030;
         box-shadow: 10px 10px 0 0px lightgray;
 
         .job-actions{
@@ -403,7 +404,7 @@ section.jobs {
           }
     
           button.close-reference-btn {
-            background-color: #191919;
+            background-color: #303030;
             color: #00CCFF;
             border: none;
           }
@@ -490,7 +491,7 @@ section.jobs {
         justify-content: flex-end;
 
         button.edit-actions {
-          background-color: #191919;
+          background-color: #303030;
           color: #00CCFF;
           border: none;
           outline: none;
