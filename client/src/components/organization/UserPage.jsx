@@ -10,7 +10,6 @@ const UserPage = (props) => {
   useEffect(() => {
     axios.get(`/api/v1/user/${window.location.hash[1]}`)
     .then((res) => {
-      console.log(res.data)
       setData(res.data)
     }).catch((err) => {
       console.log(err);

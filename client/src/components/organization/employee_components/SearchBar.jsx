@@ -7,7 +7,7 @@ const SearchBar = ({input, onChange, setSearch}) => {
       onChange('')
     }
   return (
-    <Form className="search-form">
+    <Form className="search-form" style={{marginBottom: "-15vh"}}>
       <Form.Group controlId="exampleForm.ControlSelect1">
         <Form.Label><h2>Search new employees</h2></Form.Label>
         <Form.Control as="select" onChange={e => setSearch(e.target.value)}>
@@ -17,7 +17,7 @@ const SearchBar = ({input, onChange, setSearch}) => {
       </Form.Group>
       <div className="search">
             <input type="checkbox" id="trigger" className="search__checkbox" />
-            <label className="search__label-init" htmlFor="trigger" style={{left: "19rem"}}></label>
+            <label className="search__label-init" htmlFor="trigger" style={{left: "16.5rem"}}></label>
             <label className="search__label-active" htmlFor="trigger" onClick={() => clear()}></label>
             <div className="search__border"></div>
             <input 

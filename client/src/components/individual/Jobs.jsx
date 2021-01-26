@@ -38,7 +38,6 @@ const Jobs = ({user_id, organization_id}) => {
   const handleSubmit = (selected) => {
     axios.post('http://localhost:8080/api/v1/job_reference', {selected}, {withCredentials: true})
     .then((res) => {
-      console.log(res);
     })
     .catch((err) => {
       console.log(err);
@@ -49,7 +48,6 @@ const Jobs = ({user_id, organization_id}) => {
     const jobInfo = {"id": reference_id, "accepted": true};
     axios.put(`http://localhost:8080/api/v1/job_reference/${reference_id}`, {jobInfo}, {withCredentials: true})
     .then((res) => {
-      // console.log(res)
     })
     .catch((err) => {
       console.log(err);

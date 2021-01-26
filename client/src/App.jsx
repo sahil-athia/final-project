@@ -45,7 +45,6 @@ function App() {
   // add a user state on authentication
 
   const handleLogout = (cb) => { 
-    console.log("uwviuwebviwubeviwbevibweivbwiebviwebuvwbeivbwievb")
 
     let user = state.user
     axios.post("http://localhost:8080/logout", {user}, {withCredentials: true})

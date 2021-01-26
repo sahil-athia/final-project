@@ -41,7 +41,6 @@ export default function Networking(props) {
 
     } else if (search === "By Industry") {
       const filtered = data.filter(network => {
-        // console.log(network, input)
         return network.industry.toLowerCase().includes(input.toLowerCase())
        })
        setInput(input);
