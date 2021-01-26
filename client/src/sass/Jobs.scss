@@ -108,6 +108,7 @@ section.jobs {
 
         div.form-line-title {
           font-size: 2vw;
+          color: #505050;
         }
 
         textarea.form-line-input {
@@ -132,6 +133,7 @@ section.jobs {
         width: 100%;
         height: 20vw;
         border-radius: 5px;
+        color: #505050;
 
         div.form-line-title-description {
           font-size: 2vw;
@@ -260,13 +262,14 @@ section.jobs {
           font-family: Garamond, serif;
           margin-bottom: 4vw;
           margin-top: 4vw;
-          font-size: 3vw;
+          font-size: 2.5vw;
         }
 
         div.delete-actions {
           display: flex;
           flex-direction: row;
           justify-content: flex-end;
+          font-size: 1.5vw;
         }
 
         button.delete-actions {
@@ -365,7 +368,6 @@ section.jobs {
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
-          padding: 1.5vw;
 
           .reference-card-candidate {
             display: flex;
@@ -433,7 +435,8 @@ section.jobs {
         height: 5vw;
 
         div.reference-card-line2 {
-          font-size: 3vw;
+          font-size: 2.5vw;
+          margin-top: 2vh;
         }
       }
       div.reference-card-actions2 {
@@ -495,6 +498,7 @@ section.jobs {
           color: #00CCFF;
           border: none;
           outline: none;
+          font-size: 1.5vw;
         }
 
         .edit-actions:active {

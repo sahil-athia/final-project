@@ -97,6 +97,7 @@ section.jobs div.create-jobs form.create-form div.form-line {
 }
 section.jobs div.create-jobs form.create-form div.form-line div.form-line-title {
   font-size: 2vw;
+  color: #505050;
 }
 section.jobs div.create-jobs form.create-form div.form-line textarea.form-line-input {
   height: 3vw;
@@ -117,6 +118,7 @@ section.jobs div.create-jobs form.create-form div.form-line-description {
   width: 100%;
   height: 20vw;
   border-radius: 5px;
+  color: #505050;
 }
 section.jobs div.create-jobs form.create-form div.form-line-description div.form-line-title-description {
   font-size: 2vw;
@@ -225,12 +227,13 @@ section.jobs .show-jobs .current-jobs .job-card div.delete-msg {
   font-family: Garamond, serif;
   margin-bottom: 4vw;
   margin-top: 4vw;
-  font-size: 3vw;
+  font-size: 2.5vw;
 }
 section.jobs .show-jobs .current-jobs .job-card div.delete-actions {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  font-size: 1.5vw;
 }
 section.jobs .show-jobs .current-jobs .job-card button.delete-actions {
   background-color: #303030;
@@ -367,7 +370,8 @@ section.jobs .show-jobs .current-jobs div.reference-card2 {
   height: 5vw;
 }
 section.jobs .show-jobs .current-jobs div.reference-card2 div.reference-card-line2 {
-  font-size: 3vw;
+  font-size: 2.5vw;
+  margin-top: 2vh;
 }
 section.jobs .show-jobs .current-jobs div.reference-card-actions2 {
   display: flex;
@@ -421,6 +425,7 @@ section.jobs .show-jobs form.edit-form div.edit-actions button.edit-actions {
   color: #00CCFF;
   border: none;
   outline: none;
+  font-size: 1.5vw;
 }
 section.jobs .show-jobs form.edit-form div.edit-actions .edit-actions:active {
   transform: translateY(2px);
