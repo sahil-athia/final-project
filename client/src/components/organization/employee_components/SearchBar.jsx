@@ -17,7 +17,7 @@ const SearchBar = ({input, onChange, setSearch}) => {
       </Form.Group>
       <div className="search">
             <input type="checkbox" id="trigger" className="search__checkbox" />
-            <label className="search__label-init" htmlFor="trigger" style={{left: "16.5rem"}}></label>
+            <label className="search__label-init" htmlFor="trigger" style={{left: "18vw"}}></label>
             <label className="search__label-active" htmlFor="trigger" onClick={() => clear()}></label>
             <div className="search__border"></div>
             <input 

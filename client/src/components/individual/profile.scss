@@ -234,6 +234,12 @@
     justify-content: center;
     min-width: 80%;
     min-height: 20vh;
+
+    form {
+      max-height: 30vh;
+      overflow: hidden;
+    }
+
     .form-control {
       min-width: 60vw;
     }

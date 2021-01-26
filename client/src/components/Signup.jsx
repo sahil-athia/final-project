@@ -127,9 +127,8 @@ export default function Signup(props) {
           </Form.Group>         
         
           <Button variant="primary" placeholder="submit" type="submit">Signup</Button>{' '}         
-          <div>
-            or <Link to='/login'>Login</Link>
-          </div>
+          <p>or <Link to='/login'>Login</Link></p>
+
       
         </Form>
         </div>
