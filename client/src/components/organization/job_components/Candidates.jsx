@@ -24,7 +24,6 @@ const Candidates = ({job_id,  hideCandidates}) => {
         <div className="reference-card-candidate">
           <div className="reference-card-line">Name: {candidate.name}</div>
           <div className="reference-card-line">Email: {candidate.email}</div>
-          <div className="reference-card-line">Summary: {candidate.summary}</div>
         </div>
         <div className="reference-card-referee">
           <div className="reference-card-line">Referred by: {referee.name}</div>
