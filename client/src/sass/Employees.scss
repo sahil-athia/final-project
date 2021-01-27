@@ -181,6 +181,7 @@ main.main-container {
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
+            visibility: hidden;
   
             a.employee-actions-link {
               font-size: 1.5vw;
@@ -225,6 +226,12 @@ main.main-container {
 
           }
 
+        }
+
+        div.employee-box:hover {
+          div.employee-actions {
+            visibility: visible;
+          }
         }
       }
     }

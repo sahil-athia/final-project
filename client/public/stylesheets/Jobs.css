@@ -314,7 +314,6 @@ section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 1.5vw;
 }
 section.jobs .show-jobs .current-jobs div.reference-card .reference-card-body .reference-card-candidate {
   display: flex;
