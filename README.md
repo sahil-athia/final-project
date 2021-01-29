@@ -33,31 +33,31 @@ Enjoy your journey with Insight!
 ## Product Preview
 
 - Home Page
-!["Home Page"]()
+!["Home Page"](https://github.com/sahil-athia/final-project/blob/master/docs/Home_Page.png?raw=true)
 
 - Login Page
-!["Login Page"]()
+!["Login Page"](https://github.com/sahil-athia/final-project/blob/master/docs/Login_Page.png?raw=true)
 
 - Organization Profile
-!["Organization Profile"]()
+!["Organization Profile"](https://github.com/sahil-athia/final-project/blob/master/docs/Org_Profile.png?raw=true)
 
 - Employees
-!["Employees"]()
+!["Employees"](https://github.com/sahil-athia/final-project/blob/master/docs/Org_Employees.png?raw=true)
 
 - Organization Jobs
-!["Organization Jobs"]()
+!["Organization Jobs"](https://github.com/sahil-athia/final-project/blob/master/docs/Org_Jobs.png?raw=true)
 
 - Organization Open Positions
-!["Organization Open Positions"]()
+!["Organization Open Positions"](https://github.com/sahil-athia/final-project/blob/master/docs/Org_Open_Positions.png?raw=true)
 
 - Individual Profile
-!["Individual Profile"]()
+!["Individual Profile"](https://github.com/sahil-athia/final-project/blob/master/docs/Ind_Profile.png?raw=true)
 
 - Individual Networking
-!["Individual Networking"]()
+!["Individual Networking"](https://github.com/sahil-athia/final-project/blob/master/docs/Ind_Networking.png?raw=true)
 
 - Individual Connections
-!["Individual Connections"]()
+!["Individual Connections"](https://github.com/sahil-athia/final-project/blob/master/docs/Ind_Connections.png?raw=true)
 
 - Individual Jobs
-!["Individual Jobs"]()
+!["Individual Jobs"](https://github.com/sahil-athia/final-project/blob/master/docs/Ind_Jobs.png?raw=true)
