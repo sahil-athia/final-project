@@ -9,18 +9,6 @@ User scenarios:
 4. As an individual user, you can view the referred jobs in your account, and accept the reference with a simple click.  
 5. All the candidates, who received and accepted the references, will be displayed to the organizations in the according job position post. By clicking the view button, organizations can see the candidates and referees, and check out the user's personal profile.
 
-
-## Product Preview
-
-<!-- - Home Page
-!["Home Page"](https://github.com/gybubest/jungle-rails/blob/master/docs/Home_Page.png?raw=true)
-
-- Cart
-!["Cart"](https://github.com/gybubest/jungle-rails/blob/master/docs/Cart.png?raw=true)
-
-- Add new category
-!["Add new category"](https://github.com/gybubest/jungle-rails/blob/master/docs/Add_new_category.png?raw=true) -->
-
 ## Version control
 
 Before starting, please make sure to use the following versions for this project:
@@ -41,3 +29,35 @@ Before starting, please make sure to use the following versions for this project
 8. After successful compiling, visit `http://localhost:3000/` to start the client;
 
 Enjoy your journey with Insight!
+
+## Product Preview
+
+- Home Page
+!["Home Page"]()
+
+- Login Page
+!["Login Page"]()
+
+- Organization Profile
+!["Organization Profile"]()
+
+- Employees
+!["Employees"]()
+
+- Organization Jobs
+!["Organization Jobs"]()
+
+- Organization Open Positions
+!["Organization Open Positions"]()
+
+- Individual Profile
+!["Individual Profile"]()
+
+- Individual Networking
+!["Individual Networking"]()
+
+- Individual Connections
+!["Individual Connections"]()
+
+- Individual Jobs
+!["Individual Jobs"]()
