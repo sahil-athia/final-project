@@ -28,9 +28,8 @@ export default function Login(props) {
       password: password,
       profile_type: type
     }
-    setTimeout(() => {
       axios
-      .post('http://localhost:8080/login', {user}, {withCredentials: true})
+      .post('/login', {user}, {withCredentials: true})
       .then(response => {
         if (response.data.logged_in) {
           setLoading(false)
@@ -51,7 +50,6 @@ export default function Login(props) {
         }
       })
       .catch(error => console.log('api errors:', error))
-    }, 2500)
     
   };
 

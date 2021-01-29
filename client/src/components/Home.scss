@@ -1,10 +1,12 @@
 .home {
+  margin-right: -10vh;
   font-family: Garamond, serif;
   display: flex;
   justify-content: space-around;
   background-color: black;
   color: white;
   height: 100vh;
+  overflow: hidden;
 
   h4.text {
     margin-left: auto;
@@ -15,7 +17,7 @@
   }
   .info {
     z-index: 100;
-    margin-right: -40vh;
+    margin-right: -60vh;
     align-self: center;
     @keyframes slideInFromBottom1 {
       0% {

@@ -26,8 +26,7 @@ export default function Signup(props) {
       password_confirmation: password_confirmation,
       profile_type: type
     }
-    setTimeout(() => {
-      axios.post(`http://localhost:8080/api/v1/${type}`, {user}, {withCredentials: true})
+      axios.post(`/api/v1/${type}`, {user}, {withCredentials: true})
       .then(response => {
         
         if (response.data.status === 'created') {
@@ -47,7 +46,6 @@ export default function Signup(props) {
         }
       })
       .catch(error => console.log('api errors:', error))
-    }, 3500)
   };
 
   return(
