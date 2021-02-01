@@ -16,7 +16,7 @@ const CurrentJob = ({job, reload}) => {
 
   const saveChange = (id, data) => {    
     const state = {...data};
-    axios.put(`http://localhost:8080/api/v1/job/${id}`, {state}, {withCredentials: true})
+    axios.put(`/api/v1/job/${id}`, {state}, {withCredentials: true})
     .then(() => {
       reload(currentState => !currentState)
     })
@@ -25,7 +25,7 @@ const CurrentJob = ({job, reload}) => {
   };
 
   const deleteJob = (id) => {
-    axios.delete(`http://localhost:8080/api/v1/job/${id}`)
+    axios.delete(`/api/v1/job/${id}`)
     .then(() => {
       reload(currentState => !currentState);
       setMode(SHOW);

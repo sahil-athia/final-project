@@ -21,7 +21,7 @@ const Organization = ({organization_id, onClick}) => {
     Promise.all([
       axios.get(`/api/v1/organization/${organization_id}`),
       axios.get(`/api/v1/job/by_organization_id/${organization_id}`),
-      axios.get(`http://localhost:8080/api/v1/user/by_organization_id/${organization_id}`)
+      axios.get(`/api/v1/user/by_organization_id/${organization_id}`)
     ]).then((all) => {
       setState({ profile: all[0].data, jobs: all[1].data, employees: all[2].data })
     }).catch((err) => {

@@ -16,9 +16,9 @@ const Jobs = ({user_id, organization_id}) => {
 
   useEffect(() => {    
     Promise.all([
-      axios.get(`http://localhost:8080/api/v1/job/by_organization_id/${organization_id}`),
-      axios.get(`http://localhost:8080/api/v1/job_reference/by_user_id/${user_id}`),
-      axios.get(`http://localhost:8080/api/v1/connection/${user_id}`)
+      axios.get(`/api/v1/job/by_organization_id/${organization_id}`),
+      axios.get(`/api/v1/job_reference/by_user_id/${user_id}`),
+      axios.get(`/api/v1/connection/${user_id}`)
     ]).then((all) => {
       setOrgJobs(all[0].data);
       setReferredJobs(all[1].data);
@@ -36,7 +36,7 @@ const Jobs = ({user_id, organization_id}) => {
   }, []);
   
   const handleSubmit = (selected) => {
-    axios.post('http://localhost:8080/api/v1/job_reference', {selected}, {withCredentials: true})
+    axios.post('/api/v1/job_reference', {selected}, {withCredentials: true})
     .then((res) => {
     })
     .catch((err) => {
@@ -46,7 +46,7 @@ const Jobs = ({user_id, organization_id}) => {
 
   const handleAccept = (reference_id) => {
     const jobInfo = {"id": reference_id, "accepted": true};
-    axios.put(`http://localhost:8080/api/v1/job_reference/${reference_id}`, {jobInfo}, {withCredentials: true})
+    axios.put(`/api/v1/job_reference/${reference_id}`, {jobInfo}, {withCredentials: true})
     .then((res) => {
     })
     .catch((err) => {

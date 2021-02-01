@@ -24,7 +24,7 @@ function App() {
 
   const loginStatus = () => {
     axios
-      .get('http://localhost:8080/logged_in', 
+      .get('/logged_in', 
               {withCredentials: true})    
       .then(response => {
         if (response.data.logged_in) {
@@ -47,7 +47,7 @@ function App() {
   const handleLogout = (cb) => { 
 
     let user = state.user
-    axios.post("http://localhost:8080/logout", {user}, {withCredentials: true})
+    axios.post("/logout", {user}, {withCredentials: true})
     .then((res) => {
 
       setState({

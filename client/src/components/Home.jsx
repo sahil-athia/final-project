@@ -15,7 +15,8 @@ function Home(props) {
       'Networking Made Easy',
       'Expand Your Business',
       'Make Connections',
-      'Leverage Your Tools'
+      'Leverage Your Tools',
+      ''
     ]
     const el = text
     const fx = new TextScramble(el)

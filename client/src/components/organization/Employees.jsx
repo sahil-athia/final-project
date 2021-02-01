@@ -17,7 +17,7 @@ const Employees = ({organization_id, employees, reload}) => {
   useEffect(() => {
     axios.get(`/logged_in`)
     .then(() => {
-      axios.get(`http://localhost:8080/api/v1/user/search_new/${organization_id}`)
+      axios.get(`/api/v1/user/search_new/${organization_id}`)
       .then((res) => {
         setData(res.data)
         setDataFilterd(res.data)

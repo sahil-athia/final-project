@@ -9,7 +9,7 @@ const EditFooter = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = { 'id': props.id, website, location };
-    axios.put(`http://localhost:8080/api/v1/organization/${props.id}`, {data}, {withCredentials: true})
+    axios.put(`/api/v1/organization/${props.id}`, {data}, {withCredentials: true})
     .then(() => {
       props.reload(currentState => !currentState)
       props.onClick(prev => ({

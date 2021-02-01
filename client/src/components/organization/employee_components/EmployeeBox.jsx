@@ -12,7 +12,7 @@ const EmployeeBox = (props) => {
     const data = { "id": id, "organization_id": organization_id, "verified": true };
 
     setTimeout(() => {
-      axios.put(`http://localhost:8080/api/v1/user/${id}`, {data}, {withCredentials: true})
+      axios.put(`/api/v1/user/${id}`, {data}, {withCredentials: true})
       .then(() => {
         localReload(currentState => !currentState)
         reload(currentState => !currentState)

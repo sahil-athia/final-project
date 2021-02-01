@@ -7,7 +7,7 @@ import Close from '../../..//icons/Close.png';
 const Candidates = ({job_id,  hideCandidates}) => {
   const [data, setData] = useState([])
   useEffect (() => {
-    axios.get(`http://localhost:8080/api/v1/job_reference/by_job_id/${job_id}`)
+    axios.get(`/api/v1/job_reference/by_job_id/${job_id}`)
     .then((res) => {
       setData(res.data);
     }).catch((err) => {

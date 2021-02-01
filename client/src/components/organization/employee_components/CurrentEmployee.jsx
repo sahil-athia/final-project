@@ -10,7 +10,7 @@ const CurrentEmployee = ({id, name, email, summary, skills, experience, reload, 
 
   const deleteJob = (id) => {
     const data = { "id": id, "organization_id": null, "verified": false };
-    axios.put(`http://localhost:8080/api/v1/user/${id}`, {data}, {withCredentials: true})
+    axios.put(`/api/v1/user/${id}`, {data}, {withCredentials: true})
     .then(() => {
       reload(currentState => !currentState);
       setMode(SHOW);
